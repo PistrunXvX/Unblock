@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8y6l4i23a1qh"]
+
+[ext_resource type="Script" path="res://Scenes/GlobalCamera/GlobalCamera.gd" id="1_firc6"]
+
+[node name="GlobalCamera" type="Node"]
+script = ExtResource("1_firc6")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(8, 0)
+anchor_mode = 0
+ignore_rotation = false
+enabled = false
