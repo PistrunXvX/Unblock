@@ -1,12 +1,18 @@
 [gd_scene load_steps=21 format=3 uid="uid://u17qwj4dl4fn"]
 
-[ext_resource type="Texture2D" uid="uid://05lglthdl4sj" path="res://Assets/Sprites/test_display_1.jpg" id="1_e50kl"]
-[ext_resource type="Script" path="res://Scenes/Main/Main.gd" id="1_qhv6w"]
-[ext_resource type="Texture2D" uid="uid://cj46dlvcpsimv" path="res://Assets/Sprites/test_display_2.jpg" id="2_35i3m"]
-[ext_resource type="Texture2D" uid="uid://403q500ifr74" path="res://Assets/Sprites/test_display_3.jpg" id="3_4vsml"]
-[ext_resource type="Texture2D" uid="uid://31o3s1ku47ue" path="res://Assets/Sprites/test_display_4.jpg" id="4_ctl0i"]
-[ext_resource type="Texture2D" uid="uid://durw243mebryd" path="res://Assets/Sprites/test_display_5.jpg" id="5_nk2mv"]
-[ext_resource type="Texture2D" uid="uid://v3d3uppqqls3" path="res://Assets/Sprites/test_display_6.jpg" id="6_4l24r"]
+[ext_resource type="Script" path="res://Scenes/Display/Main.gd" id="1_36sxg"]
+[ext_resource type="Texture2D" uid="uid://05lglthdl4sj" path="res://Assets/Sprites/test_display_1.jpg" id="2_7m1ck"]
+[ext_resource type="Texture2D" uid="uid://cj46dlvcpsimv" path="res://Assets/Sprites/test_display_2.jpg" id="3_bbrll"]
+[ext_resource type="Texture2D" uid="uid://403q500ifr74" path="res://Assets/Sprites/test_display_3.jpg" id="4_2uu5r"]
+[ext_resource type="Texture2D" uid="uid://31o3s1ku47ue" path="res://Assets/Sprites/test_display_4.jpg" id="5_4jia0"]
+[ext_resource type="Texture2D" uid="uid://durw243mebryd" path="res://Assets/Sprites/test_display_5.jpg" id="6_ha3rk"]
+[ext_resource type="Texture2D" uid="uid://v3d3uppqqls3" path="res://Assets/Sprites/test_display_6.jpg" id="7_4k6ie"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_phs4u"]
+size = Vector2(233, 1064)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf4jk"]
+size = Vector2(1690, 183)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yefwc"]
 size = Vector2(176, 1080)
@@ -16,12 +22,6 @@ size = Vector2(1541.5, 181)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cag07"]
 size = Vector2(201.5, 1056)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_phs4u"]
-size = Vector2(233, 1064)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf4jk"]
-size = Vector2(1690, 183)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_13dbh"]
 size = Vector2(175, 1064)
@@ -48,13 +48,34 @@ size = Vector2(1728, 181)
 size = Vector2(163, 1064)
 
 [node name="Main" type="Node"]
-script = ExtResource("1_qhv6w")
+script = ExtResource("1_36sxg")
 
 [node name="Display" type="CanvasGroup" parent="."]
 
+[node name="Display_1" type="Sprite2D" parent="Display"]
+position = Vector2(952, 560)
+texture = ExtResource("2_7m1ck")
+
+[node name="CameraDisplay_1" type="Camera2D" parent="Display/Display_1"]
+position = Vector2(8, 0)
+ignore_rotation = false
+
+[node name="EnterMouseFisplay_1" type="Area2D" parent="Display/Display_1"]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Display/Display_1/EnterMouseFisplay_1"]
+position = Vector2(852.5, -28)
+shape = SubResource("RectangleShape2D_phs4u")
+
+[node name="EnterMouseDisplayDown_1" type="Area2D" parent="Display/Display_1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Display/Display_1/EnterMouseDisplayDown_1"]
+position = Vector2(-109, 427.5)
+shape = SubResource("RectangleShape2D_yf4jk")
+
 [node name="Display_2" type="Sprite2D" parent="Display"]
 position = Vector2(2912, 560)
-texture = ExtResource("2_35i3m")
+texture = ExtResource("3_bbrll")
 
 [node name="CameraDisplay_2" type="Camera2D" parent="Display/Display_2"]
 position = Vector2(0, -16)
@@ -79,32 +100,13 @@ shape = SubResource("RectangleShape2D_kedyc")
 position = Vector2(860.75, -16)
 shape = SubResource("RectangleShape2D_cag07")
 
-[node name="Display_1" type="Sprite2D" parent="Display"]
-position = Vector2(952, 560)
-texture = ExtResource("1_e50kl")
-
-[node name="CameraDisplay_1" type="Camera2D" parent="Display/Display_1"]
-position = Vector2(8, 0)
-ignore_rotation = false
-
-[node name="EnterMouseFisplay_1" type="Area2D" parent="Display/Display_1"]
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Display/Display_1/EnterMouseFisplay_1"]
-position = Vector2(852.5, -28)
-shape = SubResource("RectangleShape2D_phs4u")
-
-[node name="EnterMouseDisplayDown_1" type="Area2D" parent="Display/Display_1"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Display/Display_1/EnterMouseDisplayDown_1"]
-position = Vector2(-109, 427.5)
-shape = SubResource("RectangleShape2D_yf4jk")
-
 [node name="Display_3" type="Sprite2D" parent="Display"]
 position = Vector2(4872, 560)
-texture = ExtResource("3_4vsml")
+texture = ExtResource("4_2uu5r")
 
 [node name="CameraDisplay_3" type="Camera2D" parent="Display/Display_3"]
+ignore_rotation = false
+enabled = false
 
 [node name="EnterMouseDisplayLeft_3" type="Area2D" parent="Display/Display_3"]
 
@@ -120,9 +122,11 @@ shape = SubResource("RectangleShape2D_jlb1p")
 
 [node name="Display_4" type="Sprite2D" parent="Display"]
 position = Vector2(952, 1672)
-texture = ExtResource("4_ctl0i")
+texture = ExtResource("5_4jia0")
 
 [node name="CameraDisplay_4" type="Camera2D" parent="Display/Display_4"]
+ignore_rotation = false
+enabled = false
 
 [node name="EnterMouseDisplayTop_4" type="Area2D" parent="Display/Display_4"]
 
@@ -138,9 +142,11 @@ shape = SubResource("RectangleShape2D_12swx")
 
 [node name="Display_5" type="Sprite2D" parent="Display"]
 position = Vector2(2912, 1672)
-texture = ExtResource("5_nk2mv")
+texture = ExtResource("6_ha3rk")
 
 [node name="CameraDisplay_5" type="Camera2D" parent="Display/Display_5"]
+ignore_rotation = false
+enabled = false
 
 [node name="EnterMouseDisplayLeft_5" type="Area2D" parent="Display/Display_5"]
 
@@ -162,9 +168,11 @@ shape = SubResource("RectangleShape2D_h0a0m")
 
 [node name="Display_6" type="Sprite2D" parent="Display"]
 position = Vector2(4872, 1672)
-texture = ExtResource("6_4l24r")
+texture = ExtResource("7_4k6ie")
 
 [node name="CameraDisplay_6" type="Camera2D" parent="Display/Display_6"]
+ignore_rotation = false
+enabled = false
 
 [node name="EnterMouseDisplayTop_6" type="Area2D" parent="Display/Display_6"]
 
@@ -178,11 +186,11 @@ shape = SubResource("RectangleShape2D_8nq5t")
 position = Vector2(-849.5, 20)
 shape = SubResource("RectangleShape2D_ucgs4")
 
+[connection signal="mouse_entered" from="Display/Display_1/EnterMouseFisplay_1" to="." method="_on_enter_mouse_fisplay_1_mouse_entered"]
+[connection signal="mouse_entered" from="Display/Display_1/EnterMouseDisplayDown_1" to="." method="_on_enter_mouse_display_down_1_mouse_entered"]
 [connection signal="mouse_entered" from="Display/Display_2/EnterMouseDisplayLeft_2" to="." method="_on_enter_mouse_display_left_2_mouse_entered"]
 [connection signal="mouse_entered" from="Display/Display_2/EnterMouseDisplayDown_2" to="." method="_on_enter_mouse_display_down_2_mouse_entered"]
 [connection signal="mouse_entered" from="Display/Display_2/EnterMouseDisplayRight_2" to="." method="_on_enter_mouse_display_right_2_mouse_entered"]
-[connection signal="mouse_entered" from="Display/Display_1/EnterMouseFisplay_1" to="." method="_on_enter_mouse_fisplay_1_mouse_entered"]
-[connection signal="mouse_entered" from="Display/Display_1/EnterMouseDisplayDown_1" to="." method="_on_enter_mouse_display_down_1_mouse_entered"]
 [connection signal="mouse_entered" from="Display/Display_3/EnterMouseDisplayLeft_3" to="." method="_on_enter_mouse_display_left_3_mouse_entered"]
 [connection signal="mouse_entered" from="Display/Display_3/EnterMouseDisplayDown_3" to="." method="_on_enter_mouse_display_down_3_mouse_entered"]
 [connection signal="mouse_entered" from="Display/Display_4/EnterMouseDisplayTop_4" to="." method="_on_enter_mouse_display_top_4_mouse_entered"]

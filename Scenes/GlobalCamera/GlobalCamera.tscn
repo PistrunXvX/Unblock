@@ -4,9 +4,9 @@
 
 [node name="GlobalCamera" type="Node"]
 script = ExtResource("1_firc6")
+duration = 0.3
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(8, 0)
 anchor_mode = 0
 ignore_rotation = false
-enabled = false
