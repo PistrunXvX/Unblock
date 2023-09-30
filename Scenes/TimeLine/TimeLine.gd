@@ -16,7 +16,7 @@ signal start_day
 
 func _ready():
 	timeLine.start()
-	stamina.value = 0
+	stamina.value = PlayerStatus.stamina
 	stamina.max_value = max_stamina
 	hp_bar.value = max_hp
 	hp_bar.max_value = max_hp
@@ -29,14 +29,14 @@ func _on_clock_time_timeout():
 	start_day.emit()
 	currentTime += 1
 	
-	if currentTime == 5:
-		negative_event(false, 10)
+#	if currentTime == 5:
+#		negative_event(false, 10)
 #
 func negative_event(check, count):
 	if (check):
-		stamina.value += count
+		PlayerStatus.stamina += count
 	else:
-		stamina.value -= count
+		PlayerStatus.stamina -= count
 
 func empty_event(check, count):
 	if (check):
@@ -51,4 +51,5 @@ func succsess_event(check, count):
 		stamina.value -= count
 
 func _on_timer_timeout():
-	stamina.value += step_stamina
+	PlayerStatus.stamina += step_stamina
+	stamina.value = PlayerStatus.stamina

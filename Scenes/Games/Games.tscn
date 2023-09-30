@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" path="res://Scenes/Games/Games.gd" id="1_wt6m4"]
 
-[node name="Games" type="Node"]
+[node name="Games" type="Node2D"]
+z_index = 30
 script = ExtResource("1_wt6m4")
 
 [node name="ClickRect" type="CanvasGroup" parent="."]
