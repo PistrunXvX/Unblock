@@ -10,5 +10,3 @@ script = ExtResource("1_t77cu")
 [node name="Main" parent="." instance=ExtResource("1_m0ty2")]
 
 [node name="Node" parent="." instance=ExtResource("2_i2dqs")]
-
-[connection signal="start_day" from="Node" to="." method="_on_node_start_day"]

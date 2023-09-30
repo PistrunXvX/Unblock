@@ -3,6 +3,7 @@ extends Node2D
 @onready var car_color = $Car
 @onready var gate_color = $Gate
 @onready var guard_color = $Guard
+@onready var lampSignal = $LampSignal
 
 @onready var car_spawn = $Car/CarSpawn
 @onready var car_enters = $Car/CarEnters
@@ -19,6 +20,9 @@ extends Node2D
 
 var is_car_here = false
 var is_gate_opened = false
+var offsetCardOnBlock = Vector2(512, 648)
+var offsetCarOutside = Vector2(-872, 1288)
+var spawnPositionCar = Vector2(2008, 200)
 
 var enters_time = false
 var wait_time = false
@@ -40,9 +44,20 @@ func _process(_delta):
 
 
 func _on_car_spawn_timeout():
+	var tween = get_tree().create_tween()
 	car_spawn.stop()
 	is_car_here = true
 	car_color.show()
+	car_color.set_position(spawnPositionCar)
+	
+	tween.stop()
+	tween.set_trans(Tween.TRANS_CUBIC)
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(car_color, "position", offsetCardOnBlock, 3.0).from(spawnPositionCar)
+	tween.play()
+	
+	await tween.finished
+	
 	car_wait.start()
 	beep_time.start()
 	wait_time = true
@@ -50,29 +65,58 @@ func _on_car_spawn_timeout():
 
 
 func _on_open_pressed():
+	var tween = get_tree().create_tween()
 	gate_op.start()
-	print("Gate Opens")
 	
+	tween.stop()
+	tween.set_trans(Tween.TRANS_CUBIC)
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(gate_color, "rotation_degrees", 35, 2.0).from(0)
+	tween.play()
+	
+	await tween.finished
+	
+	print("Gate Opens")
 
 
 func _on_gate_opens_timeout():
-	gate_color.color = Color.GREEN
+	lampSignal.show()
 	is_gate_opened = true
 	print("Gate Opened")
 
 
 func _on_close_pressed():
+	var tween = get_tree().create_tween()
 	gate_cl.start()
+	
+	tween.stop()
+	tween.set_trans(Tween.TRANS_CUBIC)
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(gate_color, "rotation_degrees", 0, 1.0).from(35)
+	tween.play()
+	
+	await tween.finished
+	
 	print("Gate Closes")
 
 
 func _on_gate_closes_timeout():
-	gate_color.color = Color.RED
+	lampSignal.hide()
 	is_gate_opened = false
 	print("Gate Closed")
 
 
 func _on_car_enters_timeout():
+	var tween = get_tree().create_tween()
+	
+	tween.stop()
+	tween.set_trans(Tween.TRANS_CUBIC)
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(car_color, "position", offsetCarOutside, 3.0).from(offsetCardOnBlock)
+	tween.play()
+	
+	await tween.finished
+	
 	car_color.hide()
 	car_spawn.start()
 	print("hehehe")
