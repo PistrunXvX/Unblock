@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://u17qwj4dl4fn"]
+[gd_scene load_steps=25 format=3 uid="uid://u17qwj4dl4fn"]
 
 [ext_resource type="Script" path="res://Scenes/Display/Main.gd" id="1_36sxg"]
 [ext_resource type="Texture2D" uid="uid://05lglthdl4sj" path="res://Assets/Sprites/test_display_1.jpg" id="2_7m1ck"]
@@ -24,6 +24,27 @@ size = Vector2(1541.5, 181)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cag07"]
 size = Vector2(201.5, 1056)
+
+[sub_resource type="Animation" id="Animation_cq65c"]
+resource_name = "clock"
+length = 600.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 298.7, 600),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [4.71657, 7.34952, 8.78477]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6bmjt"]
+_data = {
+"clock": SubResource("Animation_cq65c")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_13dbh"]
 size = Vector2(175, 1064)
@@ -110,6 +131,28 @@ offset_top = -22.0
 offset_right = 141.0
 offset_bottom = 307.0
 
+[node name="clock" type="Node2D" parent="Display/Display_2"]
+
+[node name="ColorRect" type="ColorRect" parent="Display/Display_2/clock"]
+offset_left = 333.0
+offset_top = -221.0
+offset_right = 653.0
+offset_bottom = 91.0
+
+[node name="ColorRect2" type="ColorRect" parent="Display/Display_2/clock"]
+offset_left = 496.0
+offset_top = -78.0
+offset_right = 606.0
+offset_bottom = -62.0
+rotation = 4.72539
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Display/Display_2/clock"]
+autoplay = "clock"
+libraries = {
+"": SubResource("AnimationLibrary_6bmjt")
+}
+
 [node name="Display_Papers" type="Sprite2D" parent="Display"]
 z_index = -5
 position = Vector2(2912, -558)
@@ -166,7 +209,7 @@ offset_bottom = 498.0
 position = Vector2(4, -124)
 
 [node name="Paper2" parent="Display/Display_Papers" instance=ExtResource("5_tl8jx")]
-position = Vector2(-402, 26)
+position = Vector2(-462, -46)
 
 [node name="Display_3" type="Sprite2D" parent="Display"]
 position = Vector2(4872, 560)
