@@ -1,0 +1,106 @@
+[gd_scene load_steps=2 format=3 uid="uid://jydex1gdp0it"]
+
+[ext_resource type="Script" path="res://Scenes/GateWork/GateWork.gd" id="1_6u2fo"]
+
+[node name="GateWork" type="Node2D"]
+script = ExtResource("1_6u2fo")
+
+[node name="Car" type="ColorRect" parent="."]
+visible = false
+offset_left = 133.0
+offset_top = 64.0
+offset_right = 515.0
+offset_bottom = 396.0
+color = Color(1, 0, 1, 1)
+
+[node name="CarSpawn" type="Timer" parent="Car"]
+wait_time = 5.0
+one_shot = true
+
+[node name="CarEnters" type="Timer" parent="Car"]
+one_shot = true
+
+[node name="CarWaiting" type="Timer" parent="Car"]
+wait_time = 30.0
+one_shot = true
+
+[node name="CarLeft" type="Timer" parent="Car"]
+wait_time = 3.0
+one_shot = true
+
+[node name="BeepTime" type="Timer" parent="Car"]
+wait_time = 15.0
+one_shot = true
+
+[node name="Beeep" type="Timer" parent="Car/BeepTime"]
+wait_time = 5.0
+one_shot = true
+
+[node name="Gate" type="ColorRect" parent="."]
+offset_left = 119.0
+offset_top = 442.0
+offset_right = 1055.0
+offset_bottom = 495.0
+color = Color(1, 0, 0, 1)
+
+[node name="GateOpens" type="Timer" parent="Gate"]
+wait_time = 2.0
+one_shot = true
+
+[node name="GateCloses" type="Timer" parent="Gate"]
+one_shot = true
+
+[node name="Guard" type="ColorRect" parent="."]
+offset_left = 1313.0
+offset_top = 119.0
+offset_right = 1467.0
+offset_bottom = 632.0
+color = Color(0, 0, 0, 1)
+
+[node name="GuardLeft" type="Timer" parent="Guard"]
+wait_time = 2.0
+one_shot = true
+
+[node name="GuardEnters" type="Timer" parent="Guard"]
+wait_time = 6.0
+one_shot = true
+
+[node name="Open" type="Button" parent="."]
+offset_left = 508.0
+offset_top = 834.0
+offset_right = 698.0
+offset_bottom = 986.0
+text = "Открыть
+"
+
+[node name="Close" type="Button" parent="."]
+offset_left = 867.0
+offset_top = 832.0
+offset_right = 1057.0
+offset_bottom = 984.0
+text = "Закрыть
+
+"
+
+[node name="GuardButton" type="Button" parent="."]
+offset_left = 1172.0
+offset_top = 834.0
+offset_right = 1362.0
+offset_bottom = 986.0
+text = "Охрана
+
+"
+
+[connection signal="timeout" from="Car/CarSpawn" to="." method="_on_car_spawn_timeout"]
+[connection signal="timeout" from="Car/CarEnters" to="." method="_on_car_enters_timeout"]
+[connection signal="timeout" from="Car/CarWaiting" to="." method="_on_car_waiting_timeout"]
+[connection signal="timeout" from="Car/CarLeft" to="." method="_on_car_left_timeout"]
+[connection signal="timeout" from="Car/BeepTime" to="." method="_on_beep_time_timeout"]
+[connection signal="timeout" from="Car/BeepTime/Beeep" to="." method="_on_beeep_timeout"]
+[connection signal="timeout" from="Gate/GateOpens" to="." method="_on_gate_opens_timeout"]
+[connection signal="timeout" from="Gate/GateCloses" to="." method="_on_gate_closes_timeout"]
+[connection signal="timeout" from="Guard/GuardLeft" to="." method="_on_guard_left_timeout"]
+[connection signal="timeout" from="Guard/GuardEnters" to="." method="_on_guard_enters_timeout"]
+[connection signal="pressed" from="Open" to="." method="_on_open_pressed"]
+[connection signal="pressed" from="Close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="GuardButton" to="." method="_on_guard_button_pressed"]
