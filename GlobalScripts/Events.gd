@@ -1,4 +1,6 @@
 extends Node
+
+const STAMINA = preload("res://Scenes/UI/Stamina/Stamina.gd")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -9,7 +11,7 @@ func _process(delta):
 	pass
 
 static func negative_event():
-	print('negative')
+	pass
 
 static func succsess_event():
 	print('succsess')
