@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://byj40cdlhan0v" path="res://Scenes/HUD/HUD.tscn" id="6_eayq5"]
 [ext_resource type="Texture2D" uid="uid://durw243mebryd" path="res://Assets/Sprites/test_display_5.jpg" id="6_ha3rk"]
 [ext_resource type="Texture2D" uid="uid://v3d3uppqqls3" path="res://Assets/Sprites/test_display_6.jpg" id="7_4k6ie"]
-[ext_resource type="PackedScene" uid="uid://bt08rwy12clf8" path="res://Scenes/Games/Games.tscn" id="9_t5knk"]
+[ext_resource type="PackedScene" uid="uid://bt08rwy12clf8" path="res://Scenes/Games/Games.tscn" id="9_vdr7w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_phs4u"]
 size = Vector2(161, 1080)
@@ -39,10 +39,10 @@ size = Vector2(1696, 168)
 size = Vector2(197, 1048)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rr452"]
-size = Vector2(103, 1056)
+size = Vector2(175, 1056)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h0a0m"]
-size = Vector2(1648, 97)
+size = Vector2(1560, 169)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8nq5t"]
 size = Vector2(1728, 181)
@@ -152,32 +152,29 @@ shape = SubResource("RectangleShape2D_12swx")
 position = Vector2(2912, 1672)
 texture = ExtResource("6_ha3rk")
 
+[node name="Games" parent="Display/Display_5" instance=ExtResource("9_vdr7w")]
+position = Vector2(-920, -520)
+
 [node name="CameraDisplay_5" type="Camera2D" parent="Display/Display_5"]
 ignore_rotation = false
 enabled = false
 
-[node name="Games" parent="Display/Display_5" instance=ExtResource("9_t5knk")]
-position = Vector2(-960, -536)
-
 [node name="EnterMouseDisplayLeft_5" type="Area2D" parent="Display/Display_5"]
-z_index = 30
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Display/Display_5/EnterMouseDisplayLeft_5"]
-position = Vector2(-907.5, 24)
+position = Vector2(-871.5, 24)
 shape = SubResource("RectangleShape2D_rr452")
 
 [node name="EnterMouseDisplayRight_5" type="Area2D" parent="Display/Display_5"]
-z_index = 30
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Display/Display_5/EnterMouseDisplayRight_5"]
 position = Vector2(864, 24)
 shape = SubResource("RectangleShape2D_rr452")
 
 [node name="EnterMouseDisplayTop_5" type="Area2D" parent="Display/Display_5"]
-z_index = 30
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Display/Display_5/EnterMouseDisplayTop_5"]
-position = Vector2(-24, -456.5)
+position = Vector2(-4, -420.5)
 shape = SubResource("RectangleShape2D_h0a0m")
 
 [node name="Display_6" type="Sprite2D" parent="Display"]
