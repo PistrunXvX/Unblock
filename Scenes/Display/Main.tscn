@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 [gd_scene load_steps=25 format=3 uid="uid://u17qwj4dl4fn"]
+=======
+[gd_scene load_steps=23 format=3 uid="uid://u17qwj4dl4fn"]
+>>>>>>> origin/Work
 
 [ext_resource type="Script" path="res://Scenes/Display/Main.gd" id="1_36sxg"]
 [ext_resource type="Texture2D" uid="uid://05lglthdl4sj" path="res://Assets/Sprites/test_display_1.jpg" id="2_7m1ck"]
 [ext_resource type="Texture2D" uid="uid://cj46dlvcpsimv" path="res://Assets/Sprites/test_display_2.jpg" id="3_bbrll"]
 [ext_resource type="Texture2D" uid="uid://403q500ifr74" path="res://Assets/Sprites/test_display_3.jpg" id="4_2uu5r"]
+[ext_resource type="PackedScene" uid="uid://jydex1gdp0it" path="res://Scenes/GateWork/GateWork.tscn" id="4_nyqyi"]
 [ext_resource type="Texture2D" uid="uid://31o3s1ku47ue" path="res://Assets/Sprites/test_display_4.jpg" id="5_4jia0"]
 [ext_resource type="PackedScene" uid="uid://bfccac2tnf5g7" path="res://Scenes/InteractiveObjects/Papers/paper.tscn" id="5_tl8jx"]
 [ext_resource type="PackedScene" uid="uid://byj40cdlhan0v" path="res://Scenes/HUD/HUD.tscn" id="6_eayq5"]
@@ -11,10 +16,10 @@
 [ext_resource type="Texture2D" uid="uid://v3d3uppqqls3" path="res://Assets/Sprites/test_display_6.jpg" id="7_4k6ie"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_phs4u"]
-size = Vector2(233, 1064)
+size = Vector2(161, 1080)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf4jk"]
-size = Vector2(1690, 183)
+size = Vector2(1690, 87)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yefwc"]
 size = Vector2(176, 1080)
@@ -81,6 +86,9 @@ script = ExtResource("1_36sxg")
 position = Vector2(952, 560)
 texture = ExtResource("2_7m1ck")
 
+[node name="GateWork" parent="Display/Display_1" instance=ExtResource("4_nyqyi")]
+position = Vector2(-984, -568)
+
 [node name="CameraDisplay_1" type="Camera2D" parent="Display/Display_1"]
 position = Vector2(8, 0)
 ignore_rotation = false
@@ -89,13 +97,13 @@ ignore_rotation = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Display/Display_1/EnterMouseFisplay_1"]
-position = Vector2(852.5, -28)
+position = Vector2(888.5, -20)
 shape = SubResource("RectangleShape2D_phs4u")
 
 [node name="EnterMouseDisplayDown_1" type="Area2D" parent="Display/Display_1"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Display/Display_1/EnterMouseDisplayDown_1"]
-position = Vector2(-109, 427.5)
+position = Vector2(-109, 475.5)
 shape = SubResource("RectangleShape2D_yf4jk")
 
 [node name="Display_2" type="Sprite2D" parent="Display"]

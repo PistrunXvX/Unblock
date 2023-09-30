@@ -4,7 +4,7 @@
 
 [node name="GlobalCamera" type="Node"]
 script = ExtResource("1_firc6")
-duration = 0.3
+duration = 0.75
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(8, 0)

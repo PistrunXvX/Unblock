@@ -1,0 +1,133 @@
+[gd_scene load_steps=9 format=3 uid="uid://jydex1gdp0it"]
+
+[ext_resource type="Script" path="res://Scenes/GateWork/GateWork.gd" id="1_6u2fo"]
+[ext_resource type="Texture2D" uid="uid://dlx5m3j5ygcvu" path="res://Assets/Sprites/display_1/background.png" id="2_fw47m"]
+[ext_resource type="Texture2D" uid="uid://i4b0p2jcv5vt" path="res://Assets/Sprites/display_1/car.png" id="3_sjig8"]
+[ext_resource type="Texture2D" uid="uid://b140qhpwusas" path="res://Assets/Sprites/display_1/block.png" id="4_0oi11"]
+[ext_resource type="Texture2D" uid="uid://spepnrm1nyyv" path="res://Assets/Sprites/display_1/block_rock.png" id="5_7if14"]
+[ext_resource type="Texture2D" uid="uid://big0hu57e4pr2" path="res://Assets/Sprites/display_1/wall.png" id="6_fq13c"]
+[ext_resource type="Texture2D" uid="uid://cad4cknhekxlk" path="res://Assets/Sprites/display_1/lamp_default.png" id="7_exm0x"]
+[ext_resource type="Texture2D" uid="uid://cp78j5dvq60vh" path="res://Assets/Sprites/display_1/lamp_signal.png" id="8_ireso"]
+
+[node name="GateWork" type="Node2D"]
+script = ExtResource("1_6u2fo")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(960, 544)
+texture = ExtResource("2_fw47m")
+
+[node name="Car" type="Sprite2D" parent="."]
+position = Vector2(-872, 1288)
+scale = Vector2(0.9, 0.885185)
+texture = ExtResource("3_sjig8")
+
+[node name="CarSpawn" type="Timer" parent="Car"]
+wait_time = 5.0
+one_shot = true
+
+[node name="CarEnters" type="Timer" parent="Car"]
+one_shot = true
+
+[node name="CarWaiting" type="Timer" parent="Car"]
+wait_time = 30.0
+one_shot = true
+
+[node name="CarLeft" type="Timer" parent="Car"]
+wait_time = 3.0
+one_shot = true
+
+[node name="BeepTime" type="Timer" parent="Car"]
+wait_time = 15.0
+one_shot = true
+
+[node name="Beeep" type="Timer" parent="Car/BeepTime"]
+wait_time = 5.0
+one_shot = true
+
+[node name="Gate" type="Sprite2D" parent="."]
+position = Vector2(1224, 464)
+scale = Vector2(0.8375, 0.889815)
+texture = ExtResource("4_0oi11")
+
+[node name="GateOpens" type="Timer" parent="Gate"]
+wait_time = 2.0
+one_shot = true
+
+[node name="GateCloses" type="Timer" parent="Gate"]
+one_shot = true
+
+[node name="BlockRock" type="Sprite2D" parent="."]
+position = Vector2(912, 456)
+texture = ExtResource("5_7if14")
+
+[node name="Wall" type="Sprite2D" parent="."]
+position = Vector2(960, 544)
+texture = ExtResource("6_fq13c")
+
+[node name="Guard" type="ColorRect" parent="."]
+visible = false
+offset_left = 1313.0
+offset_top = 119.0
+offset_right = 1467.0
+offset_bottom = 632.0
+color = Color(0, 0, 0, 1)
+
+[node name="GuardLeft" type="Timer" parent="Guard"]
+wait_time = 2.0
+one_shot = true
+
+[node name="GuardEnters" type="Timer" parent="Guard"]
+wait_time = 6.0
+one_shot = true
+
+[node name="Open" type="Button" parent="."]
+offset_left = 664.0
+offset_top = 856.0
+offset_right = 854.0
+offset_bottom = 1008.0
+text = "Открыть
+"
+
+[node name="Close" type="Button" parent="."]
+offset_left = 952.0
+offset_top = 848.0
+offset_right = 1142.0
+offset_bottom = 1000.0
+text = "Закрыть
+
+"
+
+[node name="GuardButton" type="Button" parent="."]
+offset_left = 1232.0
+offset_top = 848.0
+offset_right = 1422.0
+offset_bottom = 1000.0
+text = "Охрана
+
+"
+
+[node name="LampDefault" type="Sprite2D" parent="."]
+position = Vector2(896, 456)
+texture = ExtResource("7_exm0x")
+
+[node name="LampSignal" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(896, 456)
+texture = ExtResource("8_ireso")
+
+[node name="SIgnal" type="Timer" parent="LampSignal"]
+
+[connection signal="timeout" from="Car/CarSpawn" to="." method="_on_car_spawn_timeout"]
+[connection signal="timeout" from="Car/CarEnters" to="." method="_on_car_enters_timeout"]
+[connection signal="timeout" from="Car/CarWaiting" to="." method="_on_car_waiting_timeout"]
+[connection signal="timeout" from="Car/CarLeft" to="." method="_on_car_left_timeout"]
+[connection signal="timeout" from="Car/BeepTime" to="." method="_on_beep_time_timeout"]
+[connection signal="timeout" from="Car/BeepTime/Beeep" to="." method="_on_beeep_timeout"]
+[connection signal="timeout" from="Gate/GateOpens" to="." method="_on_gate_opens_timeout"]
+[connection signal="timeout" from="Gate/GateCloses" to="." method="_on_gate_closes_timeout"]
+[connection signal="timeout" from="Guard/GuardLeft" to="." method="_on_guard_left_timeout"]
+[connection signal="timeout" from="Guard/GuardEnters" to="." method="_on_guard_enters_timeout"]
+[connection signal="pressed" from="Open" to="." method="_on_open_pressed"]
+[connection signal="pressed" from="Close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="GuardButton" to="." method="_on_guard_button_pressed"]
+[connection signal="timeout" from="LampSignal/SIgnal" to="." method="_on_gate_opens_timeout"]

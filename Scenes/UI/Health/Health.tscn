@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" path="res://Scenes/UI/Health/Health.gd" id="1_bhyqg"]
 
-[sub_resource type="Gradient" id="Gradient_b3wy6"]
+[sub_resource type="Gradient" id="Gradient_bmr53"]
 offsets = PackedFloat32Array(1)
 colors = PackedColorArray(1, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_h3vlx"]
-gradient = SubResource("Gradient_b3wy6")
+gradient = SubResource("Gradient_bmr53")
 
 [node name="Health" type="Control"]
 layout_mode = 3
@@ -25,7 +25,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-max_value = 5.0
-value = 5.0
+value = 100.0
 nine_patch_stretch = true
 texture_progress = SubResource("GradientTexture2D_h3vlx")
