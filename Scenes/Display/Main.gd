@@ -7,6 +7,7 @@ var cameraDisplay3
 var cameraDisplay4
 var cameraDisplay5
 var cameraDisplay6
+var cameraDisplayRadio
 
 var paper_scene = preload("res://Scenes/InteractiveObjects/Papers/paper.tscn")
 
@@ -19,6 +20,7 @@ func _ready():
 	cameraDisplay5 = $Display/Display_5/CameraDisplay_5
 	cameraDisplay6 = $Display/Display_6/CameraDisplay_6
 	cameraDisplay2Paper = $Display/Display_Papers/CameraDisplay_2_papers
+	cameraDisplayRadio = $Display/Display_Radio/CameraDisplayRadio
 	
 	generate_paper_level(CarList.carList.level_1)
 
@@ -116,6 +118,12 @@ func _on_button_pressed():
 
 func _on_enter_mouse_display_papers_mouse_entered():
 	GlobalCamera.transition_camera(cameraDisplay2Paper, cameraDisplay2)
+
+func _on_button_radio_pressed():
+	GlobalCamera.static_transition_camera(cameraDisplay2, cameraDisplayRadio)
+
+func _on_enter_mouse_display_radio_mouse_entered():
+	GlobalCamera.static_transition_camera(cameraDisplayRadio, cameraDisplay2)
 
 func generate_paper_level(clients):
 	var spawn_location = $Display/Display_Papers/SpawnNodes

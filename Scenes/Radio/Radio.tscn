@@ -1,10 +1,42 @@
-[gd_scene load_steps=2 format=3 uid="uid://uegxhc3t00r4"]
+[gd_scene load_steps=23 format=3 uid="uid://uegxhc3t00r4"]
 
 [ext_resource type="Script" path="res://Scenes/Radio/Radio.gd" id="1_guw3w"]
+[ext_resource type="Texture2D" uid="uid://mwr2xu5bwag2" path="res://Assets/Sprites/radio/bgRadio.png" id="2_ft8sk"]
+[ext_resource type="Texture2D" uid="uid://i4gm43nvdfwc" path="res://Assets/Sprites/radio/radioBlock.png" id="3_1c1qe"]
+[ext_resource type="Texture2D" uid="uid://ku8xx2gogihw" path="res://Assets/Sprites/radio/SwitchOff.png" id="4_3hxyc"]
+[ext_resource type="Texture2D" uid="uid://b6toyekjwgwg8" path="res://Assets/Sprites/radio/Krutilka.png" id="4_wu1ag"]
+[ext_resource type="Texture2D" uid="uid://bhvkg4keehibj" path="res://Assets/Sprites/radio/SwitchOn.png" id="5_1dbv3"]
+[ext_resource type="Texture2D" uid="uid://cq0eqil263yph" path="res://Assets/Sprites/radio/HzPalkaMetr2.png" id="5_e23bn"]
+[ext_resource type="Texture2D" uid="uid://w3vkoempspbu" path="res://Assets/Sprites/radio/LampaOff.png" id="6_pq0di"]
+[ext_resource type="Texture2D" uid="uid://cm407d3vetjxa" path="res://Assets/Sprites/radio/LampaOn.png" id="7_h2v8n"]
+[ext_resource type="Texture2D" uid="uid://drgl3ihira0j4" path="res://Assets/Sprites/radio/RedLightOff.png" id="8_jsdif"]
+[ext_resource type="Texture2D" uid="uid://cvikv570f1307" path="res://Assets/Sprites/radio/RedLightOn.png" id="9_1yyw5"]
+[ext_resource type="Texture2D" uid="uid://idq41civlgs3" path="res://Assets/Sprites/radio/OrangeLightOff.png" id="9_g4tdf"]
+[ext_resource type="Texture2D" uid="uid://chhj8t0a1kmw1" path="res://Assets/Sprites/radio/GreenLightOff.png" id="10_217op"]
+[ext_resource type="Texture2D" uid="uid://iecffkgti5cy" path="res://Assets/Sprites/radio/OrangeLightOn.png" id="11_ur1j6"]
+[ext_resource type="Texture2D" uid="uid://c2p7qoqq3hvkw" path="res://Assets/Sprites/radio/GreenLightOn.png" id="13_7k0ml"]
+[ext_resource type="Texture2D" uid="uid://brgg75ecakwlx" path="res://Assets/Sprites/radio/RadioScreenVVNIZ.png" id="15_xc0jk"]
+[ext_resource type="Texture2D" uid="uid://dwwted4t0hpnr" path="res://Assets/Sprites/radio/PngScreenVVERH.png" id="16_jd5qd"]
+[ext_resource type="AudioStream" uid="uid://1nacf16claln" path="res://Assets/Sounds/btn_press.wav" id="18_mp4aj"]
+[ext_resource type="AudioStream" uid="uid://dknwdvoxm5fg" path="res://Assets/Sounds/btn_release.wav" id="19_voxrc"]
+[ext_resource type="AudioStream" uid="uid://cjnkfjvc55v0p" path="res://Assets/Sounds/Radio_WhiteNoise.wav" id="21_3j7eu"]
+[ext_resource type="AudioStream" uid="uid://dpjasseqfjvag" path="res://Assets/Sounds/Radio_SpinButton.wav" id="21_f6cir"]
+[ext_resource type="AudioStream" uid="uid://dyrs2gdyxqqta" path="res://Assets/Sounds/Radio_Station1_Talk01.wav" id="22_53wik"]
 
 [node name="Radio" type="Node2D"]
 z_index = 30
 script = ExtResource("1_guw3w")
+minRadioSignal = 90.0
+maxRadioSignal = 105.0
+
+[node name="BgRadio" type="Sprite2D" parent="."]
+position = Vector2(960, 538)
+scale = Vector2(1, 1.0037)
+texture = ExtResource("2_ft8sk")
+
+[node name="RadioBlock" type="Sprite2D" parent="."]
+position = Vector2(968, 544)
+texture = ExtResource("3_1c1qe")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 8
@@ -12,12 +44,65 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 456.0
-offset_top = 320.0
-offset_right = 1368.0
-offset_bottom = 744.0
+offset_left = 440.0
+offset_top = 336.0
+offset_right = 1352.0
+offset_bottom = 760.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="RadioScreenVvniz" type="Sprite2D" parent="ColorRect"]
+position = Vector2(520, 224)
+texture = ExtResource("15_xc0jk")
+
+[node name="LineSignal" type="ColorRect" parent="ColorRect/RadioScreenVvniz"]
+offset_left = -656.0
+offset_top = -424.0
+offset_right = 640.0
+offset_bottom = -184.0
+color = Color(0, 0, 0, 0)
+
+[node name="HzPalkaMetr2" type="Sprite2D" parent="ColorRect/RadioScreenVvniz/LineSignal"]
+position = Vector2(0, 120)
+texture = ExtResource("5_e23bn")
+
+[node name="PngScreenVverh" type="Sprite2D" parent="ColorRect"]
+position = Vector2(528, 224)
+texture = ExtResource("16_jd5qd")
+
+[node name="enterSignal" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = 976.0
+offset_top = 112.0
+offset_right = 1016.0
+offset_bottom = 152.0
+color = Color(0.368627, 0.368627, 0.368627, 1)
+
+[node name="middleSignal" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = 840.0
+offset_top = 112.0
+offset_right = 880.0
+offset_bottom = 152.0
+color = Color(0.368627, 0.368627, 0.368627, 1)
+
+[node name="NoSignal" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = 1104.0
+offset_top = 104.0
+offset_right = 1144.0
+offset_bottom = 144.0
+color = Color(0.368627, 0.368627, 0.368627, 1)
+
+[node name="signalNumbers" type="SpinBox" parent="ColorRect"]
+layout_mode = 0
+offset_left = -112.0
+offset_top = 216.0
+offset_right = 128.0
+offset_bottom = 464.0
+step = 0.1
+value = 60.0
 
 [node name="OnOffButton" type="CheckButton" parent="ColorRect"]
 layout_mode = 1
@@ -26,77 +111,84 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -184.0
-offset_top = -104.0
-offset_right = -140.0
-offset_bottom = -80.0
+offset_left = 176.0
+offset_top = -48.0
+offset_right = 272.0
+offset_bottom = 192.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="LabelOn" type="Label" parent="ColorRect/OnOffButton"]
-layout_mode = 0
-offset_left = 48.0
-offset_right = 88.0
-offset_bottom = 26.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "ON"
+[node name="Krutilka" type="Sprite2D" parent="ColorRect"]
+position = Vector2(16, 336)
+texture = ExtResource("4_wu1ag")
 
-[node name="Label" type="Label" parent="ColorRect/OnOffButton"]
-layout_mode = 0
-offset_left = -32.0
-offset_right = 8.0
-offset_bottom = 26.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "OFF"
+[node name="SwitchOff" type="Sprite2D" parent="ColorRect"]
+position = Vector2(1136, 496)
+texture = ExtResource("4_3hxyc")
 
-[node name="LineSignal" type="ColorRect" parent="ColorRect"]
-layout_mode = 0
-offset_left = 24.0
-offset_top = 8.0
-offset_right = 888.0
-offset_bottom = 128.0
-color = Color(0.152941, 0.152941, 0.152941, 1)
+[node name="SwitchOn" type="Sprite2D" parent="ColorRect"]
+visible = false
+position = Vector2(1136, 496)
+texture = ExtResource("5_1dbv3")
 
-[node name="enterSignal" type="ColorRect" parent="ColorRect"]
-layout_mode = 0
-offset_left = 736.0
-offset_top = 144.0
-offset_right = 776.0
-offset_bottom = 184.0
-color = Color(0.368627, 0.368627, 0.368627, 1)
+[node name="LampaOff" type="Sprite2D" parent="ColorRect"]
+position = Vector2(1000, 424)
+texture = ExtResource("6_pq0di")
 
-[node name="middleSignal" type="ColorRect" parent="ColorRect"]
-layout_mode = 0
-offset_left = 784.0
-offset_top = 144.0
-offset_right = 824.0
-offset_bottom = 184.0
-color = Color(0.368627, 0.368627, 0.368627, 1)
+[node name="LampaOn" type="Sprite2D" parent="ColorRect"]
+visible = false
+position = Vector2(1000, 424)
+texture = ExtResource("7_h2v8n")
 
-[node name="NoSignal" type="ColorRect" parent="ColorRect"]
-layout_mode = 0
-offset_left = 832.0
-offset_top = 144.0
-offset_right = 872.0
-offset_bottom = 184.0
-color = Color(0.368627, 0.368627, 0.368627, 1)
+[node name="RedLightOff" type="Sprite2D" parent="ColorRect"]
+position = Vector2(1128, 128)
+texture = ExtResource("8_jsdif")
 
-[node name="signalNumbers" type="SpinBox" parent="ColorRect"]
-layout_mode = 0
-offset_left = 24.0
-offset_top = 152.0
-offset_right = 107.063
-offset_bottom = 183.0
-step = 0.1
-value = 60.0
+[node name="RedLightOn" type="Sprite2D" parent="ColorRect"]
+visible = false
+position = Vector2(1128, 128)
+texture = ExtResource("9_1yyw5")
+
+[node name="OrangeLightOff" type="Sprite2D" parent="ColorRect"]
+position = Vector2(992, 128)
+texture = ExtResource("9_g4tdf")
+
+[node name="OrangeLightOn" type="Sprite2D" parent="ColorRect"]
+visible = false
+position = Vector2(992, 128)
+texture = ExtResource("11_ur1j6")
+
+[node name="GreenLightOff" type="Sprite2D" parent="ColorRect"]
+position = Vector2(856, 128)
+texture = ExtResource("10_217op")
+
+[node name="GreenLightOn" type="Sprite2D" parent="ColorRect"]
+visible = false
+position = Vector2(856, 128)
+texture = ExtResource("13_7k0ml")
 
 [node name="numbers" type="Label" parent="ColorRect"]
 layout_mode = 0
-offset_left = 32.0
-offset_top = 16.0
-offset_right = 80.0
-offset_bottom = 42.0
+offset_left = -136.0
+offset_top = -184.0
+offset_right = -88.0
+offset_bottom = -158.0
 text = "90 Гц"
 
-[connection signal="button_up" from="ColorRect/OnOffButton" to="." method="_on_on_off_button_button_up"]
+[node name="ButtonOn" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_mp4aj")
+
+[node name="ButtonOff" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("19_voxrc")
+
+[node name="RadioSpeen" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("21_f6cir")
+
+[node name="RadioNoise" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("21_3j7eu")
+
+[node name="RadioSpeach" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("22_53wik")
+
 [connection signal="value_changed" from="ColorRect/signalNumbers" to="." method="_on_signal_numbers_value_changed"]
+[connection signal="button_up" from="ColorRect/OnOffButton" to="." method="_on_on_off_button_button_up"]
