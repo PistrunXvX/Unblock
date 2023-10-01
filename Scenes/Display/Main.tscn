@@ -160,7 +160,6 @@ autoplay = "clock"
 libraries = {
 "": SubResource("AnimationLibrary_6bmjt")
 }
-
 [node name="Clock" parent="Display/Display_2" instance=ExtResource("6_dghn4")]
 position = Vector2(-320, -504)
 scale = Vector2(0.30087, 0.204704)
@@ -226,6 +225,9 @@ position = Vector2(4, -124)
 
 [node name="Paper2" parent="Display/Display_Papers" instance=ExtResource("5_tl8jx")]
 position = Vector2(-462, -46)
+
+position = Vector2(-184, -488)
+scale = Vector2(0.635769, 0.832529)
 
 [node name="Display_3" type="Sprite2D" parent="Display"]
 position = Vector2(4872, 560)
