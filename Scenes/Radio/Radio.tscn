@@ -58,6 +58,7 @@ offset_bottom = 128.0
 color = Color(0.152941, 0.152941, 0.152941, 1)
 
 [node name="enterSignal" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
 offset_left = 736.0
 offset_top = 144.0
 offset_right = 776.0
@@ -65,6 +66,7 @@ offset_bottom = 184.0
 color = Color(0.368627, 0.368627, 0.368627, 1)
 
 [node name="middleSignal" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
 offset_left = 784.0
 offset_top = 144.0
 offset_right = 824.0
