@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://u17qwj4dl4fn"]
+[gd_scene load_steps=35 format=3 uid="uid://u17qwj4dl4fn"]
 
 [ext_resource type="Script" path="res://Scenes/Display/Main.gd" id="1_36sxg"]
 [ext_resource type="Texture2D" uid="uid://05lglthdl4sj" path="res://Assets/Sprites/test_display_1.jpg" id="2_7m1ck"]
@@ -6,13 +6,19 @@
 [ext_resource type="Texture2D" uid="uid://403q500ifr74" path="res://Assets/Sprites/test_display_3.jpg" id="4_2uu5r"]
 [ext_resource type="PackedScene" uid="uid://jydex1gdp0it" path="res://Scenes/GateWork/GateWork.tscn" id="4_nyqyi"]
 [ext_resource type="Texture2D" uid="uid://31o3s1ku47ue" path="res://Assets/Sprites/test_display_4.jpg" id="5_4jia0"]
+[ext_resource type="Texture2D" uid="uid://cc5idhpvl5myc" path="res://Assets/Sprites/display_2/NotesArea.png" id="6_agc6j"]
 [ext_resource type="PackedScene" uid="uid://d02d8i5lra56a" path="res://Scenes/Clock/Clock.tscn" id="6_dghn4"]
 [ext_resource type="PackedScene" uid="uid://byj40cdlhan0v" path="res://Scenes/HUD/HUD.tscn" id="6_eayq5"]
 [ext_resource type="Texture2D" uid="uid://durw243mebryd" path="res://Assets/Sprites/test_display_5.jpg" id="6_ha3rk"]
 [ext_resource type="Texture2D" uid="uid://v3d3uppqqls3" path="res://Assets/Sprites/test_display_6.jpg" id="7_4k6ie"]
 [ext_resource type="PackedScene" uid="uid://uegxhc3t00r4" path="res://Scenes/Radio/Radio.tscn" id="7_7hak2"]
-[ext_resource type="PackedScene" uid="uid://dtrta6pro4xkv" path="res://GlobalScripts/Music/Music.tscn" id="7_2742o"]
 [ext_resource type="PackedScene" uid="uid://bt08rwy12clf8" path="res://Scenes/Games/Games.tscn" id="9_t5knk"]
+[ext_resource type="Texture2D" uid="uid://m31fvr5piig1" path="res://Assets/Sprites/WallpaperInAreaNotes.png" id="11_s2r28"]
+[ext_resource type="Texture2D" uid="uid://d1ovwn1es7l71" path="res://Assets/Sprites/display_4/Screen4.png" id="13_7d4u3"]
+[ext_resource type="Texture2D" uid="uid://by85gryl6py3u" path="res://Assets/Sprites/display_1/Screen1and2.png" id="15_1v6ki"]
+[ext_resource type="Texture2D" uid="uid://syukul1xr0pd" path="res://Assets/Sprites/display_3/Screen3.png" id="15_rrn8p"]
+[ext_resource type="Texture2D" uid="uid://cs7n2kxg4sok5" path="res://Assets/Sprites/display_5/Screen5.png" id="15_tok26"]
+[ext_resource type="Texture2D" uid="uid://c50pvnfdpiijn" path="res://Assets/Sprites/display_2/LampON.png" id="19_nuai7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_phs4u"]
 size = Vector2(161, 1080)
@@ -24,7 +30,7 @@ size = Vector2(1690, 87)
 size = Vector2(176, 1080)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kedyc"]
-size = Vector2(1541.5, 72.5)
+size = Vector2(1541.5, 36.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cag07"]
 size = Vector2(201.5, 1056)
@@ -86,7 +92,18 @@ position = Vector2(952, 560)
 texture = ExtResource("2_7m1ck")
 
 [node name="GateWork" parent="Display/Display_1" instance=ExtResource("4_nyqyi")]
-position = Vector2(-984, -568)
+position = Vector2(-880, -576)
+
+[node name="ColorRect" type="ColorRect" parent="Display/Display_1"]
+offset_left = -968.0
+offset_top = 512.0
+offset_right = 2960.0
+offset_bottom = 592.0
+color = Color(0, 0, 0, 1)
+
+[node name="Screen1And2" type="Sprite2D" parent="Display/Display_1"]
+position = Vector2(960, -16)
+texture = ExtResource("15_1v6ki")
 
 [node name="CameraDisplay_1" type="Camera2D" parent="Display/Display_1"]
 position = Vector2(8, 0)
@@ -107,7 +124,13 @@ shape = SubResource("RectangleShape2D_yf4jk")
 
 [node name="Display_2" type="Sprite2D" parent="Display"]
 position = Vector2(2912, 560)
-texture = ExtResource("3_bbrll")
+
+[node name="ColorRect" type="ColorRect" parent="Display/Display_2"]
+offset_left = -3240.0
+offset_top = 528.0
+offset_right = 688.0
+offset_bottom = 608.0
+color = Color(0, 0, 0, 1)
 
 [node name="CameraDisplay_2" type="Camera2D" parent="Display/Display_2"]
 position = Vector2(0, -16)
@@ -123,7 +146,7 @@ shape = SubResource("RectangleShape2D_yefwc")
 [node name="EnterMouseDisplayDown_2" type="Area2D" parent="Display/Display_2"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Display/Display_2/EnterMouseDisplayDown_2"]
-position = Vector2(-10.75, 426.5)
+position = Vector2(-16, 506.125)
 shape = SubResource("RectangleShape2D_kedyc")
 
 [node name="EnterMouseDisplayRight_2" type="Area2D" parent="Display/Display_2"]
@@ -133,12 +156,16 @@ position = Vector2(860.75, -16)
 shape = SubResource("RectangleShape2D_cag07")
 
 [node name="Button" type="Button" parent="Display/Display_2"]
-offset_left = -180.0
-offset_top = -22.0
-offset_right = 141.0
-offset_bottom = 307.0
+offset_left = -400.0
+offset_top = 224.0
+offset_right = 392.0
+offset_bottom = 489.0
 text = "PAPER
 "
+
+[node name="NotesArea" type="Sprite2D" parent="Display/Display_2"]
+position = Vector2(-24, 368)
+texture = ExtResource("6_agc6j")
 
 [node name="ButtonRadio" type="Button" parent="Display/Display_2"]
 offset_left = 224.0
@@ -171,10 +198,8 @@ libraries = {
 }
 
 [node name="Clock" parent="Display/Display_2" instance=ExtResource("6_dghn4")]
-position = Vector2(-320, -504)
+position = Vector2(-432, -192)
 scale = Vector2(0.30087, 0.204704)
-
-[node name="Music" parent="Display/Display_2" instance=ExtResource("7_2742o")]
 
 [node name="Display_Radio" type="Sprite2D" parent="Display"]
 z_index = -5
@@ -199,7 +224,7 @@ position = Vector2(-952, -552)
 
 [node name="Display_Papers" type="Sprite2D" parent="Display"]
 z_index = -5
-position = Vector2(2912, -558)
+position = Vector2(3096, -960)
 texture = ExtResource("3_bbrll")
 
 [node name="EnterMouseDisplayPapers" type="Area2D" parent="Display/Display_Papers"]
@@ -214,54 +239,34 @@ position = Vector2(0, -16)
 ignore_rotation = false
 enabled = false
 
-[node name="test_group" type="Node2D" parent="Display/Display_Papers"]
-
-[node name="test" type="Label" parent="Display/Display_Papers/test_group"]
-offset_left = -343.0
-offset_top = -6.0
-offset_right = 345.0
-offset_bottom = 218.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 161
-text = "(бумаги)"
-
-[node name="ColorRect" type="ColorRect" parent="Display/Display_Papers/test_group"]
-offset_left = -924.0
-offset_top = -174.0
-offset_right = -610.0
-offset_bottom = 189.0
-
-[node name="ColorRect2" type="ColorRect" parent="Display/Display_Papers/test_group"]
-offset_left = 636.0
-offset_top = -193.0
-offset_right = 950.0
-offset_bottom = 170.0
-
-[node name="ColorRect3" type="ColorRect" parent="Display/Display_Papers/test_group"]
-offset_left = -924.0
-offset_top = 259.0
-offset_right = -581.0
-offset_bottom = 503.0
-
-[node name="ColorRect4" type="ColorRect" parent="Display/Display_Papers/test_group"]
-offset_left = 589.0
-offset_top = 254.0
-offset_right = 932.0
-offset_bottom = 498.0
-
 [node name="SpawnNodes" type="ColorRect" parent="Display/Display_Papers"]
 offset_left = -40.0
 offset_top = -34.0
 offset_right = 72.0
 offset_bottom = 94.0
 
+[node name="WallpaperInAreaNotes" type="Sprite2D" parent="Display/Display_Papers"]
+position = Vector2(8, -16)
+texture = ExtResource("11_s2r28")
+
 [node name="Display_3" type="Sprite2D" parent="Display"]
 position = Vector2(4872, 560)
 texture = ExtResource("4_2uu5r")
 
+[node name="ColorRect" type="ColorRect" parent="Display/Display_3"]
+offset_left = -984.0
+offset_top = -560.0
+offset_right = 984.0
+offset_bottom = 592.0
+color = Color(0, 0, 0, 1)
+
 [node name="CameraDisplay_3" type="Camera2D" parent="Display/Display_3"]
 ignore_rotation = false
 enabled = false
+
+[node name="Screen3" type="Sprite2D" parent="Display/Display_3"]
+position = Vector2(0, -8)
+texture = ExtResource("15_rrn8p")
 
 [node name="EnterMouseDisplayLeft_3" type="Area2D" parent="Display/Display_3"]
 
@@ -278,6 +283,16 @@ shape = SubResource("RectangleShape2D_jlb1p")
 [node name="Display_4" type="Sprite2D" parent="Display"]
 position = Vector2(952, 1672)
 texture = ExtResource("5_4jia0")
+
+[node name="ColorRect" type="ColorRect" parent="Display/Display_4"]
+offset_left = -1112.0
+offset_top = -560.0
+offset_right = 968.0
+offset_bottom = -480.0
+color = Color(0, 0, 0, 1)
+
+[node name="Screen4" type="Sprite2D" parent="Display/Display_4"]
+texture = ExtResource("13_7d4u3")
 
 [node name="CameraDisplay_4" type="Camera2D" parent="Display/Display_4"]
 ignore_rotation = false
@@ -299,12 +314,23 @@ shape = SubResource("RectangleShape2D_12swx")
 position = Vector2(2912, 1672)
 texture = ExtResource("6_ha3rk")
 
+[node name="ColorRect" type="ColorRect" parent="Display/Display_5"]
+offset_left = -1000.0
+offset_top = -560.0
+offset_right = 1128.0
+offset_bottom = 560.0
+color = Color(0, 0, 0, 1)
+
+[node name="Games" parent="Display/Display_5" instance=ExtResource("9_t5knk")]
+position = Vector2(-856, -376)
+scale = Vector2(0.88, 1)
+
+[node name="Screen5" type="Sprite2D" parent="Display/Display_5"]
+texture = ExtResource("15_tok26")
+
 [node name="CameraDisplay_5" type="Camera2D" parent="Display/Display_5"]
 ignore_rotation = false
 enabled = false
-
-[node name="Games" parent="Display/Display_5" instance=ExtResource("9_t5knk")]
-position = Vector2(-960, -536)
 
 [node name="EnterMouseDisplayLeft_5" type="Area2D" parent="Display/Display_5"]
 z_index = 30
@@ -331,6 +357,13 @@ shape = SubResource("RectangleShape2D_h0a0m")
 position = Vector2(4872, 1672)
 texture = ExtResource("7_4k6ie")
 
+[node name="ColorRect" type="ColorRect" parent="Display/Display_6"]
+offset_left = -984.0
+offset_top = -560.0
+offset_right = 984.0
+offset_bottom = -496.0
+color = Color(0, 0, 0, 1)
+
 [node name="CameraDisplay_6" type="Camera2D" parent="Display/Display_6"]
 ignore_rotation = false
 enabled = false
@@ -346,6 +379,10 @@ shape = SubResource("RectangleShape2D_8nq5t")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Display/Display_6/EnterMouseDisplayLeft_6"]
 position = Vector2(-849.5, 20)
 shape = SubResource("RectangleShape2D_ucgs4")
+
+[node name="LampOn" type="Sprite2D" parent="."]
+position = Vector2(2976, 112)
+texture = ExtResource("19_nuai7")
 
 [connection signal="mouse_entered" from="Display/Display_1/EnterMouseFisplay_1" to="." method="_on_enter_mouse_fisplay_1_mouse_entered"]
 [connection signal="mouse_entered" from="Display/Display_1/EnterMouseDisplayDown_1" to="." method="_on_enter_mouse_display_down_1_mouse_entered"]

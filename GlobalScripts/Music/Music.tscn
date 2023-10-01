@@ -1,14 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://dtrta6pro4xkv"]
+[gd_scene load_steps=5 format=3 uid="uid://dtrta6pro4xkv"]
 
 [ext_resource type="Script" path="res://GlobalScripts/Music/Sounds.gd" id="1_37w5k"]
 [ext_resource type="AudioStream" uid="uid://dyrs2gdyxqqta" path="res://Assets/Sounds/Radio_Station1_Talk01.wav" id="1_s1w0y"]
 [ext_resource type="AudioStream" uid="uid://cjnkfjvc55v0p" path="res://Assets/Sounds/Radio_WhiteNoise.wav" id="2_avpd1"]
+[ext_resource type="AudioStream" uid="uid://hsip4bgermbd" path="res://Assets/Sounds/Lamp_TurnOn.wav" id="4_7tf52"]
 
 [node name="Music" type="Node2D"]
 script = ExtResource("1_37w5k")
 
 [node name="RadioNoise" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(2800, 544)
 stream = ExtResource("2_avpd1")
+max_distance = 3000.0
 
 [node name="RadioSpeach" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(2880, 536)
 stream = ExtResource("1_s1w0y")
+max_distance = 3000.0
+
+[node name="LumpBuzz" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(2856, 96)
+stream = ExtResource("4_7tf52")
+autoplay = true
+max_distance = 1500.0

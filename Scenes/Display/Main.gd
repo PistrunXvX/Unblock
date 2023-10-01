@@ -22,7 +22,7 @@ func _ready():
 	cameraDisplay2Paper = $Display/Display_Papers/CameraDisplay_2_papers
 	cameraDisplayRadio = $Display/Display_Radio/CameraDisplayRadio
 	
-	generate_paper_level(CarList.carList.level_1)
+#	generate_paper_level(CarList.carList.level_1)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -114,10 +114,10 @@ func _on_enter_mouse_display_top_6_mouse_entered():
 	GlobalCamera.transition_camera(cameraDisplay6, cameraDisplay3)
 
 func _on_button_pressed():
-	GlobalCamera.transition_camera(cameraDisplay2, cameraDisplay2Paper)
+	GlobalCamera.static_transition_camera(cameraDisplay2, cameraDisplay2Paper)
 
 func _on_enter_mouse_display_papers_mouse_entered():
-	GlobalCamera.transition_camera(cameraDisplay2Paper, cameraDisplay2)
+	GlobalCamera.static_transition_camera(cameraDisplay2Paper, cameraDisplay2)
 
 func _on_button_radio_pressed():
 	GlobalCamera.static_transition_camera(cameraDisplay2, cameraDisplayRadio)
