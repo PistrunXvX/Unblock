@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://u17qwj4dl4fn"]
+[gd_scene load_steps=29 format=3 uid="uid://u17qwj4dl4fn"]
 
 [ext_resource type="Script" path="res://Scenes/Display/Main.gd" id="1_36sxg"]
 [ext_resource type="Texture2D" uid="uid://05lglthdl4sj" path="res://Assets/Sprites/test_display_1.jpg" id="2_7m1ck"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://durw243mebryd" path="res://Assets/Sprites/test_display_5.jpg" id="6_ha3rk"]
 [ext_resource type="Texture2D" uid="uid://v3d3uppqqls3" path="res://Assets/Sprites/test_display_6.jpg" id="7_4k6ie"]
 [ext_resource type="PackedScene" uid="uid://uegxhc3t00r4" path="res://Scenes/Radio/Radio.tscn" id="7_7hak2"]
+[ext_resource type="PackedScene" uid="uid://dtrta6pro4xkv" path="res://GlobalScripts/Music/Music.tscn" id="7_2742o"]
 [ext_resource type="PackedScene" uid="uid://bt08rwy12clf8" path="res://Scenes/Games/Games.tscn" id="9_t5knk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_phs4u"]
@@ -23,7 +24,7 @@ size = Vector2(1690, 87)
 size = Vector2(176, 1080)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kedyc"]
-size = Vector2(1541.5, 181)
+size = Vector2(1541.5, 72.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cag07"]
 size = Vector2(201.5, 1056)
@@ -136,6 +137,15 @@ offset_left = -180.0
 offset_top = -22.0
 offset_right = 141.0
 offset_bottom = 307.0
+text = "PAPER
+"
+
+[node name="ButtonRadio" type="Button" parent="Display/Display_2"]
+offset_left = 224.0
+offset_top = -168.0
+offset_right = 728.0
+offset_bottom = 40.0
+text = "RADIO"
 
 [node name="clock" type="Node2D" parent="Display/Display_2"]
 visible = false
@@ -164,9 +174,28 @@ libraries = {
 position = Vector2(-320, -504)
 scale = Vector2(0.30087, 0.204704)
 
-[node name="Radio" parent="Display/Display_2" instance=ExtResource("7_7hak2")]
-position = Vector2(-128, -496)
-scale = Vector2(0.635769, 0.832529)
+[node name="Music" parent="Display/Display_2" instance=ExtResource("7_2742o")]
+
+[node name="Display_Radio" type="Sprite2D" parent="Display"]
+z_index = -5
+position = Vector2(7736, 576)
+texture = ExtResource("3_bbrll")
+
+[node name="CameraDisplayRadio" type="Camera2D" parent="Display/Display_Radio"]
+position = Vector2(0, -16)
+ignore_rotation = false
+enabled = false
+
+[node name="EnterMouseDisplayRadio" type="Area2D" parent="Display/Display_Radio"]
+z_index = 40
+position = Vector2(876, 449)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Display/Display_Radio/EnterMouseDisplayRadio"]
+position = Vector2(-871, 11.25)
+shape = SubResource("RectangleShape2D_kedyc")
+
+[node name="Radio" parent="Display/Display_Radio" instance=ExtResource("7_7hak2")]
+position = Vector2(-952, -552)
 
 [node name="Display_Papers" type="Sprite2D" parent="Display"]
 z_index = -5
@@ -324,6 +353,9 @@ shape = SubResource("RectangleShape2D_ucgs4")
 [connection signal="mouse_entered" from="Display/Display_2/EnterMouseDisplayDown_2" to="." method="_on_enter_mouse_display_down_2_mouse_entered"]
 [connection signal="mouse_entered" from="Display/Display_2/EnterMouseDisplayRight_2" to="." method="_on_enter_mouse_display_right_2_mouse_entered"]
 [connection signal="pressed" from="Display/Display_2/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Display/Display_2/ButtonRadio" to="." method="_on_button_radio_pressed"]
+[connection signal="mouse_entered" from="Display/Display_Radio/EnterMouseDisplayRadio" to="." method="_on_enter_mouse_display_papers_mouse_entered"]
+[connection signal="mouse_entered" from="Display/Display_Radio/EnterMouseDisplayRadio" to="." method="_on_enter_mouse_display_radio_mouse_entered"]
 [connection signal="mouse_entered" from="Display/Display_Papers/EnterMouseDisplayPapers" to="." method="_on_enter_mouse_display_papers_mouse_entered"]
 [connection signal="mouse_entered" from="Display/Display_3/EnterMouseDisplayLeft_3" to="." method="_on_enter_mouse_display_left_3_mouse_entered"]
 [connection signal="mouse_entered" from="Display/Display_3/EnterMouseDisplayDown_3" to="." method="_on_enter_mouse_display_down_3_mouse_entered"]
