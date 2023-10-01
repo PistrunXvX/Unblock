@@ -390,6 +390,7 @@ shape = SubResource("RectangleShape2D_8nq5t")
 position = Vector2(-849.5, 20)
 shape = SubResource("RectangleShape2D_ucgs4")
 
+[connection signal="start_day" from="HUD" to="." method="_ready"]
 [connection signal="mouse_entered" from="Display/Display_1/EnterMouseFisplay_1" to="." method="_on_enter_mouse_fisplay_1_mouse_entered"]
 [connection signal="mouse_entered" from="Display/Display_1/EnterMouseDisplayDown_1" to="." method="_on_enter_mouse_display_down_1_mouse_entered"]
 [connection signal="mouse_entered" from="Display/Display_2/EnterMouseDisplayLeft_2" to="." method="_on_enter_mouse_display_left_2_mouse_entered"]

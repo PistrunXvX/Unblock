@@ -5,13 +5,13 @@ extends Node
 @onready var timer = $Stamina/StaminaBar/Timer
 @onready var hp_bar = $Health/TextureProgressBar
 @export var max_stamina = 100
-@export var step_stamina = 1
+@export var step_stamina = 1.5
 @export var max_hp = 100
 @export var step_hp = 5
 
 var local_hour = 0
 var local_minut = 0
-#@onready var health = $He
+var local_stamina = 0
 
 signal start_day
 
@@ -64,5 +64,19 @@ func succsess_event(check, count):
 		stamina.value -= count
 
 func _on_timer_timeout():
-	PlayerStatus.stamina += step_stamina
-	stamina.value = PlayerStatus.stamina
+	var affect_stamina = 0
+	
+#	print("Radio Noise: ", PlayerStatus.isRadioNoise)
+#	print("Radio Station : ", PlayerStatus.isRadioStation)
+	
+	if PlayerStatus.isRadioNoise:
+		affect_stamina += 0.25
+	if PlayerStatus.isRadioStation:
+		affect_stamina -= 0.5
+	local_stamina += step_stamina + affect_stamina
+	
+	stamina.value = local_stamina
+	PlayerStatus.stamina = local_stamina
+	
+	print("Affect stamina", affect_stamina)
+	print("Current stamina", PlayerStatus.stamina)
