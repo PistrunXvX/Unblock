@@ -21,12 +21,12 @@ func showDialog(id):
 			txt.add_text("BIMBIMBAMBAM")
 		1:
 			txt.add_text("Вода жидкая")
-			$AnimationPlayer.play("show_Answers")
-			match answer:
-				1: txt.add_text("Ты прав")
-				2: txt.add_text("Ты не прав")
-				3: txt.add_text("Ты пидор")
-			$AnimationPlayer.play("hide_Answers")
+#			$AnimationPlayer.play("show_Answers")
+#			match answer:
+#				1: txt.add_text("Ты прав")
+#				2: txt.add_text("Ты не прав")
+#				3: txt.add_text("Ты пидор")
+#			$AnimationPlayer.play("hide_Answers")
 		2:
 			txt.add_text("Начальник доложил")
 		3:
