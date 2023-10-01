@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://u17qwj4dl4fn"]
+[gd_scene load_steps=28 format=3 uid="uid://u17qwj4dl4fn"]
 
 [ext_resource type="Script" path="res://Scenes/Display/Main.gd" id="1_36sxg"]
 [ext_resource type="Texture2D" uid="uid://05lglthdl4sj" path="res://Assets/Sprites/test_display_1.jpg" id="2_7m1ck"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://403q500ifr74" path="res://Assets/Sprites/test_display_3.jpg" id="4_2uu5r"]
 [ext_resource type="PackedScene" uid="uid://jydex1gdp0it" path="res://Scenes/GateWork/GateWork.tscn" id="4_nyqyi"]
 [ext_resource type="Texture2D" uid="uid://31o3s1ku47ue" path="res://Assets/Sprites/test_display_4.jpg" id="5_4jia0"]
-[ext_resource type="PackedScene" uid="uid://bfccac2tnf5g7" path="res://Scenes/InteractiveObjects/Papers/paper.tscn" id="5_tl8jx"]
 [ext_resource type="PackedScene" uid="uid://d02d8i5lra56a" path="res://Scenes/Clock/Clock.tscn" id="6_dghn4"]
 [ext_resource type="PackedScene" uid="uid://byj40cdlhan0v" path="res://Scenes/HUD/HUD.tscn" id="6_eayq5"]
 [ext_resource type="Texture2D" uid="uid://durw243mebryd" path="res://Assets/Sprites/test_display_5.jpg" id="6_ha3rk"]
@@ -221,12 +220,11 @@ offset_top = 254.0
 offset_right = 932.0
 offset_bottom = 498.0
 
-[node name="Paper" parent="Display/Display_Papers" instance=ExtResource("5_tl8jx")]
-position = Vector2(4, -124)
-
-[node name="Paper2" parent="Display/Display_Papers" instance=ExtResource("5_tl8jx")]
-position = Vector2(-520, -122)
-scale = Vector2(0.635769, 0.832529)
+[node name="SpawnNodes" type="ColorRect" parent="Display/Display_Papers"]
+offset_left = -40.0
+offset_top = -34.0
+offset_right = 72.0
+offset_bottom = 94.0
 
 [node name="Display_3" type="Sprite2D" parent="Display"]
 position = Vector2(4872, 560)

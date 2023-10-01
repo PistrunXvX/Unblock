@@ -6,6 +6,7 @@
 size = Vector2(514, 670)
 
 [node name="Paper" type="StaticBody2D"]
+z_index = 40
 script = ExtResource("1_f7wip")
 
 [node name="test_shadow" type="ColorRect" parent="."]
@@ -23,13 +24,53 @@ offset_bottom = 396.0
 color = Color(0.733333, 0.733333, 0.733333, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = -287.0
-offset_top = -367.0
-offset_right = 295.0
-offset_bottom = 390.0
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+offset_left = -291.0
+offset_top = -378.5
+offset_right = 291.0
+offset_bottom = 378.5
 theme_override_font_sizes/normal_font_size = 41
 text = "PLACEHOLDER"
+
+[node name="carNumber" type="RichTextLabel" parent="."]
+offset_left = -292.0
+offset_top = 83.0
+offset_right = 274.0
+offset_bottom = 146.0
+theme_override_font_sizes/normal_font_size = 41
+text = "Номер: "
+
+[node name="carColor" type="RichTextLabel" parent="."]
+offset_left = -288.0
+offset_top = 1.0
+offset_right = 278.0
+offset_bottom = 64.0
+theme_override_font_sizes/normal_font_size = 41
+text = "Цвет: "
+
+[node name="carBrand" type="RichTextLabel" parent="."]
+offset_left = -286.0
+offset_top = -79.0
+offset_right = 280.0
+offset_bottom = -16.0
+theme_override_font_sizes/normal_font_size = 41
+text = "Марка: "
+
+[node name="Surname" type="RichTextLabel" parent="."]
+offset_left = -286.0
+offset_top = -154.0
+offset_right = 280.0
+offset_bottom = -91.0
+theme_override_font_sizes/normal_font_size = 41
+text = "Фамилия: "
+
+[node name="Name" type="RichTextLabel" parent="."]
+offset_left = -285.0
+offset_top = -232.0
+offset_right = 281.0
+offset_bottom = -169.0
+theme_override_font_sizes/normal_font_size = 41
+text = "Имя: "
 
 [node name="Button" type="Button" parent="."]
 offset_left = -295.0
