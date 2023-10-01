@@ -22,7 +22,7 @@ var is_car_here = false
 var is_gate_opened = false
 var offsetCardOnBlock = Vector2(512, 648)
 var offsetCarOutside = Vector2(-872, 1288)
-var spawnPositionCar = Vector2(2008, 200)
+var spawnPositionCar = Vector2(2500, 200)
 
 var enters_time = false
 var wait_time = false
@@ -50,13 +50,19 @@ func _on_car_spawn_timeout():
 	car_color.show()
 	car_color.set_position(spawnPositionCar)
 	
+	if !Music.soundCarArrive.is_playing():
+		Music.soundCarArrive.play()
+	
 	tween.stop()
 	tween.set_trans(Tween.TRANS_CUBIC)
 	tween.set_ease(Tween.EASE_IN_OUT)
-	tween.tween_property(car_color, "position", offsetCardOnBlock, 3.0).from(spawnPositionCar)
+	tween.tween_property(car_color, "position", offsetCardOnBlock, 6.0).from(spawnPositionCar)
 	tween.play()
 	
 	await tween.finished
+	
+	if !Music.soundCarWait.is_playing():
+		Music.soundCarWait.play()
 	
 	car_wait.start()
 	beep_time.start()
@@ -109,6 +115,12 @@ func _on_gate_closes_timeout():
 func _on_car_enters_timeout():
 	var tween = get_tree().create_tween()
 	
+	if Music.soundCarWait.is_playing():
+		Music.soundCarWait.stop()
+	
+	if !Music.soundCarDepart.is_playing():
+		Music.soundCarDepart.play()
+	
 	tween.stop()
 	tween.set_trans(Tween.TRANS_CUBIC)
 	tween.set_ease(Tween.EASE_IN_OUT)
@@ -122,12 +134,17 @@ func _on_car_enters_timeout():
 	print("hehehe")
 
 
-func _on_car_waiting_timeout():
+func _on_car_waiting_timeout():		
 	car_left.start()
 
 
 func _on_car_left_timeout():
 	print("Car left")
+	if Music.soundCarWait.is_playing():
+		Music.soundCarWait.stop()
+	
+	if !Music.soundCarDepart.is_playing():
+		Music.soundCarDepart.play()
 	is_car_here = false
 	car_color.hide()
 	car_spawn.start()
@@ -138,6 +155,8 @@ func _on_beep_time_timeout():
 	beeep.start()
 
 func _on_beeep_timeout():
+	if !Music.soundCarBeep.is_playing():
+		Music.soundCarBeep.play()
 	print("beep")
 
 

@@ -157,6 +157,7 @@ position = Vector2(916.75, -16)
 shape = SubResource("RectangleShape2D_cag07")
 
 [node name="Button" type="Button" parent="Display/Display_2"]
+visibility_layer = 0
 offset_left = -288.0
 offset_top = 224.0
 offset_right = 576.0
@@ -212,7 +213,7 @@ position = Vector2(-1408, -256)
 
 [node name="Display_Radio" type="Sprite2D" parent="Display"]
 z_index = -5
-position = Vector2(7736, 576)
+position = Vector2(1072, -952)
 texture = ExtResource("3_bbrll")
 
 [node name="CameraDisplayRadio" type="Camera2D" parent="Display/Display_Radio"]
