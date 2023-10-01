@@ -142,6 +142,9 @@ func switch_signals():
 		if soundRadioStation1.is_playing():
 			soundRadioStation1.stop()
 		
+		PlayerStatus.radio_noise(true)
+		PlayerStatus.radio_station(false)
+		
 	elif signalDistance <= 2.0 && signalDistance > 0.5:
 		spriteRedOn.hide()
 		spriteRedOff.show()
@@ -163,6 +166,9 @@ func switch_signals():
 			
 		if !soundRadioNoise.is_playing():
 			soundRadioNoise.play()
+			
+		PlayerStatus.radio_noise(true)
+		PlayerStatus.radio_station(false)
 		
 	elif signalDistance <= 0.3:
 		spriteRedOn.hide()
@@ -176,9 +182,13 @@ func switch_signals():
 		
 		if !Music.soundRadioNoise.is_playing() && !Music.soundRadioStation1.is_playing():
 			Music.play_sound_radio_station(true)
+			PlayerStatus.radio_noise(false)
+			PlayerStatus.radio_station(true)
 		elif Music.soundRadioNoise.is_playing():
 			Music.play_sound_radio_noise(false)
 			Music.play_sound_radio_station(true)
+			PlayerStatus.radio_noise(false)
+			PlayerStatus.radio_station(true)
 		
 		if !soundRadioNoise.is_playing() && !soundRadioStation1.is_playing():
 			soundRadioStation1.play()

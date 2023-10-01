@@ -22,6 +22,8 @@ func _ready():
 	cameraDisplay2Paper = $Display/Display_Papers/CameraDisplay_2_papers
 	cameraDisplayRadio = $Display/Display_Radio/CameraDisplayRadio
 	
+	
+	
 #	generate_paper_level(CarList.carList.level_1)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
