@@ -1,0 +1,184 @@
+[gd_scene load_steps=7 format=3 uid="uid://du4jd1ckf3fpv"]
+
+[ext_resource type="Script" path="res://Scenes/Dialog/DialogSystem.gd" id="1_x4rkr"]
+[ext_resource type="FontFile" uid="uid://chdqvhmg5l5qm" path="res://Assets/Fonts/PressStart2P-Regular.ttf" id="2_788vt"]
+[ext_resource type="AudioStream" path="res://Assets/Sounds/speech.wav" id="3_qqamt"]
+
+[sub_resource type="Animation" id="Animation_ndisa"]
+resource_name = "show_Answers"
+length = 0.75
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/dialogWindow:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -336)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/answerWindow:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 350), Vector2(0, 14)]
+}
+
+[sub_resource type="Animation" id="Animation_pns6l"]
+resource_name = "hide_Answers"
+length = 0.75
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/dialogWindow:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -336), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/answerWindow:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 14), Vector2(0, 350)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ycyh6"]
+_data = {
+"hide_Answers": SubResource("Animation_pns6l"),
+"show_Answers": SubResource("Animation_ndisa")
+}
+
+[node name="DialogSystem" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x4rkr")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="dialogWindow" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/dialogWindow"]
+offset_left = 97.0
+offset_top = 738.0
+offset_right = 2377.0
+offset_bottom = 1056.0
+scale = Vector2(0.76, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/dialogWindow"]
+offset_left = 103.0
+offset_top = 745.0
+offset_right = 2367.0
+offset_bottom = 1050.0
+scale = Vector2(0.76, 1)
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/dialogWindow"]
+offset_left = 121.0
+offset_top = 761.0
+offset_right = 1806.0
+offset_bottom = 1040.0
+theme_override_fonts/normal_font = ExtResource("2_788vt")
+theme_override_font_sizes/normal_font_size = 35
+text = "МЕНЯ ЗОВУТ ПРЕЗИДЕНТ КАЗАХСТАНА, Я ОЧЕНЬ СМЕШНОЙ И ПРИКОЛЬНЫЙ ЧЕЛОВЕК. ГОЛОСУЙТЕ ЗА МЕНЯ НА ВЫБОРАХ ПРЕЗИДЕНТА КАЗАХСТАНА. ГОЛОСУЙТЕ ЗА МЕНЯ ГОЛОСУЙТЕ ЗА МЕНЯ ГОЛОСУЙТЕ ЗА МЕНЯ ГОЛОСУЙТЕ ЗА МЕНЯ ГОЛОСУЙТЕ"
+scroll_active = false
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Next" type="Button" parent="CanvasLayer/dialogWindow"]
+offset_left = 1632.0
+offset_top = 585.0
+offset_right = 1784.0
+offset_bottom = 710.0
+
+[node name="answerWindow" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 350.0
+offset_right = 40.0
+offset_bottom = 390.0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/answerWindow"]
+offset_left = 97.0
+offset_top = 738.0
+offset_right = 2377.0
+offset_bottom = 1056.0
+scale = Vector2(0.76, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/answerWindow"]
+offset_left = 103.0
+offset_top = 745.0
+offset_right = 2367.0
+offset_bottom = 1050.0
+scale = Vector2(0.76, 1)
+color = Color(0, 0, 0, 1)
+
+[node name="Answer1" type="Button" parent="CanvasLayer/answerWindow"]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 749.0
+offset_right = 1823.0
+offset_bottom = 855.0
+theme_override_fonts/font = ExtResource("2_788vt")
+theme_override_font_sizes/font_size = 50
+text = "Да"
+
+[node name="Answer2" type="Button" parent="CanvasLayer/answerWindow"]
+layout_mode = 0
+offset_left = 106.0
+offset_top = 854.0
+offset_right = 1823.0
+offset_bottom = 952.0
+theme_override_fonts/font = ExtResource("2_788vt")
+theme_override_font_sizes/font_size = 50
+text = "Нет"
+
+[node name="Answer3" type="Button" parent="CanvasLayer/answerWindow"]
+layout_mode = 0
+offset_left = 105.0
+offset_top = 952.0
+offset_right = 1825.0
+offset_bottom = 1046.0
+theme_override_fonts/font = ExtResource("2_788vt")
+theme_override_font_sizes/font_size = 50
+text = "Похуй"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_qqamt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ycyh6")
+}
+
+[connection signal="pressed" from="CanvasLayer/dialogWindow/Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="CanvasLayer/answerWindow/Answer1" to="." method="_on_answer_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/answerWindow/Answer2" to="." method="_on_answer_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/answerWindow/Answer3" to="." method="_on_answer_3_pressed"]
