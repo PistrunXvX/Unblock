@@ -12,10 +12,12 @@ grow_vertical = 2
 script = ExtResource("1_60s7q")
 
 [node name="Button" type="Button" parent="."]
+layout_mode = 0
 offset_right = 241.0
 offset_bottom = 225.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 2.0
 offset_top = 233.0
 offset_right = 241.0
