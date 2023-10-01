@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://dtrta6pro4xkv"]
+[gd_scene load_steps=9 format=3 uid="uid://dtrta6pro4xkv"]
 
 [ext_resource type="Script" path="res://GlobalScripts/Music/Sounds.gd" id="1_37w5k"]
 [ext_resource type="AudioStream" uid="uid://dyrs2gdyxqqta" path="res://Assets/Sounds/Radio_Station1_Talk01.wav" id="1_s1w0y"]
 [ext_resource type="AudioStream" uid="uid://cjnkfjvc55v0p" path="res://Assets/Sounds/Radio_WhiteNoise.wav" id="2_avpd1"]
 [ext_resource type="AudioStream" uid="uid://hsip4bgermbd" path="res://Assets/Sounds/Lamp_TurnOn.wav" id="4_7tf52"]
+[ext_resource type="AudioStream" uid="uid://b5vcsumxkhd6m" path="res://Assets/Sounds/Car_Arriving.wav" id="5_0d6t6"]
+[ext_resource type="AudioStream" uid="uid://7wki8sompytd" path="res://Assets/Sounds/Car_Idle.wav" id="6_8mbx5"]
+[ext_resource type="AudioStream" uid="uid://bdkuywlicstjn" path="res://Assets/Sounds/Car_Depart.wav" id="7_x58pd"]
+[ext_resource type="AudioStream" uid="uid://bqsr7nanx44o7" path="res://Assets/Sounds/Car_BeepBeep.wav" id="8_i470e"]
 
 [node name="Music" type="Node2D"]
 script = ExtResource("1_37w5k")
@@ -23,3 +27,22 @@ position = Vector2(2856, 96)
 stream = ExtResource("4_7tf52")
 autoplay = true
 max_distance = 1500.0
+
+[node name="CarArrive" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(520, -264)
+stream = ExtResource("5_0d6t6")
+max_distance = 6000.0
+
+[node name="CarWait" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(504, 504)
+stream = ExtResource("6_8mbx5")
+max_distance = 6000.0
+
+[node name="CarDepart" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(304, 512)
+stream = ExtResource("7_x58pd")
+max_distance = 6000.0
+
+[node name="CarBeep" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_i470e")
+max_distance = 6000.0

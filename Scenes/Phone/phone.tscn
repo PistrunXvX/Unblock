@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmrhycnpwc1mg"]
+
+[ext_resource type="Script" path="res://Scenes/Phone/phone.gd" id="1_k2ddd"]
+[ext_resource type="Texture2D" uid="uid://c8y6eef5h86ah" path="res://Assets/Sprites/phone/PhoneIdle.png" id="2_vqbmc"]
+[ext_resource type="Texture2D" uid="uid://cy2743v432tc5" path="res://Assets/Sprites/phone/PhoneRing.png" id="3_u6g7h"]
+[ext_resource type="Texture2D" uid="uid://ckmqp3lqhrsdn" path="res://Assets/Sprites/phone/PhoneHangOutON.png" id="4_mkaqt"]
+
+[node name="phone" type="Node2D"]
+script = ExtResource("1_k2ddd")
+
+[node name="PhoneIdle" type="Sprite2D" parent="."]
+position = Vector2(984, 536)
+texture = ExtResource("2_vqbmc")
+
+[node name="PhoneRing" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(984, 536)
+texture = ExtResource("3_u6g7h")
+
+[node name="PhoneHangOutOn" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(984, 536)
+texture = ExtResource("4_mkaqt")
+
+[node name="ButtonPhone" type="Button" parent="."]
+visibility_layer = 0
+offset_left = 664.0
+offset_top = 400.0
+offset_right = 1064.0
+offset_bottom = 688.0
+flat = true
+
+[connection signal="pressed" from="ButtonPhone" to="." method="_on_button_phone_pressed"]
