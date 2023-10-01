@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3 uid="uid://bt08rwy12clf8"]
+
+[ext_resource type="Script" path="res://Scenes/Games/Games.gd" id="1_wt6m4"]
+
+[node name="Games" type="Node2D"]
+z_index = 30
+script = ExtResource("1_wt6m4")
+
+[node name="ClickRect" type="CanvasGroup" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="ClickRect"]
+offset_top = 16.0
+offset_right = 1920.0
+offset_bottom = 1104.0
+color = Color(0.839216, 0.890196, 1, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ClickRect"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 744.0
+offset_top = 8.0
+offset_right = 1224.0
+offset_bottom = 112.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 64
+text = "DINO CLICK"
+
+[node name="Button" type="Button" parent="ClickRect"]
+offset_left = 528.0
+offset_top = 344.0
+offset_right = 1384.0
+offset_bottom = 816.0
+theme_override_font_sizes/font_size = 100
+text = "КЛИКАЙ"
+
+[node name="Counter" type="Label" parent="ClickRect"]
+offset_left = 824.0
+offset_top = 144.0
+offset_right = 1072.0
+offset_bottom = 296.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="ClickRect/Button" to="." method="_on_button_pressed"]

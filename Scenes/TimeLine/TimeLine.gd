@@ -9,14 +9,15 @@ extends Node
 @export var max_hp = 100
 @export var step_hp = 5
 
+var local_hour = 0
+var local_minut = 0
 #@onready var health = $He
-var currentTime = 0
 
 signal start_day
 
 func _ready():
 	timeLine.start()
-	stamina.value = 0
+	stamina.value = PlayerStatus.stamina
 	stamina.max_value = max_stamina
 	hp_bar.value = max_hp
 	hp_bar.max_value = max_hp
@@ -27,16 +28,28 @@ func _process(delta):
 
 func _on_clock_time_timeout():
 	start_day.emit()
-	currentTime += 1
 	
-	if currentTime == 5:
-		negative_event(false, 10)
-#
+	PlayerStatus.time += 1
+	local_hour += 1
+	local_minut += 1
+	
+	PlayerStatus.stamina = 1
+	
+	if PlayerStatus.minuts == 60:
+		PlayerStatus.minuts = 0
+	
+	if local_hour == 75:
+		PlayerStatus.hours += 1
+		local_hour = 0
+	if local_minut == 12:
+		PlayerStatus.minuts += 10
+		local_minut = 0
+
 func negative_event(check, count):
 	if (check):
-		stamina.value += count
+		PlayerStatus.stamina += count
 	else:
-		stamina.value -= count
+		PlayerStatus.stamina -= count
 
 func empty_event(check, count):
 	if (check):
@@ -51,4 +64,5 @@ func succsess_event(check, count):
 		stamina.value -= count
 
 func _on_timer_timeout():
-	stamina.value += step_stamina
+	PlayerStatus.stamina += step_stamina
+	stamina.value = PlayerStatus.stamina

@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-[gd_scene load_steps=25 format=3 uid="uid://u17qwj4dl4fn"]
-=======
-[gd_scene load_steps=23 format=3 uid="uid://u17qwj4dl4fn"]
->>>>>>> origin/Work
+
+[gd_scene load_steps=26 format=3 uid="uid://u17qwj4dl4fn"]
 
 [ext_resource type="Script" path="res://Scenes/Display/Main.gd" id="1_36sxg"]
 [ext_resource type="Texture2D" uid="uid://05lglthdl4sj" path="res://Assets/Sprites/test_display_1.jpg" id="2_7m1ck"]
@@ -11,9 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://jydex1gdp0it" path="res://Scenes/GateWork/GateWork.tscn" id="4_nyqyi"]
 [ext_resource type="Texture2D" uid="uid://31o3s1ku47ue" path="res://Assets/Sprites/test_display_4.jpg" id="5_4jia0"]
 [ext_resource type="PackedScene" uid="uid://bfccac2tnf5g7" path="res://Scenes/InteractiveObjects/Papers/paper.tscn" id="5_tl8jx"]
+[ext_resource type="PackedScene" uid="uid://d02d8i5lra56a" path="res://Scenes/Clock/Clock.tscn" id="6_dghn4"]
 [ext_resource type="PackedScene" uid="uid://byj40cdlhan0v" path="res://Scenes/HUD/HUD.tscn" id="6_eayq5"]
 [ext_resource type="Texture2D" uid="uid://durw243mebryd" path="res://Assets/Sprites/test_display_5.jpg" id="6_ha3rk"]
 [ext_resource type="Texture2D" uid="uid://v3d3uppqqls3" path="res://Assets/Sprites/test_display_6.jpg" id="7_4k6ie"]
+[ext_resource type="PackedScene" uid="uid://uegxhc3t00r4" path="res://Scenes/Radio/Radio.tscn" id="7_7hak2"]
+[ext_resource type="PackedScene" uid="uid://bt08rwy12clf8" path="res://Scenes/Games/Games.tscn" id="9_t5knk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_phs4u"]
 size = Vector2(161, 1080)
@@ -64,10 +64,10 @@ size = Vector2(1696, 168)
 size = Vector2(197, 1048)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rr452"]
-size = Vector2(175, 1056)
+size = Vector2(103, 1056)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h0a0m"]
-size = Vector2(1560, 169)
+size = Vector2(1648, 97)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8nq5t"]
 size = Vector2(1728, 181)
@@ -218,6 +218,13 @@ position = Vector2(4, -124)
 
 [node name="Paper2" parent="Display/Display_Papers" instance=ExtResource("5_tl8jx")]
 position = Vector2(-462, -46)
+[node name="Clock" parent="Display/Display_2" instance=ExtResource("6_dghn4")]
+position = Vector2(-320, -504)
+scale = Vector2(0.30087, 0.204704)
+
+[node name="Radio" parent="Display/Display_2" instance=ExtResource("7_7hak2")]
+position = Vector2(-184, -488)
+scale = Vector2(0.635769, 0.832529)
 
 [node name="Display_3" type="Sprite2D" parent="Display"]
 position = Vector2(4872, 560)
@@ -267,22 +274,28 @@ texture = ExtResource("6_ha3rk")
 ignore_rotation = false
 enabled = false
 
+[node name="Games" parent="Display/Display_5" instance=ExtResource("9_t5knk")]
+position = Vector2(-960, -536)
+
 [node name="EnterMouseDisplayLeft_5" type="Area2D" parent="Display/Display_5"]
+z_index = 30
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Display/Display_5/EnterMouseDisplayLeft_5"]
-position = Vector2(-871.5, 24)
+position = Vector2(-907.5, 24)
 shape = SubResource("RectangleShape2D_rr452")
 
 [node name="EnterMouseDisplayRight_5" type="Area2D" parent="Display/Display_5"]
+z_index = 30
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Display/Display_5/EnterMouseDisplayRight_5"]
 position = Vector2(864, 24)
 shape = SubResource("RectangleShape2D_rr452")
 
 [node name="EnterMouseDisplayTop_5" type="Area2D" parent="Display/Display_5"]
+z_index = 30
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Display/Display_5/EnterMouseDisplayTop_5"]
-position = Vector2(-4, -420.5)
+position = Vector2(-24, -456.5)
 shape = SubResource("RectangleShape2D_h0a0m")
 
 [node name="Display_6" type="Sprite2D" parent="Display"]

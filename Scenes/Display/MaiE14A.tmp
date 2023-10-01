@@ -1,0 +1,209 @@
+[gd_scene load_steps=23 format=3 uid="uid://u17qwj4dl4fn"]
+
+[ext_resource type="Script" path="res://Scenes/Display/Main.gd" id="1_36sxg"]
+[ext_resource type="Texture2D" uid="uid://05lglthdl4sj" path="res://Assets/Sprites/test_display_1.jpg" id="2_7m1ck"]
+[ext_resource type="Texture2D" uid="uid://cj46dlvcpsimv" path="res://Assets/Sprites/test_display_2.jpg" id="3_bbrll"]
+[ext_resource type="Texture2D" uid="uid://403q500ifr74" path="res://Assets/Sprites/test_display_3.jpg" id="4_2uu5r"]
+[ext_resource type="PackedScene" uid="uid://jydex1gdp0it" path="res://Scenes/GateWork/GateWork.tscn" id="4_nyqyi"]
+[ext_resource type="Texture2D" uid="uid://31o3s1ku47ue" path="res://Assets/Sprites/test_display_4.jpg" id="5_4jia0"]
+[ext_resource type="PackedScene" uid="uid://byj40cdlhan0v" path="res://Scenes/HUD/HUD.tscn" id="6_eayq5"]
+[ext_resource type="Texture2D" uid="uid://durw243mebryd" path="res://Assets/Sprites/test_display_5.jpg" id="6_ha3rk"]
+[ext_resource type="Texture2D" uid="uid://v3d3uppqqls3" path="res://Assets/Sprites/test_display_6.jpg" id="7_4k6ie"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_phs4u"]
+size = Vector2(161, 1080)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf4jk"]
+size = Vector2(1690, 87)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yefwc"]
+size = Vector2(176, 1080)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kedyc"]
+size = Vector2(1541.5, 181)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cag07"]
+size = Vector2(201.5, 1056)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_13dbh"]
+size = Vector2(175, 1064)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jlb1p"]
+size = Vector2(1738, 167)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j4lat"]
+size = Vector2(1696, 168)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_12swx"]
+size = Vector2(197, 1048)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rr452"]
+size = Vector2(175, 1056)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h0a0m"]
+size = Vector2(1560, 169)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8nq5t"]
+size = Vector2(1728, 181)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ucgs4"]
+size = Vector2(163, 1064)
+
+[node name="Main" type="Node"]
+script = ExtResource("1_36sxg")
+
+[node name="HUD" parent="." instance=ExtResource("6_eayq5")]
+
+[node name="Display" type="CanvasGroup" parent="."]
+
+[node name="Display_1" type="Sprite2D" parent="Display"]
+position = Vector2(952, 560)
+texture = ExtResource("2_7m1ck")
+
+[node name="GateWork" parent="Display/Display_1" instance=ExtResource("4_nyqyi")]
+position = Vector2(-984, -568)
+
+[node name="CameraDisplay_1" type="Camera2D" parent="Display/Display_1"]
+position = Vector2(8, 0)
+ignore_rotation = false
+
+[node name="EnterMouseFisplay_1" type="Area2D" parent="Display/Display_1"]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Display/Display_1/EnterMouseFisplay_1"]
+position = Vector2(888.5, -20)
+shape = SubResource("RectangleShape2D_phs4u")
+
+[node name="EnterMouseDisplayDown_1" type="Area2D" parent="Display/Display_1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Display/Display_1/EnterMouseDisplayDown_1"]
+position = Vector2(-109, 475.5)
+shape = SubResource("RectangleShape2D_yf4jk")
+
+[node name="Display_2" type="Sprite2D" parent="Display"]
+position = Vector2(2912, 560)
+texture = ExtResource("3_bbrll")
+
+[node name="CameraDisplay_2" type="Camera2D" parent="Display/Display_2"]
+position = Vector2(0, -16)
+ignore_rotation = false
+enabled = false
+
+[node name="EnterMouseDisplayLeft_2" type="Area2D" parent="Display/Display_2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Display/Display_2/EnterMouseDisplayLeft_2"]
+position = Vector2(-872, -20)
+shape = SubResource("RectangleShape2D_yefwc")
+
+[node name="EnterMouseDisplayDown_2" type="Area2D" parent="Display/Display_2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Display/Display_2/EnterMouseDisplayDown_2"]
+position = Vector2(-10.75, 426.5)
+shape = SubResource("RectangleShape2D_kedyc")
+
+[node name="EnterMouseDisplayRight_2" type="Area2D" parent="Display/Display_2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Display/Display_2/EnterMouseDisplayRight_2"]
+position = Vector2(860.75, -16)
+shape = SubResource("RectangleShape2D_cag07")
+
+[node name="Display_3" type="Sprite2D" parent="Display"]
+position = Vector2(4872, 560)
+texture = ExtResource("4_2uu5r")
+
+[node name="CameraDisplay_3" type="Camera2D" parent="Display/Display_3"]
+ignore_rotation = false
+enabled = false
+
+[node name="EnterMouseDisplayLeft_3" type="Area2D" parent="Display/Display_3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Display/Display_3/EnterMouseDisplayLeft_3"]
+position = Vector2(-855.5, -20)
+shape = SubResource("RectangleShape2D_13dbh")
+
+[node name="EnterMouseDisplayDown_3" type="Area2D" parent="Display/Display_3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Display/Display_3/EnterMouseDisplayDown_3"]
+position = Vector2(107, 427.5)
+shape = SubResource("RectangleShape2D_jlb1p")
+
+[node name="Display_4" type="Sprite2D" parent="Display"]
+position = Vector2(952, 1672)
+texture = ExtResource("5_4jia0")
+
+[node name="CameraDisplay_4" type="Camera2D" parent="Display/Display_4"]
+ignore_rotation = false
+enabled = false
+
+[node name="EnterMouseDisplayTop_4" type="Area2D" parent="Display/Display_4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Display/Display_4/EnterMouseDisplayTop_4"]
+position = Vector2(-104, -420)
+shape = SubResource("RectangleShape2D_j4lat")
+
+[node name="EnterMouseDisplayRight_4" type="Area2D" parent="Display/Display_4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Display/Display_4/EnterMouseDisplayRight_4"]
+position = Vector2(842.5, 20)
+shape = SubResource("RectangleShape2D_12swx")
+
+[node name="Display_5" type="Sprite2D" parent="Display"]
+position = Vector2(2912, 1672)
+texture = ExtResource("6_ha3rk")
+
+[node name="CameraDisplay_5" type="Camera2D" parent="Display/Display_5"]
+ignore_rotation = false
+enabled = false
+
+[node name="EnterMouseDisplayLeft_5" type="Area2D" parent="Display/Display_5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Display/Display_5/EnterMouseDisplayLeft_5"]
+position = Vector2(-871.5, 24)
+shape = SubResource("RectangleShape2D_rr452")
+
+[node name="EnterMouseDisplayRight_5" type="Area2D" parent="Display/Display_5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Display/Display_5/EnterMouseDisplayRight_5"]
+position = Vector2(864, 24)
+shape = SubResource("RectangleShape2D_rr452")
+
+[node name="EnterMouseDisplayTop_5" type="Area2D" parent="Display/Display_5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Display/Display_5/EnterMouseDisplayTop_5"]
+position = Vector2(-4, -420.5)
+shape = SubResource("RectangleShape2D_h0a0m")
+
+[node name="Display_6" type="Sprite2D" parent="Display"]
+position = Vector2(4872, 1672)
+texture = ExtResource("7_4k6ie")
+
+[node name="CameraDisplay_6" type="Camera2D" parent="Display/Display_6"]
+ignore_rotation = false
+enabled = false
+
+[node name="EnterMouseDisplayTop_6" type="Area2D" parent="Display/Display_6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Display/Display_6/EnterMouseDisplayTop_6"]
+position = Vector2(104, -426.5)
+shape = SubResource("RectangleShape2D_8nq5t")
+
+[node name="EnterMouseDisplayLeft_6" type="Area2D" parent="Display/Display_6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Display/Display_6/EnterMouseDisplayLeft_6"]
+position = Vector2(-849.5, 20)
+shape = SubResource("RectangleShape2D_ucgs4")
+
+[connection signal="mouse_entered" from="Display/Display_1/EnterMouseFisplay_1" to="." method="_on_enter_mouse_fisplay_1_mouse_entered"]
+[connection signal="mouse_entered" from="Display/Display_1/EnterMouseDisplayDown_1" to="." method="_on_enter_mouse_display_down_1_mouse_entered"]
+[connection signal="mouse_entered" from="Display/Display_2/EnterMouseDisplayLeft_2" to="." method="_on_enter_mouse_display_left_2_mouse_entered"]
+[connection signal="mouse_entered" from="Display/Display_2/EnterMouseDisplayDown_2" to="." method="_on_enter_mouse_display_down_2_mouse_entered"]
+[connection signal="mouse_entered" from="Display/Display_2/EnterMouseDisplayRight_2" to="." method="_on_enter_mouse_display_right_2_mouse_entered"]
+[connection signal="mouse_entered" from="Display/Display_3/EnterMouseDisplayLeft_3" to="." method="_on_enter_mouse_display_left_3_mouse_entered"]
+[connection signal="mouse_entered" from="Display/Display_3/EnterMouseDisplayDown_3" to="." method="_on_enter_mouse_display_down_3_mouse_entered"]
+[connection signal="mouse_entered" from="Display/Display_4/EnterMouseDisplayTop_4" to="." method="_on_enter_mouse_display_top_4_mouse_entered"]
+[connection signal="mouse_entered" from="Display/Display_4/EnterMouseDisplayRight_4" to="." method="_on_enter_mouse_display_right_4_mouse_entered"]
+[connection signal="mouse_entered" from="Display/Display_5/EnterMouseDisplayLeft_5" to="." method="_on_enter_mouse_display_left_5_mouse_entered"]
+[connection signal="mouse_entered" from="Display/Display_5/EnterMouseDisplayRight_5" to="." method="_on_enter_mouse_display_right_5_mouse_entered"]
+[connection signal="mouse_entered" from="Display/Display_5/EnterMouseDisplayTop_5" to="." method="_on_enter_mouse_display_top_5_mouse_entered"]
+[connection signal="mouse_entered" from="Display/Display_6/EnterMouseDisplayTop_6" to="." method="_on_enter_mouse_display_top_6_mouse_entered"]
+[connection signal="mouse_entered" from="Display/Display_6/EnterMouseDisplayLeft_6" to="." method="_on_enter_mouse_display_left_6_mouse_entered"]
