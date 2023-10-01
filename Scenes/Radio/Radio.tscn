@@ -1,0 +1,100 @@
+[gd_scene load_steps=2 format=3 uid="uid://uegxhc3t00r4"]
+
+[ext_resource type="Script" path="res://Scenes/Radio/Radio.gd" id="1_guw3w"]
+
+[node name="Radio" type="Node2D"]
+z_index = 30
+script = ExtResource("1_guw3w")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 456.0
+offset_top = 320.0
+offset_right = 1368.0
+offset_bottom = 744.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OnOffButton" type="CheckButton" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -184.0
+offset_top = -104.0
+offset_right = -140.0
+offset_bottom = -80.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="LabelOn" type="Label" parent="ColorRect/OnOffButton"]
+layout_mode = 0
+offset_left = 48.0
+offset_right = 88.0
+offset_bottom = 26.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "ON"
+
+[node name="Label" type="Label" parent="ColorRect/OnOffButton"]
+layout_mode = 0
+offset_left = -32.0
+offset_right = 8.0
+offset_bottom = 26.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "OFF"
+
+[node name="LineSignal" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 8.0
+offset_right = 888.0
+offset_bottom = 128.0
+color = Color(0.152941, 0.152941, 0.152941, 1)
+
+[node name="enterSignal" type="ColorRect" parent="ColorRect"]
+offset_left = 736.0
+offset_top = 144.0
+offset_right = 776.0
+offset_bottom = 184.0
+color = Color(0.368627, 0.368627, 0.368627, 1)
+
+[node name="middleSignal" type="ColorRect" parent="ColorRect"]
+offset_left = 784.0
+offset_top = 144.0
+offset_right = 824.0
+offset_bottom = 184.0
+color = Color(0.368627, 0.368627, 0.368627, 1)
+
+[node name="NoSignal" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = 832.0
+offset_top = 144.0
+offset_right = 872.0
+offset_bottom = 184.0
+color = Color(0.368627, 0.368627, 0.368627, 1)
+
+[node name="signalNumbers" type="SpinBox" parent="ColorRect"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 152.0
+offset_right = 107.063
+offset_bottom = 183.0
+step = 0.1
+value = 60.0
+
+[node name="numbers" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 16.0
+offset_right = 80.0
+offset_bottom = 42.0
+text = "90 Гц"
+
+[connection signal="button_up" from="ColorRect/OnOffButton" to="." method="_on_on_off_button_button_up"]
+[connection signal="value_changed" from="ColorRect/signalNumbers" to="." method="_on_signal_numbers_value_changed"]

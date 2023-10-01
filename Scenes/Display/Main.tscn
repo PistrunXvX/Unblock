@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://u17qwj4dl4fn"]
+[gd_scene load_steps=26 format=3 uid="uid://u17qwj4dl4fn"]
 
 [ext_resource type="Script" path="res://Scenes/Display/Main.gd" id="1_36sxg"]
 [ext_resource type="Texture2D" uid="uid://05lglthdl4sj" path="res://Assets/Sprites/test_display_1.jpg" id="2_7m1ck"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://byj40cdlhan0v" path="res://Scenes/HUD/HUD.tscn" id="6_eayq5"]
 [ext_resource type="Texture2D" uid="uid://durw243mebryd" path="res://Assets/Sprites/test_display_5.jpg" id="6_ha3rk"]
 [ext_resource type="Texture2D" uid="uid://v3d3uppqqls3" path="res://Assets/Sprites/test_display_6.jpg" id="7_4k6ie"]
+[ext_resource type="PackedScene" uid="uid://uegxhc3t00r4" path="res://Scenes/Radio/Radio.tscn" id="7_7hak2"]
 [ext_resource type="PackedScene" uid="uid://bt08rwy12clf8" path="res://Scenes/Games/Games.tscn" id="9_t5knk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_phs4u"]
@@ -111,7 +112,11 @@ shape = SubResource("RectangleShape2D_cag07")
 
 [node name="Clock" parent="Display/Display_2" instance=ExtResource("6_dghn4")]
 position = Vector2(-320, -504)
-scale = Vector2(0.3, 0.204)
+scale = Vector2(0.30087, 0.204704)
+
+[node name="Radio" parent="Display/Display_2" instance=ExtResource("7_7hak2")]
+position = Vector2(-184, -488)
+scale = Vector2(0.635769, 0.832529)
 
 [node name="Display_3" type="Sprite2D" parent="Display"]
 position = Vector2(4872, 560)
