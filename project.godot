@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GlobalCamera="*res://Scenes/GlobalCamera/GlobalCamera.tscn"
 PlayerStatus="*res://GlobalScripts/PlayerStatus.gd"
+CarList="*res://GlobalScripts/CarList.gd"
 
 [display]
 

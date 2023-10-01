@@ -8,6 +8,8 @@ var cameraDisplay4
 var cameraDisplay5
 var cameraDisplay6
 
+var paper_scene = preload("res://Scenes/InteractiveObjects/Papers/paper.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	cameraDisplay1 = $Display/Display_1/CameraDisplay_1
@@ -17,6 +19,8 @@ func _ready():
 	cameraDisplay5 = $Display/Display_5/CameraDisplay_5
 	cameraDisplay6 = $Display/Display_6/CameraDisplay_6
 	cameraDisplay2Paper = $Display/Display_Papers/CameraDisplay_2_papers
+	
+	generate_paper_level(CarList.carList.level_1)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -112,3 +116,16 @@ func _on_button_pressed():
 
 func _on_enter_mouse_display_papers_mouse_entered():
 	GlobalCamera.transition_camera(cameraDisplay2Paper, cameraDisplay2)
+
+func generate_paper_level(clients):
+	var spawn_location = $Display/Display_Papers/SpawnNodes
+	var position_spawn = spawn_location.position
+	var counter = 0
+	
+	for client in clients:
+		var new_paper = paper_scene.instantiate()
+		print(clients[client])
+		new_paper.set_position(Vector2(position_spawn.x + randf_range(0, 100), position_spawn.y + randf_range(0, 100)))
+		cameraDisplay2Paper.add_child(new_paper)
+		new_paper.set_client(clients[client])
+		print(new_paper.position)
