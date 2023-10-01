@@ -1,5 +1,4 @@
-
-[gd_scene load_steps=26 format=3 uid="uid://u17qwj4dl4fn"]
+[gd_scene load_steps=29 format=3 uid="uid://u17qwj4dl4fn"]
 
 [ext_resource type="Script" path="res://Scenes/Display/Main.gd" id="1_36sxg"]
 [ext_resource type="Texture2D" uid="uid://05lglthdl4sj" path="res://Assets/Sprites/test_display_1.jpg" id="2_7m1ck"]
@@ -140,6 +139,7 @@ offset_right = 141.0
 offset_bottom = 307.0
 
 [node name="clock" type="Node2D" parent="Display/Display_2"]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="Display/Display_2/clock"]
 offset_left = 333.0
@@ -152,7 +152,7 @@ offset_left = 496.0
 offset_top = -78.0
 offset_right = 606.0
 offset_bottom = -62.0
-rotation = 4.72539
+rotation = 4.99342
 color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Display/Display_2/clock"]
@@ -160,6 +160,14 @@ autoplay = "clock"
 libraries = {
 "": SubResource("AnimationLibrary_6bmjt")
 }
+
+[node name="Clock" parent="Display/Display_2" instance=ExtResource("6_dghn4")]
+position = Vector2(-320, -504)
+scale = Vector2(0.30087, 0.204704)
+
+[node name="Radio" parent="Display/Display_2" instance=ExtResource("7_7hak2")]
+position = Vector2(-128, -496)
+scale = Vector2(0.635769, 0.832529)
 
 [node name="Display_Papers" type="Sprite2D" parent="Display"]
 z_index = -5
@@ -218,13 +226,6 @@ position = Vector2(4, -124)
 
 [node name="Paper2" parent="Display/Display_Papers" instance=ExtResource("5_tl8jx")]
 position = Vector2(-462, -46)
-[node name="Clock" parent="Display/Display_2" instance=ExtResource("6_dghn4")]
-position = Vector2(-320, -504)
-scale = Vector2(0.30087, 0.204704)
-
-[node name="Radio" parent="Display/Display_2" instance=ExtResource("7_7hak2")]
-position = Vector2(-184, -488)
-scale = Vector2(0.635769, 0.832529)
 
 [node name="Display_3" type="Sprite2D" parent="Display"]
 position = Vector2(4872, 560)
