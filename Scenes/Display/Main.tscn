@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://u17qwj4dl4fn"]
+[gd_scene load_steps=29 format=3 uid="uid://u17qwj4dl4fn"]
 
 [ext_resource type="Script" path="res://Scenes/Display/Main.gd" id="1_36sxg"]
 [ext_resource type="Texture2D" uid="uid://05lglthdl4sj" path="res://Assets/Sprites/test_display_1.jpg" id="2_7m1ck"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://403q500ifr74" path="res://Assets/Sprites/test_display_3.jpg" id="4_2uu5r"]
 [ext_resource type="PackedScene" uid="uid://jydex1gdp0it" path="res://Scenes/GateWork/GateWork.tscn" id="4_nyqyi"]
 [ext_resource type="Texture2D" uid="uid://31o3s1ku47ue" path="res://Assets/Sprites/test_display_4.jpg" id="5_4jia0"]
+[ext_resource type="PackedScene" uid="uid://bfccac2tnf5g7" path="res://Scenes/InteractiveObjects/Papers/paper.tscn" id="5_tl8jx"]
 [ext_resource type="PackedScene" uid="uid://d02d8i5lra56a" path="res://Scenes/Clock/Clock.tscn" id="6_dghn4"]
 [ext_resource type="PackedScene" uid="uid://byj40cdlhan0v" path="res://Scenes/HUD/HUD.tscn" id="6_eayq5"]
 [ext_resource type="Texture2D" uid="uid://durw243mebryd" path="res://Assets/Sprites/test_display_5.jpg" id="6_ha3rk"]
@@ -27,6 +28,27 @@ size = Vector2(1541.5, 181)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cag07"]
 size = Vector2(201.5, 1056)
+
+[sub_resource type="Animation" id="Animation_cq65c"]
+resource_name = "clock"
+length = 600.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 298.7, 600),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [4.71657, 7.34952, 8.78477]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6bmjt"]
+_data = {
+"clock": SubResource("Animation_cq65c")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_13dbh"]
 size = Vector2(175, 1064)
@@ -110,11 +132,100 @@ shape = SubResource("RectangleShape2D_kedyc")
 position = Vector2(860.75, -16)
 shape = SubResource("RectangleShape2D_cag07")
 
+[node name="Button" type="Button" parent="Display/Display_2"]
+offset_left = -180.0
+offset_top = -22.0
+offset_right = 141.0
+offset_bottom = 307.0
+
+[node name="clock" type="Node2D" parent="Display/Display_2"]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Display/Display_2/clock"]
+offset_left = 333.0
+offset_top = -221.0
+offset_right = 653.0
+offset_bottom = 91.0
+
+[node name="ColorRect2" type="ColorRect" parent="Display/Display_2/clock"]
+offset_left = 496.0
+offset_top = -78.0
+offset_right = 606.0
+offset_bottom = -62.0
+rotation = 4.99342
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Display/Display_2/clock"]
+autoplay = "clock"
+libraries = {
+"": SubResource("AnimationLibrary_6bmjt")
+}
 [node name="Clock" parent="Display/Display_2" instance=ExtResource("6_dghn4")]
 position = Vector2(-320, -504)
 scale = Vector2(0.30087, 0.204704)
 
 [node name="Radio" parent="Display/Display_2" instance=ExtResource("7_7hak2")]
+position = Vector2(-128, -496)
+scale = Vector2(0.635769, 0.832529)
+
+[node name="Display_Papers" type="Sprite2D" parent="Display"]
+z_index = -5
+position = Vector2(2912, -558)
+texture = ExtResource("3_bbrll")
+
+[node name="EnterMouseDisplayPapers" type="Area2D" parent="Display/Display_Papers"]
+position = Vector2(876, 449)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Display/Display_Papers/EnterMouseDisplayPapers"]
+position = Vector2(-871, -43)
+shape = SubResource("RectangleShape2D_kedyc")
+
+[node name="CameraDisplay_2_papers" type="Camera2D" parent="Display/Display_Papers"]
+position = Vector2(0, -16)
+ignore_rotation = false
+enabled = false
+
+[node name="test_group" type="Node2D" parent="Display/Display_Papers"]
+
+[node name="test" type="Label" parent="Display/Display_Papers/test_group"]
+offset_left = -343.0
+offset_top = -6.0
+offset_right = 345.0
+offset_bottom = 218.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 161
+text = "(бумаги)"
+
+[node name="ColorRect" type="ColorRect" parent="Display/Display_Papers/test_group"]
+offset_left = -924.0
+offset_top = -174.0
+offset_right = -610.0
+offset_bottom = 189.0
+
+[node name="ColorRect2" type="ColorRect" parent="Display/Display_Papers/test_group"]
+offset_left = 636.0
+offset_top = -193.0
+offset_right = 950.0
+offset_bottom = 170.0
+
+[node name="ColorRect3" type="ColorRect" parent="Display/Display_Papers/test_group"]
+offset_left = -924.0
+offset_top = 259.0
+offset_right = -581.0
+offset_bottom = 503.0
+
+[node name="ColorRect4" type="ColorRect" parent="Display/Display_Papers/test_group"]
+offset_left = 589.0
+offset_top = 254.0
+offset_right = 932.0
+offset_bottom = 498.0
+
+[node name="Paper" parent="Display/Display_Papers" instance=ExtResource("5_tl8jx")]
+position = Vector2(4, -124)
+
+[node name="Paper2" parent="Display/Display_Papers" instance=ExtResource("5_tl8jx")]
+position = Vector2(-462, -46)
+
 position = Vector2(-184, -488)
 scale = Vector2(0.635769, 0.832529)
 
@@ -215,6 +326,8 @@ shape = SubResource("RectangleShape2D_ucgs4")
 [connection signal="mouse_entered" from="Display/Display_2/EnterMouseDisplayLeft_2" to="." method="_on_enter_mouse_display_left_2_mouse_entered"]
 [connection signal="mouse_entered" from="Display/Display_2/EnterMouseDisplayDown_2" to="." method="_on_enter_mouse_display_down_2_mouse_entered"]
 [connection signal="mouse_entered" from="Display/Display_2/EnterMouseDisplayRight_2" to="." method="_on_enter_mouse_display_right_2_mouse_entered"]
+[connection signal="pressed" from="Display/Display_2/Button" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="Display/Display_Papers/EnterMouseDisplayPapers" to="." method="_on_enter_mouse_display_papers_mouse_entered"]
 [connection signal="mouse_entered" from="Display/Display_3/EnterMouseDisplayLeft_3" to="." method="_on_enter_mouse_display_left_3_mouse_entered"]
 [connection signal="mouse_entered" from="Display/Display_3/EnterMouseDisplayDown_3" to="." method="_on_enter_mouse_display_down_3_mouse_entered"]
 [connection signal="mouse_entered" from="Display/Display_4/EnterMouseDisplayTop_4" to="." method="_on_enter_mouse_display_top_4_mouse_entered"]

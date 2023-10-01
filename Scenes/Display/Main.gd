@@ -2,6 +2,7 @@ extends Node
 
 var cameraDisplay1
 var cameraDisplay2
+var cameraDisplay2Paper
 var cameraDisplay3
 var cameraDisplay4
 var cameraDisplay5
@@ -15,6 +16,7 @@ func _ready():
 	cameraDisplay4 = $Display/Display_4/CameraDisplay_4
 	cameraDisplay5 = $Display/Display_5/CameraDisplay_5
 	cameraDisplay6 = $Display/Display_6/CameraDisplay_6
+	cameraDisplay2Paper = $Display/Display_Papers/CameraDisplay_2_papers
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -104,3 +106,9 @@ func _on_enter_mouse_display_left_6_mouse_entered():
 
 func _on_enter_mouse_display_top_6_mouse_entered():
 	GlobalCamera.transition_camera(cameraDisplay6, cameraDisplay3)
+
+func _on_button_pressed():
+	GlobalCamera.transition_camera(cameraDisplay2, cameraDisplay2Paper)
+
+func _on_enter_mouse_display_papers_mouse_entered():
+	GlobalCamera.transition_camera(cameraDisplay2Paper, cameraDisplay2)

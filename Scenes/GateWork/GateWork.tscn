@@ -81,27 +81,27 @@ wait_time = 6.0
 one_shot = true
 
 [node name="Open" type="Button" parent="."]
-offset_left = 508.0
-offset_top = 834.0
-offset_right = 698.0
-offset_bottom = 986.0
+offset_left = 664.0
+offset_top = 856.0
+offset_right = 854.0
+offset_bottom = 1008.0
 text = "Открыть
 "
 
 [node name="Close" type="Button" parent="."]
-offset_left = 867.0
-offset_top = 832.0
-offset_right = 1057.0
-offset_bottom = 984.0
+offset_left = 952.0
+offset_top = 848.0
+offset_right = 1142.0
+offset_bottom = 1000.0
 text = "Закрыть
 
 "
 
 [node name="GuardButton" type="Button" parent="."]
-offset_left = 1172.0
-offset_top = 834.0
-offset_right = 1362.0
-offset_bottom = 986.0
+offset_left = 1232.0
+offset_top = 848.0
+offset_right = 1422.0
+offset_bottom = 1000.0
 text = "Охрана
 
 "
