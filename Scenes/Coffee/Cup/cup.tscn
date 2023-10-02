@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://c53kell0uycb1"]
+
+[ext_resource type="Script" path="res://Scenes/Coffee/Cup/cup.gd" id="1_5h7w0"]
+[ext_resource type="Texture2D" uid="uid://b10geckvmoa4m" path="res://Assets/Sprites/CoffeeCup/CupEmpty.png" id="1_8nwgn"]
+[ext_resource type="Texture2D" uid="uid://db7nmvmtgtiau" path="res://Assets/Sprites/CoffeeCup/CupFull.png" id="2_et3bs"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w165d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_8nwgn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_et3bs")
+}],
+"loop": true,
+"name": &"frames",
+"speed": 5.0
+}]
+
+[node name="Cup" type="Node2D"]
+script = ExtResource("1_5h7w0")
+
+[node name="Cup" type="AnimatedSprite2D" parent="."]
+position = Vector2(92, 96)
+sprite_frames = SubResource("SpriteFrames_w165d")
+animation = &"frames"
+
+[node name="Cup2" type="AnimatedSprite2D" parent="."]
+position = Vector2(92, 96)
+sprite_frames = SubResource("SpriteFrames_w165d")
+animation = &"frames"

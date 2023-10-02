@@ -1,0 +1,116 @@
+[gd_scene load_steps=14 format=3 uid="uid://dm4bnvgpgtbhc"]
+
+[ext_resource type="Script" path="res://Scenes/Coffee/Machine/CoffeeMachine.gd" id="1_nr8x3"]
+[ext_resource type="Texture2D" uid="uid://5nukilgdbuwi" path="res://Assets/Sprites/CoffeeMachine/CofMachineNoCup.png" id="1_p8sx2"]
+[ext_resource type="Texture2D" uid="uid://hktlwxkjhstn" path="res://Assets/Sprites/CoffeeMachine/CofButOFF.png" id="2_qotia"]
+[ext_resource type="Texture2D" uid="uid://b34ucc8geoi07" path="res://Assets/Sprites/CoffeeMachine/CoffeButON.png" id="3_gf4tr"]
+[ext_resource type="Texture2D" uid="uid://ctowwb4f5x8ow" path="res://Assets/Sprites/CoffeeMachine/CoffeMachineCup.png" id="4_krm7y"]
+[ext_resource type="AudioStream" uid="uid://dksi13jmkqj2h" path="res://Assets/Sounds/CoffeeMachine_Click_Error.wav" id="6_34loi"]
+[ext_resource type="AudioStream" uid="uid://pqgi763m4yaa" path="res://Assets/Sounds/CoffeeMachine_Click_Success.wav" id="7_vnm83"]
+[ext_resource type="AudioStream" uid="uid://3vddrqy03h3c" path="res://Assets/Sounds/CoffeeMachine_Work.wav" id="8_rjniu"]
+[ext_resource type="AudioStream" uid="uid://cr411ntu13tfk" path="res://Assets/Sounds/CoffeeMachine_WorkSuccess.wav" id="8_rmmh5"]
+[ext_resource type="AudioStream" uid="uid://qh2ncjghntjx" path="res://Assets/Sounds/CoffeeMachine_FillGlass.wav" id="10_8m4ic"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m35yj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_p8sx2")
+}],
+"loop": true,
+"name": &"frames",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nae8y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qotia")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gf4tr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t80a0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_krm7y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CoffeeMachine" type="Node2D"]
+position = Vector2(168, 61)
+script = ExtResource("1_nr8x3")
+
+[node name="Machine" type="AnimatedSprite2D" parent="."]
+position = Vector2(69, 223)
+sprite_frames = SubResource("SpriteFrames_m35yj")
+animation = &"frames"
+
+[node name="Button" type="AnimatedSprite2D" parent="."]
+position = Vector2(16, 368)
+sprite_frames = SubResource("SpriteFrames_nae8y")
+
+[node name="Top" type="AnimatedSprite2D" parent="."]
+position = Vector2(129, -19)
+sprite_frames = SubResource("SpriteFrames_t80a0")
+
+[node name="Top_Button" type="CheckButton" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -29.0
+offset_top = -43.0
+offset_right = 292.0
+offset_bottom = 2.0
+text = "TOP"
+
+[node name="Switch_Button" type="CheckButton" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -11.0
+offset_top = 332.0
+offset_right = 54.0
+offset_bottom = 401.0
+
+[node name="clickError" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_34loi")
+
+[node name="clickSuccess" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_vnm83")
+
+[node name="workSuccess" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_rmmh5")
+
+[node name="COFFEE" type="ColorRect" parent="."]
+offset_left = 460.0
+offset_top = 127.0
+offset_right = 500.0
+offset_bottom = 167.0
+
+[node name="WATER" type="ColorRect" parent="."]
+offset_left = 464.0
+offset_top = 184.0
+offset_right = 504.0
+offset_bottom = 224.0
+
+[node name="SUGAR" type="ColorRect" parent="."]
+offset_left = 463.0
+offset_top = 244.0
+offset_right = 503.0
+offset_bottom = 284.0
+
+[node name="work" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_rjniu")
+
+[node name="fill" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_8m4ic")
+
+[connection signal="toggled" from="Top_Button" to="." method="_on_top_button_toggled"]
+[connection signal="toggled" from="Switch_Button" to="." method="_on_switch_button_toggled"]

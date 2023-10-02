@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://cidqphjj0hys7"]
+
+[ext_resource type="PackedScene" uid="uid://dm4bnvgpgtbhc" path="res://Scenes/Coffee/Machine/CoffeeMachine.tscn" id="1_yif1n"]
+[ext_resource type="PackedScene" uid="uid://cx14cgdhcnke" path="res://Scenes/Coffee/Grafin/Grafin.tscn" id="2_e53ll"]
+[ext_resource type="PackedScene" uid="uid://c53kell0uycb1" path="res://Scenes/Coffee/Cup/cup.tscn" id="3_2rahs"]
+
+[node name="CoffeeMachine_TEST" type="Node2D"]
+
+[node name="CoffeeMachine" parent="." instance=ExtResource("1_yif1n")]
+
+[node name="Grafin" parent="." instance=ExtResource("2_e53ll")]
+position = Vector2(250, 258)
+
+[node name="Cup" parent="." instance=ExtResource("3_2rahs")]
+position = Vector2(590, 336)
+
+[node name="Coffee" type="Button" parent="."]
+offset_left = 949.0
+offset_top = 204.0
+offset_right = 1102.0
+offset_bottom = 339.0
+text = "COFFEE"
+
+[node name="Sugar" type="Button" parent="."]
+offset_left = 1149.0
+offset_top = 206.0
+offset_right = 1302.0
+offset_bottom = 341.0
+text = "SUGAR"
+
+[node name="Water" type="Button" parent="."]
+offset_left = 1351.0
+offset_top = 206.0
+offset_right = 1504.0
+offset_bottom = 341.0
+text = "WATER"
+
+[connection signal="pressed" from="Coffee" to="CoffeeMachine" method="_on_coffee_pressed"]
+[connection signal="pressed" from="Sugar" to="CoffeeMachine" method="_on_sugar_pressed"]
+[connection signal="pressed" from="Water" to="CoffeeMachine" method="_on_water_pressed"]
