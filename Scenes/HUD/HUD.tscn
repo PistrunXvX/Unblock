@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://byj40cdlhan0v"]
+[gd_scene load_steps=11 format=3 uid="uid://byj40cdlhan0v"]
 
 [ext_resource type="Script" path="res://Scenes/TimeLine/TimeLine.gd" id="1_d0efd"]
 [ext_resource type="PackedScene" uid="uid://du4jd1ckf3fpv" path="res://Scenes/Dialog/dialog_system.tscn" id="2_dbm3e"]
@@ -16,6 +16,60 @@ colors = PackedColorArray(1, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_vj1q1"]
 gradient = SubResource("Gradient_b3wy6")
+
+[sub_resource type="Animation" id="Animation_pedbr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_64rsl"]
+resource_name = "fade_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rjkms"]
+resource_name = "fade_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_of4mg"]
+_data = {
+"RESET": SubResource("Animation_pedbr"),
+"fade_in": SubResource("Animation_64rsl"),
+"fade_out": SubResource("Animation_rjkms")
+}
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_d0efd")
@@ -69,6 +123,23 @@ nine_patch_stretch = true
 texture_progress = SubResource("GradientTexture2D_vj1q1")
 
 [node name="DialogSystem" parent="." instance=ExtResource("2_dbm3e")]
+
+[node name="Fade" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Fade"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0)
+
+[node name="FadeAnim" type="AnimationPlayer" parent="Fade"]
+libraries = {
+"": SubResource("AnimationLibrary_of4mg")
+}
 
 [connection signal="timeout" from="ClockTime" to="." method="_on_clock_time_timeout"]
 [connection signal="timeout" from="Stamina/StaminaBar/Timer" to="." method="_on_timer_timeout"]

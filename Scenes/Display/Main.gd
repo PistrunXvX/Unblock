@@ -30,105 +30,160 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	move_camera() 
+#	move_camera()
+	pass
 
-func move_camera():
-	#Move WASD Camera
-	#Move Camera 1
-	if Input.is_action_just_released("camera_move_right") && cameraDisplay1.enabled:
-		GlobalCamera.transition_camera(cameraDisplay1, cameraDisplay2)
-	if Input.is_action_just_pressed("camera_move_down") && cameraDisplay1.enabled:
-		GlobalCamera.transition_camera(cameraDisplay1, cameraDisplay4)
-	#Move Camera 2
-	if Input.is_action_just_pressed("camera_move_left") && cameraDisplay2.enabled:
-		GlobalCamera.transition_camera(cameraDisplay2, cameraDisplay1)
-	if Input.is_action_just_pressed("camera_move_down") && cameraDisplay2.enabled:
-		GlobalCamera.transition_camera(cameraDisplay2, cameraDisplay5)
-	if Input.is_action_just_pressed("camera_move_right") && cameraDisplay2.enabled:
-		GlobalCamera.transition_camera(cameraDisplay2, cameraDisplay3)
-	#Move Camera 3
-	if Input.is_action_just_pressed("camera_move_left") && cameraDisplay3.enabled:
-		GlobalCamera.transition_camera(cameraDisplay3, cameraDisplay2)
-	if Input.is_action_just_pressed("camera_move_down") && cameraDisplay3.enabled:
-		GlobalCamera.transition_camera(cameraDisplay3, cameraDisplay6)
-	#Move Camera 4
-	if Input.is_action_just_pressed("camera_move_top") && cameraDisplay4.enabled:
-		GlobalCamera.transition_camera(cameraDisplay4, cameraDisplay1)
-	if Input.is_action_just_released("camera_move_right") && cameraDisplay4.enabled:
-		GlobalCamera.transition_camera(cameraDisplay4, cameraDisplay5)
-	#Moves Camera 5
-	if Input.is_action_just_pressed("camera_move_left") && cameraDisplay5.enabled:
-		GlobalCamera.transition_camera(cameraDisplay5, cameraDisplay4)
-	if Input.is_action_just_pressed("camera_move_right") && cameraDisplay5.enabled:
-		GlobalCamera.transition_camera(cameraDisplay5, cameraDisplay6)
-	if Input.is_action_just_pressed("camera_move_top") && cameraDisplay5.enabled:
-		GlobalCamera.transition_camera(cameraDisplay5, cameraDisplay2)
-	#Moves Camera 6
-	if Input.is_action_just_pressed("camera_move_left") && cameraDisplay6.enabled:
-		GlobalCamera.transition_camera(cameraDisplay6, cameraDisplay5)
-	if Input.is_action_just_pressed("camera_move_top") && cameraDisplay6.enabled:
-		GlobalCamera.transition_camera(cameraDisplay6, cameraDisplay3)
+#func move_camera():
+#	#Move WASD Camera
+#	#Move Camera 1
+#	if Input.is_action_just_released("camera_move_right") && cameraDisplay1.enabled:
+#		GlobalCamera.transition_camera(cameraDisplay1, cameraDisplay2)
+#	if Input.is_action_just_pressed("camera_move_down") && cameraDisplay1.enabled:
+#		GlobalCamera.transition_camera(cameraDisplay1, cameraDisplay4)
+#	#Move Camera 2
+#	if Input.is_action_just_pressed("camera_move_left") && cameraDisplay2.enabled:
+#		GlobalCamera.transition_camera(cameraDisplay2, cameraDisplay1)
+#	if Input.is_action_just_pressed("camera_move_down") && cameraDisplay2.enabled:
+#		GlobalCamera.transition_camera(cameraDisplay2, cameraDisplay5)
+#	if Input.is_action_just_pressed("camera_move_right") && cameraDisplay2.enabled:
+#		GlobalCamera.transition_camera(cameraDisplay2, cameraDisplay3)
+#	#Move Camera 3
+#	if Input.is_action_just_pressed("camera_move_left") && cameraDisplay3.enabled:
+#		GlobalCamera.transition_camera(cameraDisplay3, cameraDisplay2)
+#	if Input.is_action_just_pressed("camera_move_down") && cameraDisplay3.enabled:
+#		GlobalCamera.transition_camera(cameraDisplay3, cameraDisplay6)
+#	#Move Camera 4
+#	if Input.is_action_just_pressed("camera_move_top") && cameraDisplay4.enabled:
+#		GlobalCamera.transition_camera(cameraDisplay4, cameraDisplay1)
+#	if Input.is_action_just_released("camera_move_right") && cameraDisplay4.enabled:
+#		GlobalCamera.transition_camera(cameraDisplay4, cameraDisplay5)
+#	#Moves Camera 5
+#	if Input.is_action_just_pressed("camera_move_left") && cameraDisplay5.enabled:
+#		GlobalCamera.transition_camera(cameraDisplay5, cameraDisplay4)
+#	if Input.is_action_just_pressed("camera_move_right") && cameraDisplay5.enabled:
+#		GlobalCamera.transition_camera(cameraDisplay5, cameraDisplay6)
+#	if Input.is_action_just_pressed("camera_move_top") && cameraDisplay5.enabled:
+#		GlobalCamera.transition_camera(cameraDisplay5, cameraDisplay2)
+#	#Moves Camera 6
+#	if Input.is_action_just_pressed("camera_move_left") && cameraDisplay6.enabled:
+#		GlobalCamera.transition_camera(cameraDisplay6, cameraDisplay5)
+#	if Input.is_action_just_pressed("camera_move_top") && cameraDisplay6.enabled:
+#		GlobalCamera.transition_camera(cameraDisplay6, cameraDisplay3)
 
 # Camera 1 Move
 func _on_enter_mouse_fisplay_1_mouse_entered():
 	GlobalCamera.transition_camera(cameraDisplay1, cameraDisplay2)
+	$HUD/Fade/FadeAnim.play("fade_in")
+	await get_tree().create_timer(0.2).timeout
+	$HUD/Fade/FadeAnim.play("fade_out")
 	
 func _on_enter_mouse_display_down_1_mouse_entered():
 	GlobalCamera.transition_camera(cameraDisplay1, cameraDisplay4)
+	$HUD/Fade/FadeAnim.play("fade_in")
+	await get_tree().create_timer(0.2).timeout
+	$HUD/Fade/FadeAnim.play("fade_out")
 
 # Camera 2 Move
 func _on_enter_mouse_display_left_2_mouse_entered():
 	GlobalCamera.transition_camera(cameraDisplay2, cameraDisplay1)
+	$HUD/Fade/FadeAnim.play("fade_in")
+	await get_tree().create_timer(0.2).timeout
+	$HUD/Fade/FadeAnim.play("fade_out")
 
 func _on_enter_mouse_display_down_2_mouse_entered():
 	GlobalCamera.transition_camera(cameraDisplay2, cameraDisplay5)
+	$HUD/Fade/FadeAnim.play("fade_in")
+	await get_tree().create_timer(0.2).timeout
+	$HUD/Fade/FadeAnim.play("fade_out")
 
 func _on_enter_mouse_display_right_2_mouse_entered():
 	GlobalCamera.transition_camera(cameraDisplay2, cameraDisplay3)
+	$HUD/Fade/FadeAnim.play("fade_in")
+	await get_tree().create_timer(0.2).timeout
+	$HUD/Fade/FadeAnim.play("fade_out")
 
 #Camera 3 Moves
 func _on_enter_mouse_display_left_3_mouse_entered():
 	GlobalCamera.transition_camera(cameraDisplay3, cameraDisplay2)
+	$HUD/Fade/FadeAnim.play("fade_in")
+	await get_tree().create_timer(0.2).timeout
+	$HUD/Fade/FadeAnim.play("fade_out")
 
 func _on_enter_mouse_display_down_3_mouse_entered():
 	GlobalCamera.transition_camera(cameraDisplay3, cameraDisplay6)
+	$HUD/Fade/FadeAnim.play("fade_in")
+	await get_tree().create_timer(0.2).timeout
+	$HUD/Fade/FadeAnim.play("fade_out")
 
 #Camera 4 Moves
 func _on_enter_mouse_display_top_4_mouse_entered():
 	GlobalCamera.transition_camera(cameraDisplay4, cameraDisplay1)
+	$HUD/Fade/FadeAnim.play("fade_in")
+	await get_tree().create_timer(0.2).timeout
+	$HUD/Fade/FadeAnim.play("fade_out")
 
 func _on_enter_mouse_display_right_4_mouse_entered():
 	GlobalCamera.transition_camera(cameraDisplay4, cameraDisplay5)
+	$HUD/Fade/FadeAnim.play("fade_in")
+	await get_tree().create_timer(0.2).timeout
+	$HUD/Fade/FadeAnim.play("fade_out")
 
 #Camera 5 Moves
 func _on_enter_mouse_display_left_5_mouse_entered():
 	GlobalCamera.transition_camera(cameraDisplay5, cameraDisplay4)
+	$HUD/Fade/FadeAnim.play("fade_in")
+	await get_tree().create_timer(0.2).timeout
+	$HUD/Fade/FadeAnim.play("fade_out")
 
 func _on_enter_mouse_display_right_5_mouse_entered():
 	GlobalCamera.transition_camera(cameraDisplay5, cameraDisplay6)
+	$HUD/Fade/FadeAnim.play("fade_in")
+	await get_tree().create_timer(0.2).timeout
+	$HUD/Fade/FadeAnim.play("fade_out")
 
 func _on_enter_mouse_display_top_5_mouse_entered():
 	GlobalCamera.transition_camera(cameraDisplay5, cameraDisplay2)
+	$HUD/Fade/FadeAnim.play("fade_in")
+	await get_tree().create_timer(0.2).timeout
+	$HUD/Fade/FadeAnim.play("fade_out")
 
 #Camera 6 Moves
 func _on_enter_mouse_display_left_6_mouse_entered():
 	GlobalCamera.transition_camera(cameraDisplay6, cameraDisplay5)
+	$HUD/Fade/FadeAnim.play("fade_in")
+	await get_tree().create_timer(0.2).timeout
+	$HUD/Fade/FadeAnim.play("fade_out")
 
 func _on_enter_mouse_display_top_6_mouse_entered():
 	GlobalCamera.transition_camera(cameraDisplay6, cameraDisplay3)
+	$HUD/Fade/FadeAnim.play("fade_in")
+	await get_tree().create_timer(0.2).timeout
+	$HUD/Fade/FadeAnim.play("fade_out")
 
 func _on_button_pressed():
 	GlobalCamera.static_transition_camera(cameraDisplay2, cameraDisplay2Paper)
+	$HUD/Fade/FadeAnim.play("fade_in")
+	await get_tree().create_timer(0.2).timeout
+	$HUD/Fade/FadeAnim.play("fade_out")
 	soundAreaPaper.play()
 
 func _on_enter_mouse_display_papers_mouse_entered():
 	GlobalCamera.static_transition_camera(cameraDisplay2Paper, cameraDisplay2)
+	$HUD/Fade/FadeAnim.play("fade_in")
+	await get_tree().create_timer(0.2).timeout
+	$HUD/Fade/FadeAnim.play("fade_out")
 
 func _on_button_radio_pressed():
 	GlobalCamera.static_transition_camera(cameraDisplay2, cameraDisplayRadio)
+	$HUD/Fade/FadeAnim.play("fade_in")
+	await get_tree().create_timer(0.2).timeout
+	$HUD/Fade/FadeAnim.play("fade_out")
 
 func _on_enter_mouse_display_radio_mouse_entered():
 	GlobalCamera.static_transition_camera(cameraDisplayRadio, cameraDisplay2)
+	$HUD/Fade/FadeAnim.play("fade_in")
+	await get_tree().create_timer(0.2).timeout
+	$HUD/Fade/FadeAnim.play("fade_out")
 
 func generate_paper_level(clients):
 	var spawn_location = $Display/Display_Papers/SpawnNodes
