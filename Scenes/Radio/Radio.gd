@@ -38,7 +38,7 @@ var sizeLineStep = 0
 var currentStep = 0
 
 func _ready():
-	numberLabel.text = "{value}Гц".format({"value":numerRadio})
+	numberLabel.text = "{value}Hz".format({"value":numerRadio})
 	signalNumber.value = numerRadio
 	signalNumber.min_value = minRadioSignal
 	signalNumber.max_value = maxRadioSignal
@@ -109,7 +109,7 @@ func _on_signal_numbers_value_changed(value):
 	if !soundRadioSpeen.is_playing():
 		soundRadioSpeen.play()
 	
-	numberLabel.text = "{value}Гц".format({"value":value})
+	numberLabel.text = "{value}Hz".format({"value":value})
 	if (numerRadio < value):
 		hzmetr.position = Vector2(currentHzmetrPosition.x + sizeLineStep, currentHzmetrPosition.y)
 	else:

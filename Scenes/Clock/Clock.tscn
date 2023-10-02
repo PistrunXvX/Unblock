@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://d02d8i5lra56a"]
+[gd_scene load_steps=3 format=3 uid="uid://d02d8i5lra56a"]
 
 [ext_resource type="Script" path="res://Scenes/Clock/Clock.gd" id="1_bm3kr"]
+[ext_resource type="FontFile" uid="uid://chdqvhmg5l5qm" path="res://Assets/Fonts/PressStart2P-Regular.ttf" id="2_be1su"]
 
 [node name="Clock" type="Node2D"]
 script = ExtResource("1_bm3kr")
@@ -15,18 +16,20 @@ offset_right = 400.0
 offset_bottom = 107.0
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 64
+theme_override_fonts/font = ExtResource("2_be1su")
+theme_override_font_sizes/font_size = 40
 text = "00"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label" type="Label" parent="."]
-offset_left = 272.0
-offset_top = 16.0
-offset_right = 312.0
-offset_bottom = 107.0
+offset_left = 264.0
+offset_top = 40.0
+offset_right = 304.0
+offset_bottom = 83.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 64
+theme_override_fonts/font = ExtResource("2_be1su")
+theme_override_font_sizes/font_size = 40
 text = ":"
 
 [node name="Hours" type="Label" parent="."]
@@ -39,7 +42,8 @@ offset_right = 272.0
 offset_bottom = 107.0
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 64
+theme_override_fonts/font = ExtResource("2_be1su")
+theme_override_font_sizes/font_size = 40
 text = "00"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -50,7 +54,8 @@ offset_top = 8.0
 offset_right = 176.0
 offset_bottom = 112.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 64
+theme_override_fonts/font = ExtResource("2_be1su")
+theme_override_font_sizes/font_size = 40
 text = "TIME"
 horizontal_alignment = 1
 vertical_alignment = 1

@@ -5,6 +5,8 @@ extends Node2D
 func _process(delta):
 	if Events.isCall:
 		ring_phone_start()
+	if !Events.isCall:
+		ring_phone_end()
 #	if Events.isFinishDialog:
 #		defult_state()
 

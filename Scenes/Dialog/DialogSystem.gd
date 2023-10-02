@@ -20,9 +20,9 @@ func _process(delta):
 			3:
 				showDialogWife(id)
 			4:
-				showDialogStrange(id)
-			5:
 				showDialogBoss(id)
+			5:
+				showDialogStrange(id)
 			
 
 func _ready():
@@ -155,40 +155,22 @@ func showDialogWife(id):
 	else:
 		playSound()
 		
-func showDialogStrange(id):
+func showDialogBoss(id):
 	dialogWindow.show()
 	txt.clear()
 	txt.visible_ratio = 0
 	match id:
 		34:
-			txt.add_text("Hello, hi.")
+			txt.add_text("Hello, he--o!?")
 		35:
-			txt.add_text("Who are you?")
+			txt.add_text("Okay, I've got a new order here. You have a client on your list named Sergay Voznesnsky.")
 		36:
-			txt.add_text("You're bored aren't you?")
+			txt.add_text("Now, don't let him in, you hear me? DON'T LET HIM IN!")
 		37:
-			txt.add_text("Yeah, I'm pretty tired")
+			txt.add_text(" What's wrong with him?")
 		38:
-			txt.add_text("You want to hear a joke?")
-		39:
-			txt.add_text("You are pretty odd, sir...")
-		40:
-			txt.add_text("A young blonde woman is distraught because she fears her husband is having an affair, so she goes to a gun shop and buys a handgun")
-		41:
-			txt.add_text("The next day she comes home to find her husband in bed with a beautiful redhead.")
-		42:
-			txt.add_text("She grabs the gun and holds it to her own head. The husband jumps out of bed, begging and pleading with her not to shoot herself.")
-		43:
-			txt.add_text("Hysterically the blonde responds to the husband, ”Shut up…you’re next!")
-		44:
-			txt.add_text("...")
-		45:
-			txt.add_text("...")
-		46:
-			txt.add_text("...")
-		47:
-			txt.add_text("I've never understood that joke")
-	if id > 47:
+			txt.add_text("None of your business, get to work")
+	if id > 38:
 		dialogWindow.hide()
 		Events.isFinishDialog = true
 #		Events.isStartDialog = false
@@ -196,21 +178,39 @@ func showDialogStrange(id):
 	else:
 		playSound()
 
-func showDialogBoss(id):
+func showDialogStrange(id):
 	dialogWindow.show()
 	txt.clear()
 	txt.visible_ratio = 0
 	match id:
+		39:
+			txt.add_text("Hello, hi.")
+		40:
+			txt.add_text("Who are you?")
+		41:
+			txt.add_text("You're bored aren't you?")
+		42:
+			txt.add_text("Yeah, I'm pretty tired")
+		43:
+			txt.add_text("You want to hear a joke?")
+		44:
+			txt.add_text("You are pretty odd, sir...")
+		45:
+			txt.add_text("A young blonde woman is distraught because she fears her husband is having an affair, so she goes to a gun shop and buys a handgun")
+		46:
+			txt.add_text("The next day she comes home to find her husband in bed with a beautiful redhead.")
+		47:
+			txt.add_text("She grabs the gun and holds it to her own head. The husband jumps out of bed, begging and pleading with her not to shoot herself.")
 		48:
-			txt.add_text("Hello, he--o!?")
+			txt.add_text("Hysterically the blonde responds to the husband, ”Shut up…you’re next!")
 		49:
-			txt.add_text("Okay, I've got a new order here. You have a client on your list named Sergay Voznesnsky.")
+			txt.add_text("...")
 		50:
-			txt.add_text("Now, don't let him in, you hear me? DON'T LET HIM IN!")
+			txt.add_text("...")
 		51:
-			txt.add_text(" What's wrong with him?")
+			txt.add_text("...")
 		52:
-			txt.add_text("None of your business, get to work")
+			txt.add_text("I've never understood that joke")
 	if id > 52:
 		dialogWindow.hide()
 		Events.isFinishDialog = true

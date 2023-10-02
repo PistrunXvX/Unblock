@@ -6,6 +6,7 @@ extends Node
 @onready var hp_bar = $Health/TextureProgressBar
 @onready var dialogWindow = $DialogSystem
 @onready var endDisplay = $EndScreenMistake
+@onready var winDisplay = $EndScreen
 @export var max_stamina = 100
 @export var step_stamina = 1.5
 @export var max_hp = 100
@@ -41,6 +42,10 @@ func _process(delta):
 				Events.isStartDialog = false
 	if Events.isFail:
 		endDisplay.show()
+		dialogWindow.hide()
+	if Events.isWin:
+		winDisplay.show()
+		dialogWindow.hide()
 
 func _on_clock_time_timeout():
 	start_day.emit()
@@ -101,7 +106,7 @@ func _on_clock_time_timeout():
 	if PlayerStatus.time == 330:
 		Events.phone_call(true)
 	if PlayerStatus.time >= 330 && PlayerStatus.time <= 380 && Events.isAcceptCall:
-			Events.start_dialog(true, 5)
+			Events.start_dialog(true, 4)
 			dialogWindow.show()
 			if Events.isFinishDialog:
 				dialogWindow.hide()
@@ -113,7 +118,7 @@ func _on_clock_time_timeout():
 	if PlayerStatus.time == 500:
 		Events.phone_call(true)
 	if PlayerStatus.time >= 500 && PlayerStatus.time <= 540 && Events.isAcceptCall:
-			Events.start_dialog(true, 4)
+			Events.start_dialog(true, 5)
 			dialogWindow.show()
 			if Events.isFinishDialog:
 				dialogWindow.hide()
@@ -149,6 +154,9 @@ func _on_clock_time_timeout():
 	
 	if PlayerStatus.stateMistake >= 2:
 		Events.isFail = true
+	
+	if PlayerStatus.time == 610:
+		Events.isWin = true
 
 func negative_event(check, count):
 	if (check):

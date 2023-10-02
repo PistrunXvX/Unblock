@@ -105,6 +105,7 @@ offset_left = 1072.0
 offset_top = 1446.0
 offset_right = 1262.0
 offset_bottom = 1598.0
+mouse_default_cursor_shape = 2
 text = "Открыть
 "
 
@@ -115,6 +116,7 @@ offset_left = 606.0
 offset_top = 1455.0
 offset_right = 796.0
 offset_bottom = 1607.0
+mouse_default_cursor_shape = 2
 text = "Закрыть
 
 "

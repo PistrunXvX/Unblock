@@ -9,6 +9,7 @@ var currentDialog = 0
 var currentCar = 0
 var carSpaw = false
 var isFail = false
+var isWin = false
 
 func phone_call(call):
 	isCall = call

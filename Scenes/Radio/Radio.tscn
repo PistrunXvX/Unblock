@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://uegxhc3t00r4"]
+[gd_scene load_steps=24 format=3 uid="uid://uegxhc3t00r4"]
 
 [ext_resource type="Script" path="res://Scenes/Radio/Radio.gd" id="1_guw3w"]
 [ext_resource type="Texture2D" uid="uid://mwr2xu5bwag2" path="res://Assets/Sprites/radio/bgRadio.png" id="2_ft8sk"]
@@ -17,11 +17,12 @@
 [ext_resource type="Texture2D" uid="uid://c2p7qoqq3hvkw" path="res://Assets/Sprites/radio/GreenLightOn.png" id="13_7k0ml"]
 [ext_resource type="Texture2D" uid="uid://brgg75ecakwlx" path="res://Assets/Sprites/radio/RadioScreenVVNIZ.png" id="15_xc0jk"]
 [ext_resource type="Texture2D" uid="uid://dwwted4t0hpnr" path="res://Assets/Sprites/radio/PngScreenVVERH.png" id="16_jd5qd"]
+[ext_resource type="FontFile" uid="uid://chdqvhmg5l5qm" path="res://Assets/Fonts/PressStart2P-Regular.ttf" id="18_0aa2d"]
 [ext_resource type="AudioStream" uid="uid://1nacf16claln" path="res://Assets/Sounds/btn_press.wav" id="18_mp4aj"]
 [ext_resource type="AudioStream" uid="uid://dknwdvoxm5fg" path="res://Assets/Sounds/btn_release.wav" id="19_voxrc"]
 [ext_resource type="AudioStream" uid="uid://cjnkfjvc55v0p" path="res://Assets/Sounds/Radio_WhiteNoise.wav" id="21_3j7eu"]
 [ext_resource type="AudioStream" uid="uid://dpjasseqfjvag" path="res://Assets/Sounds/Radio_SpinButton.wav" id="21_f6cir"]
-[ext_resource type="AudioStream" uid="uid://dyrs2gdyxqqta" path="res://Assets/Sounds/Radio_Station1_Talk01.wav" id="22_53wik"]
+[ext_resource type="AudioStream" uid="uid://k7lo34m2jcj8" path="res://Assets/Sounds/Radio_Station1_Song01.wav" id="23_c6swn"]
 
 [node name="Radio" type="Node2D"]
 z_index = 30
@@ -176,7 +177,8 @@ offset_left = -136.0
 offset_top = -184.0
 offset_right = -88.0
 offset_bottom = -158.0
-text = "90 Гц"
+theme_override_fonts/font = ExtResource("18_0aa2d")
+text = "90 Hz"
 
 [node name="ButtonOn" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("18_mp4aj")
@@ -191,7 +193,7 @@ stream = ExtResource("21_f6cir")
 stream = ExtResource("21_3j7eu")
 
 [node name="RadioSpeach" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("22_53wik")
+stream = ExtResource("23_c6swn")
 
 [connection signal="value_changed" from="ColorRect/signalNumbers" to="." method="_on_signal_numbers_value_changed"]
 [connection signal="button_up" from="ColorRect/OnOffButton" to="." method="_on_on_off_button_button_up"]

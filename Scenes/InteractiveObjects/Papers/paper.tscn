@@ -78,6 +78,7 @@ offset_left = -295.0
 offset_top = -376.0
 offset_right = 305.0
 offset_bottom = 397.0
+mouse_default_cursor_shape = 6
 action_mode = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
