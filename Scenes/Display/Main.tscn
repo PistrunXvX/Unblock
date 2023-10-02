@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://u17qwj4dl4fn"]
+[gd_scene load_steps=51 format=3 uid="uid://u17qwj4dl4fn"]
 
 [ext_resource type="Script" path="res://Scenes/Display/Main.gd" id="1_36sxg"]
 [ext_resource type="Texture2D" uid="uid://05lglthdl4sj" path="res://Assets/Sprites/test_display_1.jpg" id="2_7m1ck"]
@@ -31,6 +31,7 @@
 [ext_resource type="AudioStream" uid="uid://beoya8kvu6c3v" path="res://Assets/Sounds/Paper_ClickOnArea.wav" id="23_2fjh6"]
 [ext_resource type="Texture2D" uid="uid://cs6phj2tbkgvl" path="res://Assets/Sprites/display_4/Green_Button.png" id="23_2u5kp"]
 [ext_resource type="Texture2D" uid="uid://ugud7mfohnf" path="res://Assets/Sprites/display_4/Green_Button_Pressed.png" id="24_5n0c3"]
+[ext_resource type="Texture2D" uid="uid://dptqai0ckw5v0" path="res://Assets/Sprites/display_2/TRANSITION.png" id="27_higpg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_phs4u"]
 size = Vector2(161, 1080)
@@ -454,6 +455,10 @@ shape = SubResource("RectangleShape2D_j4lat")
 position = Vector2(842.5, 20)
 shape = SubResource("RectangleShape2D_12swx")
 disabled = true
+
+[node name="Transition" type="Sprite2D" parent="Display/Display_4"]
+position = Vector2(-3, -501)
+texture = ExtResource("27_higpg")
 
 [node name="ArrowDown" type="Label" parent="Display/Display_4"]
 offset_left = -44.0

@@ -11,7 +11,7 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/dialogWindow:position")
+tracks/0/path = NodePath("dialogWindow:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -23,7 +23,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/answerWindow:position")
+tracks/1/path = NodePath("answerWindow:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -40,7 +40,7 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/dialogWindow:position")
+tracks/0/path = NodePath("dialogWindow:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -52,7 +52,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/answerWindow:position")
+tracks/1/path = NodePath("answerWindow:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -80,13 +80,21 @@ script = ExtResource("1_x4rkr")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="dialogWindow" type="Control" parent="CanvasLayer"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_qqamt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ycyh6")
+}
+
+[node name="dialogWindow" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/dialogWindow"]
+[node name="ColorRect" type="ColorRect" parent="dialogWindow"]
 layout_mode = 0
 offset_left = 97.0
 offset_top = 738.0
@@ -94,7 +102,7 @@ offset_right = 2377.0
 offset_bottom = 1056.0
 scale = Vector2(0.76, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/dialogWindow"]
+[node name="ColorRect2" type="ColorRect" parent="dialogWindow"]
 layout_mode = 0
 offset_left = 103.0
 offset_top = 745.0
@@ -103,7 +111,7 @@ offset_bottom = 1050.0
 scale = Vector2(0.76, 1)
 color = Color(0, 0, 0, 1)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/dialogWindow"]
+[node name="RichTextLabel" type="RichTextLabel" parent="dialogWindow"]
 layout_mode = 0
 offset_left = 121.0
 offset_top = 761.0
@@ -116,21 +124,21 @@ scroll_active = false
 visible_characters = 0
 visible_ratio = 0.0
 
-[node name="Next" type="Button" parent="CanvasLayer/dialogWindow"]
+[node name="Next" type="Button" parent="dialogWindow"]
 layout_mode = 0
 offset_left = 1632.0
 offset_top = 585.0
 offset_right = 1784.0
 offset_bottom = 710.0
 
-[node name="answerWindow" type="Control" parent="CanvasLayer"]
+[node name="answerWindow" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_top = 350.0
 offset_right = 40.0
 offset_bottom = 390.0
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/answerWindow"]
+[node name="ColorRect" type="ColorRect" parent="answerWindow"]
 layout_mode = 0
 offset_left = 97.0
 offset_top = 738.0
@@ -138,7 +146,7 @@ offset_right = 2377.0
 offset_bottom = 1056.0
 scale = Vector2(0.76, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/answerWindow"]
+[node name="ColorRect2" type="ColorRect" parent="answerWindow"]
 layout_mode = 0
 offset_left = 103.0
 offset_top = 745.0
@@ -147,7 +155,7 @@ offset_bottom = 1050.0
 scale = Vector2(0.76, 1)
 color = Color(0, 0, 0, 1)
 
-[node name="Answer1" type="Button" parent="CanvasLayer/answerWindow"]
+[node name="Answer1" type="Button" parent="answerWindow"]
 layout_mode = 0
 offset_left = 108.0
 offset_top = 749.0
@@ -157,7 +165,7 @@ theme_override_fonts/font = ExtResource("2_788vt")
 theme_override_font_sizes/font_size = 50
 text = "Да"
 
-[node name="Answer2" type="Button" parent="CanvasLayer/answerWindow"]
+[node name="Answer2" type="Button" parent="answerWindow"]
 layout_mode = 0
 offset_left = 106.0
 offset_top = 854.0
@@ -167,7 +175,7 @@ theme_override_fonts/font = ExtResource("2_788vt")
 theme_override_font_sizes/font_size = 50
 text = "Нет"
 
-[node name="Answer3" type="Button" parent="CanvasLayer/answerWindow"]
+[node name="Answer3" type="Button" parent="answerWindow"]
 layout_mode = 0
 offset_left = 105.0
 offset_top = 952.0
@@ -177,15 +185,7 @@ theme_override_fonts/font = ExtResource("2_788vt")
 theme_override_font_sizes/font_size = 50
 text = "Похуй"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_qqamt")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_ycyh6")
-}
-
-[connection signal="pressed" from="CanvasLayer/dialogWindow/Next" to="." method="_on_next_pressed"]
-[connection signal="pressed" from="CanvasLayer/answerWindow/Answer1" to="." method="_on_answer_1_pressed"]
-[connection signal="pressed" from="CanvasLayer/answerWindow/Answer2" to="." method="_on_answer_2_pressed"]
-[connection signal="pressed" from="CanvasLayer/answerWindow/Answer3" to="." method="_on_answer_3_pressed"]
+[connection signal="pressed" from="dialogWindow/Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="answerWindow/Answer1" to="." method="_on_answer_1_pressed"]
+[connection signal="pressed" from="answerWindow/Answer2" to="." method="_on_answer_2_pressed"]
+[connection signal="pressed" from="answerWindow/Answer3" to="." method="_on_answer_3_pressed"]
