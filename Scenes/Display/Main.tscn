@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://u17qwj4dl4fn"]
+[gd_scene load_steps=50 format=3 uid="uid://u17qwj4dl4fn"]
 
 [ext_resource type="Script" path="res://Scenes/Display/Main.gd" id="1_36sxg"]
 [ext_resource type="Texture2D" uid="uid://05lglthdl4sj" path="res://Assets/Sprites/test_display_1.jpg" id="2_7m1ck"]
@@ -6,12 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://403q500ifr74" path="res://Assets/Sprites/test_display_3.jpg" id="4_2uu5r"]
 [ext_resource type="PackedScene" uid="uid://jydex1gdp0it" path="res://Scenes/GateWork/GateWork.tscn" id="4_nyqyi"]
 [ext_resource type="Texture2D" uid="uid://31o3s1ku47ue" path="res://Assets/Sprites/test_display_4.jpg" id="5_4jia0"]
+[ext_resource type="FontFile" uid="uid://chdqvhmg5l5qm" path="res://Assets/Fonts/PressStart2P-Regular.ttf" id="6_116hy"]
 [ext_resource type="Texture2D" uid="uid://cc5idhpvl5myc" path="res://Assets/Sprites/display_2/NotesArea.png" id="6_agc6j"]
 [ext_resource type="PackedScene" uid="uid://d02d8i5lra56a" path="res://Scenes/Clock/Clock.tscn" id="6_dghn4"]
 [ext_resource type="PackedScene" uid="uid://byj40cdlhan0v" path="res://Scenes/HUD/HUD.tscn" id="6_eayq5"]
 [ext_resource type="Texture2D" uid="uid://durw243mebryd" path="res://Assets/Sprites/test_display_5.jpg" id="6_ha3rk"]
 [ext_resource type="Texture2D" uid="uid://v3d3uppqqls3" path="res://Assets/Sprites/test_display_6.jpg" id="7_4k6ie"]
 [ext_resource type="PackedScene" uid="uid://uegxhc3t00r4" path="res://Scenes/Radio/Radio.tscn" id="7_7hak2"]
+[ext_resource type="Texture2D" uid="uid://rtmyq28osmt8" path="res://Assets/Sprites/display_2/Radio.png" id="8_uwtgy"]
 [ext_resource type="PackedScene" uid="uid://cmrhycnpwc1mg" path="res://Scenes/Phone/phone.tscn" id="9_ni2j1"]
 [ext_resource type="PackedScene" uid="uid://bt08rwy12clf8" path="res://Scenes/Games/Games.tscn" id="9_t5knk"]
 [ext_resource type="Texture2D" uid="uid://m31fvr5piig1" path="res://Assets/Sprites/WallpaperInAreaNotes.png" id="11_s2r28"]
@@ -21,8 +23,14 @@
 [ext_resource type="Texture2D" uid="uid://by85gryl6py3u" path="res://Assets/Sprites/display_1/Screen1and2.png" id="15_1v6ki"]
 [ext_resource type="Texture2D" uid="uid://syukul1xr0pd" path="res://Assets/Sprites/display_3/Screen3.png" id="15_rrn8p"]
 [ext_resource type="Texture2D" uid="uid://cs7n2kxg4sok5" path="res://Assets/Sprites/display_5/Screen5.png" id="15_tok26"]
+[ext_resource type="Texture2D" uid="uid://8ba0clxxtgml" path="res://Assets/Sprites/display_4/Red_Button.png" id="19_0072n"]
 [ext_resource type="Texture2D" uid="uid://c50pvnfdpiijn" path="res://Assets/Sprites/display_2/LampON.png" id="19_nuai7"]
+[ext_resource type="Texture2D" uid="uid://bmqdii8qtwly5" path="res://Assets/Sprites/display_4/Red_Button_Pressed.png" id="20_oo0va"]
+[ext_resource type="Texture2D" uid="uid://bxm8mg4vqv7fo" path="res://Assets/Sprites/display_4/Blue_Button.png" id="21_q3y15"]
+[ext_resource type="Texture2D" uid="uid://d3h4q306coarp" path="res://Assets/Sprites/display_4/Blue_Button_Pressed.png" id="22_cri6y"]
 [ext_resource type="AudioStream" uid="uid://beoya8kvu6c3v" path="res://Assets/Sounds/Paper_ClickOnArea.wav" id="23_2fjh6"]
+[ext_resource type="Texture2D" uid="uid://cs6phj2tbkgvl" path="res://Assets/Sprites/display_4/Green_Button.png" id="23_2u5kp"]
+[ext_resource type="Texture2D" uid="uid://ugud7mfohnf" path="res://Assets/Sprites/display_4/Green_Button_Pressed.png" id="24_5n0c3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_phs4u"]
 size = Vector2(161, 1080)
@@ -65,6 +73,48 @@ size = Vector2(175, 1064)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jlb1p"]
 size = Vector2(1738, 167)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kd5ot"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_0072n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_oo0va")
+}],
+"loop": true,
+"name": &"frames",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pqewb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_q3y15")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_cri6y")
+}],
+"loop": true,
+"name": &"frames",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_22v6b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_2u5kp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_5n0c3")
+}],
+"loop": true,
+"name": &"frames",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j4lat"]
 size = Vector2(1696, 168)
@@ -126,6 +176,25 @@ shape = SubResource("RectangleShape2D_phs4u")
 position = Vector2(-109, 475.5)
 shape = SubResource("RectangleShape2D_yf4jk")
 
+[node name="ArrowRight" type="Label" parent="Display/Display_1"]
+offset_left = 847.0
+offset_top = -59.0
+offset_right = 947.0
+offset_bottom = 60.0
+theme_override_fonts/font = ExtResource("6_116hy")
+theme_override_font_sizes/font_size = 100
+text = ">"
+
+[node name="ArrowDown" type="Label" parent="Display/Display_1"]
+offset_left = 43.0
+offset_top = 391.0
+offset_right = 143.0
+offset_bottom = 510.0
+rotation = 1.57079
+theme_override_fonts/font = ExtResource("6_116hy")
+theme_override_font_sizes/font_size = 100
+text = ">"
+
 [node name="Display_2" type="Sprite2D" parent="Display"]
 position = Vector2(2912, 560)
 
@@ -152,12 +221,14 @@ shape = SubResource("RectangleShape2D_yefwc")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Display/Display_2/EnterMouseDisplayDown_2"]
 position = Vector2(-16, 482.125)
 shape = SubResource("RectangleShape2D_kedyc")
+disabled = true
 
 [node name="EnterMouseDisplayRight_2" type="Area2D" parent="Display/Display_2"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Display/Display_2/EnterMouseDisplayRight_2"]
 position = Vector2(916.75, -16)
 shape = SubResource("RectangleShape2D_cag07")
+disabled = true
 
 [node name="Button" type="Button" parent="Display/Display_2"]
 visibility_layer = 0
@@ -170,18 +241,23 @@ text = "PAPER
 flat = true
 
 [node name="LampOn" type="Sprite2D" parent="Display/Display_2"]
-position = Vector2(64, -448)
+position = Vector2(2, -21)
 texture = ExtResource("19_nuai7")
 
 [node name="NotesArea" type="Sprite2D" parent="Display/Display_2"]
 position = Vector2(120, 368)
 texture = ExtResource("6_agc6j")
 
+[node name="Radio" type="Sprite2D" parent="Display/Display_2"]
+position = Vector2(619, 199)
+texture = ExtResource("8_uwtgy")
+
 [node name="ButtonRadio" type="Button" parent="Display/Display_2"]
-offset_left = 224.0
-offset_top = -168.0
-offset_right = 728.0
-offset_bottom = 40.0
+modulate = Color(1, 1, 1, 0)
+offset_left = 403.0
+offset_top = 31.0
+offset_right = 821.0
+offset_bottom = 292.0
 text = "RADIO"
 
 [node name="clock" type="Node2D" parent="Display/Display_2"]
@@ -214,6 +290,16 @@ scale = Vector2(0.30087, 0.204704)
 [node name="phone" parent="Display/Display_2" instance=ExtResource("9_ni2j1")]
 position = Vector2(-1408, -256)
 
+[node name="ArrowRight" type="Label" parent="Display/Display_2"]
+offset_left = -850.0
+offset_top = 26.0
+offset_right = -750.0
+offset_bottom = 145.0
+rotation = -3.14159
+theme_override_fonts/font = ExtResource("6_116hy")
+theme_override_font_sizes/font_size = 100
+text = ">"
+
 [node name="Display_Radio" type="Sprite2D" parent="Display"]
 z_index = -5
 position = Vector2(1072, -952)
@@ -234,6 +320,28 @@ shape = SubResource("RectangleShape2D_kedyc")
 
 [node name="Radio" parent="Display/Display_Radio" instance=ExtResource("7_7hak2")]
 position = Vector2(-952, -552)
+
+[node name="ArrowDown" type="Label" parent="Display/Display_Radio"]
+z_index = 95
+offset_left = 50.0
+offset_top = 375.0
+offset_right = 150.0
+offset_bottom = 494.0
+rotation = 1.57079
+theme_override_fonts/font = ExtResource("6_116hy")
+theme_override_font_sizes/font_size = 100
+text = ">"
+
+[node name="ArrowDown2" type="Label" parent="Display/Display_Radio"]
+z_index = 95
+offset_left = 2068.0
+offset_top = 375.0
+offset_right = 2168.0
+offset_bottom = 494.0
+rotation = 1.57079
+theme_override_fonts/font = ExtResource("6_116hy")
+theme_override_font_sizes/font_size = 100
+text = ">"
 
 [node name="Display_Papers" type="Sprite2D" parent="Display"]
 z_index = -5
@@ -292,12 +400,14 @@ texture = ExtResource("15_rrn8p")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Display/Display_3/EnterMouseDisplayLeft_3"]
 position = Vector2(-855.5, -20)
 shape = SubResource("RectangleShape2D_13dbh")
+disabled = true
 
 [node name="EnterMouseDisplayDown_3" type="Area2D" parent="Display/Display_3"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Display/Display_3/EnterMouseDisplayDown_3"]
 position = Vector2(107, 427.5)
 shape = SubResource("RectangleShape2D_jlb1p")
+disabled = true
 
 [node name="Display_4" type="Sprite2D" parent="Display"]
 position = Vector2(952, 1672)
@@ -312,6 +422,21 @@ color = Color(0, 0, 0, 1)
 
 [node name="Screen4" type="Sprite2D" parent="Display/Display_4"]
 texture = ExtResource("13_7d4u3")
+
+[node name="RED" type="AnimatedSprite2D" parent="Display/Display_4"]
+position = Vector2(-177, -144)
+sprite_frames = SubResource("SpriteFrames_kd5ot")
+animation = &"frames"
+
+[node name="BLUE" type="AnimatedSprite2D" parent="Display/Display_4"]
+position = Vector2(61, -151)
+sprite_frames = SubResource("SpriteFrames_pqewb")
+animation = &"frames"
+
+[node name="GREEN" type="AnimatedSprite2D" parent="Display/Display_4"]
+position = Vector2(290, -155)
+sprite_frames = SubResource("SpriteFrames_22v6b")
+animation = &"frames"
 
 [node name="CameraDisplay_4" type="Camera2D" parent="Display/Display_4"]
 ignore_rotation = false
@@ -328,6 +453,17 @@ shape = SubResource("RectangleShape2D_j4lat")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Display/Display_4/EnterMouseDisplayRight_4"]
 position = Vector2(842.5, 20)
 shape = SubResource("RectangleShape2D_12swx")
+disabled = true
+
+[node name="ArrowDown" type="Label" parent="Display/Display_4"]
+offset_left = -44.0
+offset_top = -397.0
+offset_right = 56.0
+offset_bottom = -278.0
+rotation = -1.57079
+theme_override_fonts/font = ExtResource("6_116hy")
+theme_override_font_sizes/font_size = 100
+text = ">"
 
 [node name="Display_5" type="Sprite2D" parent="Display"]
 position = Vector2(2912, 1672)
@@ -357,6 +493,7 @@ z_index = 30
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Display/Display_5/EnterMouseDisplayLeft_5"]
 position = Vector2(-907.5, 24)
 shape = SubResource("RectangleShape2D_rr452")
+disabled = true
 
 [node name="EnterMouseDisplayRight_5" type="Area2D" parent="Display/Display_5"]
 z_index = 30
@@ -364,6 +501,7 @@ z_index = 30
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Display/Display_5/EnterMouseDisplayRight_5"]
 position = Vector2(864, 24)
 shape = SubResource("RectangleShape2D_rr452")
+disabled = true
 
 [node name="EnterMouseDisplayTop_5" type="Area2D" parent="Display/Display_5"]
 z_index = 30
@@ -371,6 +509,7 @@ z_index = 30
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Display/Display_5/EnterMouseDisplayTop_5"]
 position = Vector2(-24, -456.5)
 shape = SubResource("RectangleShape2D_h0a0m")
+disabled = true
 
 [node name="Display_6" type="Sprite2D" parent="Display"]
 position = Vector2(4872, 1672)
@@ -392,12 +531,14 @@ enabled = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Display/Display_6/EnterMouseDisplayTop_6"]
 position = Vector2(104, -426.5)
 shape = SubResource("RectangleShape2D_8nq5t")
+disabled = true
 
 [node name="EnterMouseDisplayLeft_6" type="Area2D" parent="Display/Display_6"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Display/Display_6/EnterMouseDisplayLeft_6"]
 position = Vector2(-849.5, 20)
 shape = SubResource("RectangleShape2D_ucgs4")
+disabled = true
 
 [node name="ClickAreaPaper" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("23_2fjh6")
@@ -411,8 +552,8 @@ max_distance = 6000.0
 [connection signal="mouse_entered" from="Display/Display_2/EnterMouseDisplayRight_2" to="." method="_on_enter_mouse_display_right_2_mouse_entered"]
 [connection signal="pressed" from="Display/Display_2/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Display/Display_2/ButtonRadio" to="." method="_on_button_radio_pressed"]
-[connection signal="mouse_entered" from="Display/Display_Radio/EnterMouseDisplayRadio" to="." method="_on_enter_mouse_display_papers_mouse_entered"]
 [connection signal="mouse_entered" from="Display/Display_Radio/EnterMouseDisplayRadio" to="." method="_on_enter_mouse_display_radio_mouse_entered"]
+[connection signal="mouse_entered" from="Display/Display_Radio/EnterMouseDisplayRadio" to="." method="_on_enter_mouse_display_papers_mouse_entered"]
 [connection signal="mouse_entered" from="Display/Display_Papers/EnterMouseDisplayPapers" to="." method="_on_enter_mouse_display_papers_mouse_entered"]
 [connection signal="mouse_entered" from="Display/Display_3/EnterMouseDisplayLeft_3" to="." method="_on_enter_mouse_display_left_3_mouse_entered"]
 [connection signal="mouse_entered" from="Display/Display_3/EnterMouseDisplayDown_3" to="." method="_on_enter_mouse_display_down_3_mouse_entered"]

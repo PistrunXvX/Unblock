@@ -77,29 +77,33 @@ wait_time = 6.0
 one_shot = true
 
 [node name="Open" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
 z_index = 50
-offset_left = 664.0
-offset_top = 856.0
-offset_right = 854.0
-offset_bottom = 1008.0
+offset_left = 1072.0
+offset_top = 1446.0
+offset_right = 1262.0
+offset_bottom = 1598.0
 text = "Открыть
 "
 
 [node name="Close" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
 z_index = 50
-offset_left = 952.0
-offset_top = 848.0
-offset_right = 1142.0
-offset_bottom = 1000.0
+offset_left = 606.0
+offset_top = 1455.0
+offset_right = 796.0
+offset_bottom = 1607.0
 text = "Закрыть
 
 "
 
 [node name="GuardButton" type="Button" parent="."]
-offset_left = 1232.0
-offset_top = 848.0
-offset_right = 1422.0
-offset_bottom = 1000.0
+modulate = Color(1, 1, 1, 0)
+z_index = 2
+offset_left = 844.0
+offset_top = 1452.0
+offset_right = 1034.0
+offset_bottom = 1604.0
 text = "Охрана
 
 "

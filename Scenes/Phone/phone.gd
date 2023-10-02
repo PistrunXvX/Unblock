@@ -1,8 +1,5 @@
 extends Node2D
 
-@onready var spriteInactivePhone = $PhoneIdle
-@onready var spriteActivePhone = $PhoneRing
-@onready var spriteSpeachPhone = $PhoneHangOutOn
 @onready var soundPhoneAccept = $PhoneAccept
 
 func _process(delta):
@@ -12,9 +9,7 @@ func _process(delta):
 #		defult_state()
 
 func _on_button_phone_pressed():
-	spriteActivePhone.hide()
-	spriteInactivePhone.hide()
-	spriteSpeachPhone.show()
+	$sprite.frame = 1
 	if Music.soundPhoneRing.is_playing():
 		Music.soundPhoneRing.stop()
 	soundPhoneAccept.play()
@@ -24,14 +19,12 @@ func _on_button_phone_pressed():
 		ring_phone_end()
 
 func ring_phone_start():
-	spriteActivePhone.show()
-	spriteInactivePhone.hide()
+	$sprite.frame = 5
 	if !Music.soundPhoneRing.is_playing():
 		Music.soundPhoneRing.play()
 
 func ring_phone_end():
-	spriteActivePhone.hide()
-	spriteInactivePhone.show()
+	$sprite.frame = 2
 	if Music.soundPhoneRing.is_playing():
 		Music.soundPhoneRing.stop()
 
@@ -41,6 +34,4 @@ func accept_phone_start():
 		soundPhoneAccept.play()
 
 func defult_state():
-	spriteActivePhone.hide()
-	spriteInactivePhone.show()
-	spriteSpeachPhone.hide()
+	$sprite.frame = 2
