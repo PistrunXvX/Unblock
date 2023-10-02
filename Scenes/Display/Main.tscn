@@ -332,17 +332,6 @@ theme_override_fonts/font = ExtResource("6_116hy")
 theme_override_font_sizes/font_size = 100
 text = ">"
 
-[node name="ArrowDown2" type="Label" parent="Display/Display_Radio"]
-z_index = 95
-offset_left = 2068.0
-offset_top = 375.0
-offset_right = 2168.0
-offset_bottom = 494.0
-rotation = 1.57079
-theme_override_fonts/font = ExtResource("6_116hy")
-theme_override_font_sizes/font_size = 100
-text = ">"
-
 [node name="Display_Papers" type="Sprite2D" parent="Display"]
 z_index = -5
 position = Vector2(3096, -960)
@@ -375,6 +364,17 @@ texture = ExtResource("11_s2r28")
 
 [node name="Paper2" parent="Display/Display_Papers" instance=ExtResource("14_32mew")]
 position = Vector2(120, -56)
+
+[node name="ArrowDown2" type="Label" parent="Display/Display_Papers"]
+z_index = 95
+offset_left = 44.0
+offset_top = 383.0
+offset_right = 144.0
+offset_bottom = 502.0
+rotation = 1.57079
+theme_override_fonts/font = ExtResource("6_116hy")
+theme_override_font_sizes/font_size = 100
+text = ">"
 
 [node name="Display_3" type="Sprite2D" parent="Display"]
 position = Vector2(4872, 560)
@@ -552,8 +552,8 @@ max_distance = 6000.0
 [connection signal="mouse_entered" from="Display/Display_2/EnterMouseDisplayRight_2" to="." method="_on_enter_mouse_display_right_2_mouse_entered"]
 [connection signal="pressed" from="Display/Display_2/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Display/Display_2/ButtonRadio" to="." method="_on_button_radio_pressed"]
-[connection signal="mouse_entered" from="Display/Display_Radio/EnterMouseDisplayRadio" to="." method="_on_enter_mouse_display_radio_mouse_entered"]
 [connection signal="mouse_entered" from="Display/Display_Radio/EnterMouseDisplayRadio" to="." method="_on_enter_mouse_display_papers_mouse_entered"]
+[connection signal="mouse_entered" from="Display/Display_Radio/EnterMouseDisplayRadio" to="." method="_on_enter_mouse_display_radio_mouse_entered"]
 [connection signal="mouse_entered" from="Display/Display_Papers/EnterMouseDisplayPapers" to="." method="_on_enter_mouse_display_papers_mouse_entered"]
 [connection signal="mouse_entered" from="Display/Display_3/EnterMouseDisplayLeft_3" to="." method="_on_enter_mouse_display_left_3_mouse_entered"]
 [connection signal="mouse_entered" from="Display/Display_3/EnterMouseDisplayDown_3" to="." method="_on_enter_mouse_display_down_3_mouse_entered"]
