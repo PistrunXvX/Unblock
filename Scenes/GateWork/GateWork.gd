@@ -72,8 +72,10 @@ func _on_car_spawn_timeout():
 
 func _on_open_pressed():
 	$"../../Display_4/GREEN".frame = 1
+	$buttonPress.play()
 	await get_tree().create_timer(0.5).timeout
 	$"../../Display_4/GREEN".frame = 0
+	$buttonRelease.play()
 	
 	var tween = get_tree().create_tween()
 	gate_op.start()
@@ -97,8 +99,10 @@ func _on_gate_opens_timeout():
 
 func _on_close_pressed():
 	$"../../Display_4/RED".frame = 1
+	$buttonPress.play()
 	await get_tree().create_timer(0.5).timeout
 	$"../../Display_4/RED".frame = 0
+	$buttonRelease.play()
 	
 	var tween = get_tree().create_tween()
 	gate_cl.start()
@@ -170,8 +174,10 @@ func _on_beeep_timeout():
 
 func _on_guard_button_pressed():
 	$"../../Display_4/BLUE".frame = 1
+	$buttonPress.play()
 	await get_tree().create_timer(0.5).timeout
 	$"../../Display_4/BLUE".frame = 0
+	$buttonRelease.play()
 	
 	if is_car_here == false and guard == true:
 		print("Nope.")

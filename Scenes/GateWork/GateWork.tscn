@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://jydex1gdp0it"]
+[gd_scene load_steps=10 format=3 uid="uid://jydex1gdp0it"]
 
 [ext_resource type="Script" path="res://Scenes/GateWork/GateWork.gd" id="1_6u2fo"]
 [ext_resource type="Texture2D" uid="uid://dlx5m3j5ygcvu" path="res://Assets/Sprites/display_1/background.png" id="2_fw47m"]
@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://b140qhpwusas" path="res://Assets/Sprites/display_1/block.png" id="4_0oi11"]
 [ext_resource type="Texture2D" uid="uid://spepnrm1nyyv" path="res://Assets/Sprites/display_1/block_rock.png" id="5_7if14"]
 [ext_resource type="Texture2D" uid="uid://cad4cknhekxlk" path="res://Assets/Sprites/display_1/lamp_default.png" id="7_exm0x"]
+[ext_resource type="AudioStream" uid="uid://1nacf16claln" path="res://Assets/Sounds/btn_press.wav" id="8_2fups"]
 [ext_resource type="Texture2D" uid="uid://cp78j5dvq60vh" path="res://Assets/Sprites/display_1/lamp_signal.png" id="8_ireso"]
+[ext_resource type="AudioStream" uid="uid://dknwdvoxm5fg" path="res://Assets/Sounds/btn_release.wav" id="9_2lty4"]
 
 [node name="GateWork" type="Node2D"]
 script = ExtResource("1_6u2fo")
@@ -118,6 +120,12 @@ position = Vector2(896, 456)
 texture = ExtResource("8_ireso")
 
 [node name="SIgnal" type="Timer" parent="LampSignal"]
+
+[node name="buttonPress" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_2fups")
+
+[node name="buttonRelease" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_2lty4")
 
 [connection signal="timeout" from="Car/CarSpawn" to="." method="_on_car_spawn_timeout"]
 [connection signal="timeout" from="Car/CarEnters" to="." method="_on_car_enters_timeout"]
