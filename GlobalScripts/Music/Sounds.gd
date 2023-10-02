@@ -6,6 +6,7 @@ extends Node
 @onready var soundCarWait = $CarWait
 @onready var soundCarDepart = $CarDepart
 @onready var soundCarBeep = $CarBeep
+@onready var soundPhoneRing = $RingPhone
 
 func play_sound_radio_station(isPlay):
 	if isPlay:

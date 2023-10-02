@@ -69,6 +69,7 @@ _data = {
 }
 
 [node name="DialogSystem" type="Control"]
+visibility_layer = 0
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

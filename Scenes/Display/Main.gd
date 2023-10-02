@@ -9,6 +9,8 @@ var cameraDisplay5
 var cameraDisplay6
 var cameraDisplayRadio
 
+@onready var soundAreaPaper = $ClickAreaPaper
+
 var paper_scene = preload("res://Scenes/InteractiveObjects/Papers/paper.tscn")
 
 # Called when the node enters the scene tree for the first time.
@@ -117,6 +119,7 @@ func _on_enter_mouse_display_top_6_mouse_entered():
 
 func _on_button_pressed():
 	GlobalCamera.static_transition_camera(cameraDisplay2, cameraDisplay2Paper)
+	soundAreaPaper.play()
 
 func _on_enter_mouse_display_papers_mouse_entered():
 	GlobalCamera.static_transition_camera(cameraDisplay2Paper, cameraDisplay2)

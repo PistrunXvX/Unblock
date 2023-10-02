@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmrhycnpwc1mg"]
+[gd_scene load_steps=6 format=3 uid="uid://cmrhycnpwc1mg"]
 
 [ext_resource type="Script" path="res://Scenes/Phone/phone.gd" id="1_k2ddd"]
 [ext_resource type="Texture2D" uid="uid://c8y6eef5h86ah" path="res://Assets/Sprites/phone/PhoneIdle.png" id="2_vqbmc"]
 [ext_resource type="Texture2D" uid="uid://cy2743v432tc5" path="res://Assets/Sprites/phone/PhoneRing.png" id="3_u6g7h"]
 [ext_resource type="Texture2D" uid="uid://ckmqp3lqhrsdn" path="res://Assets/Sprites/phone/PhoneHangOutON.png" id="4_mkaqt"]
+[ext_resource type="AudioStream" uid="uid://ckwax23c33uxl" path="res://Assets/Sounds/Phone_AcceptCall.wav" id="5_7j718"]
 
 [node name="phone" type="Node2D"]
 script = ExtResource("1_k2ddd")
@@ -29,5 +30,8 @@ offset_top = 400.0
 offset_right = 1064.0
 offset_bottom = 688.0
 flat = true
+
+[node name="PhoneAccept" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_7j718")
 
 [connection signal="pressed" from="ButtonPhone" to="." method="_on_button_phone_pressed"]
