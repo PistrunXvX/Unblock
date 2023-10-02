@@ -18,6 +18,9 @@ extends Node2D
 @onready var guard_ent = $Guard/GuardEnters
 @onready var guard_left = $Guard/GuardLeft
 
+@onready var carNumber = $Car/CurNumber
+@onready var carMark = $Car/CarMark
+
 var is_car_here = false
 var is_gate_opened = false
 var offsetCardOnBlock = Vector2(512, 648)
@@ -28,9 +31,6 @@ var enters_time = false
 var wait_time = false
 var guard = true
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	car_spawn.start()
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -40,10 +40,40 @@ func _process(_delta):
 			beep_time.stop()
 			wait_time = false
 			car_enters.start()
+	
+	if Events.carSpaw:
+		spawn_timeout()
+		Events.carSpaw = false
 
 
 
-func _on_car_spawn_timeout():
+func spawn_timeout():
+	match Events.currentCar:
+		0:
+			carNumber.text = CarList.carListSmall.car_4.carNumber
+			carMark.text = CarList.carListSmall.car_4.carBrand
+		1:
+			carNumber.text = CarList.carListSmall.car_2.carNumber
+			carMark.text = CarList.carListSmall.car_2.carBrand
+		2:
+			carNumber.text = CarList.carListSmall.car_1_not.carNumber
+			carMark.text = CarList.carListSmall.car_1_not.carBrand
+		3:
+			carNumber.text = CarList.carListSmall.car_3.carNumber
+			carMark.text = CarList.carListSmall.car_3.carBrand
+		4:
+			carNumber.text = CarList.carListSmall.car_5.carNumber
+			carMark.text = CarList.carListSmall.car_5.carBrand
+		5:
+			carNumber.text = CarList.carListSmall.car_2_not.carNumber
+			carMark.text = CarList.carListSmall.car_2_not.carBrand
+		6:
+			carNumber.text = CarList.carListSmall.car_3_not.carNumber
+			carMark.text = CarList.carListSmall.car_3_not.carBrand
+		7:
+			carNumber.text = CarList.carListSmall.car_1.carNumber
+			carMark.text = CarList.carListSmall.car_1.carBrand
+
 	var tween = get_tree().create_tween()
 	car_spawn.stop()
 	is_car_here = true
@@ -125,6 +155,15 @@ func _on_gate_closes_timeout():
 
 
 func _on_car_enters_timeout():
+	match Events.currentCar:
+		2:
+			PlayerStatus.stateMistake += 1
+		4:
+			PlayerStatus.stateMistake += 1
+		5:
+			PlayerStatus.stateMistake += 1
+		6:
+			PlayerStatus.stateMistake += 1
 	var tween = get_tree().create_tween()
 	
 	if Music.soundCarWait.is_playing():
@@ -151,6 +190,15 @@ func _on_car_waiting_timeout():
 
 
 func _on_car_left_timeout():
+	match Events.currentCar:
+		0:
+			PlayerStatus.stateMistake += 1
+		1:
+			PlayerStatus.stateMistake += 1
+		3:
+			PlayerStatus.stateMistake += 1
+		7:
+			PlayerStatus.stateMistake += 1
 	print("Car left")
 	if Music.soundCarWait.is_playing():
 		Music.soundCarWait.stop()

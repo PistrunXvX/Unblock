@@ -5,6 +5,7 @@ extends Node
 @onready var timer = $Stamina/StaminaBar/Timer
 @onready var hp_bar = $Health/TextureProgressBar
 @onready var dialogWindow = $DialogSystem
+@onready var endDisplay = $EndScreenMistake
 @export var max_stamina = 100
 @export var step_stamina = 1.5
 @export var max_hp = 100
@@ -38,6 +39,8 @@ func _process(delta):
 				Events.isFinishDialog = false
 				Events.isCall = false
 				Events.isStartDialog = false
+	if Events.isFail:
+		endDisplay.show()
 
 func _on_clock_time_timeout():
 	start_day.emit()
@@ -93,6 +96,19 @@ func _on_clock_time_timeout():
 				Events.isFinishDialog = false
 	if PlayerStatus.time == 280 && Events.isAcceptCall == false:
 		Events.phone_call(false)
+		
+	
+	if PlayerStatus.time == 330:
+		Events.phone_call(true)
+	if PlayerStatus.time >= 330 && PlayerStatus.time <= 380 && Events.isAcceptCall:
+			Events.start_dialog(true, 5)
+			dialogWindow.show()
+			if Events.isFinishDialog:
+				dialogWindow.hide()
+				Events.isAcceptCall = false
+				Events.isFinishDialog = false
+	if PlayerStatus.time == 380 && Events.isAcceptCall == false:
+		Events.phone_call(false)
 	
 	if PlayerStatus.time == 500:
 		Events.phone_call(true)
@@ -105,6 +121,34 @@ func _on_clock_time_timeout():
 				Events.isFinishDialog = false
 	if PlayerStatus.time == 540 && Events.isAcceptCall == false:
 		Events.phone_call(false)
+		
+	if PlayerStatus.time == 40:
+		Events.car_spawn(true)
+		Events.currentCar = 0
+	if PlayerStatus.time == 100:
+		Events.car_spawn(true)
+		Events.currentCar = 1
+	if PlayerStatus.time == 130:
+		Events.car_spawn(true)
+		Events.currentCar = 2
+	if PlayerStatus.time == 200:
+		Events.car_spawn(true)
+		Events.currentCar = 3
+	if PlayerStatus.time == 420:
+		Events.car_spawn(true)
+		Events.currentCar = 4
+	if PlayerStatus.time == 490:
+		Events.car_spawn(true)
+		Events.currentCar = 5
+	if PlayerStatus.time == 530:
+		Events.car_spawn(true)
+		Events.currentCar = 6
+	if PlayerStatus.time == 570:
+		Events.car_spawn(true)
+		Events.currentCar = 7
+	
+	if PlayerStatus.stateMistake >= 2:
+		Events.isFail = true
 
 func negative_event(check, count):
 	if (check):

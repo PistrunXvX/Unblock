@@ -101,8 +101,10 @@ offset_left = -112.0
 offset_top = 216.0
 offset_right = 128.0
 offset_bottom = 464.0
+mouse_default_cursor_shape = 13
 step = 0.1
 value = 60.0
+alignment = 1
 
 [node name="OnOffButton" type="CheckButton" parent="ColorRect"]
 layout_mode = 1
@@ -117,6 +119,7 @@ offset_right = 272.0
 offset_bottom = 192.0
 grow_horizontal = 0
 grow_vertical = 0
+mouse_default_cursor_shape = 2
 
 [node name="Krutilka" type="Sprite2D" parent="ColorRect"]
 position = Vector2(16, 336)

@@ -1,7 +1,7 @@
 extends Node2D
 
-@onready var hours = $ColorRect/Hours
-@onready var minutes = $ColorRect/Minuts
+@onready var hours = $Hours
+@onready var minutes = $Minuts
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
