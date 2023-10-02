@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://u17qwj4dl4fn"]
+[gd_scene load_steps=39 format=3 uid="uid://u17qwj4dl4fn"]
 
 [ext_resource type="Script" path="res://Scenes/Display/Main.gd" id="1_36sxg"]
 [ext_resource type="Texture2D" uid="uid://05lglthdl4sj" path="res://Assets/Sprites/test_display_1.jpg" id="2_7m1ck"]
@@ -15,11 +15,14 @@
 [ext_resource type="PackedScene" uid="uid://cmrhycnpwc1mg" path="res://Scenes/Phone/phone.tscn" id="9_ni2j1"]
 [ext_resource type="PackedScene" uid="uid://bt08rwy12clf8" path="res://Scenes/Games/Games.tscn" id="9_t5knk"]
 [ext_resource type="Texture2D" uid="uid://m31fvr5piig1" path="res://Assets/Sprites/WallpaperInAreaNotes.png" id="11_s2r28"]
+[ext_resource type="PackedScene" uid="uid://bfccac2tnf5g7" path="res://Scenes/InteractiveObjects/Papers/paper.tscn" id="12_tc3aw"]
 [ext_resource type="Texture2D" uid="uid://d1ovwn1es7l71" path="res://Assets/Sprites/display_4/Screen4.png" id="13_7d4u3"]
+[ext_resource type="PackedScene" uid="uid://cxnf3tiwsc88y" path="res://Scenes/InteractiveObjects/Papers_2/paper.tscn" id="14_32mew"]
 [ext_resource type="Texture2D" uid="uid://by85gryl6py3u" path="res://Assets/Sprites/display_1/Screen1and2.png" id="15_1v6ki"]
 [ext_resource type="Texture2D" uid="uid://syukul1xr0pd" path="res://Assets/Sprites/display_3/Screen3.png" id="15_rrn8p"]
 [ext_resource type="Texture2D" uid="uid://cs7n2kxg4sok5" path="res://Assets/Sprites/display_5/Screen5.png" id="15_tok26"]
 [ext_resource type="Texture2D" uid="uid://c50pvnfdpiijn" path="res://Assets/Sprites/display_2/LampON.png" id="19_nuai7"]
+[ext_resource type="AudioStream" uid="uid://beoya8kvu6c3v" path="res://Assets/Sounds/Paper_ClickOnArea.wav" id="23_2fjh6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_phs4u"]
 size = Vector2(161, 1080)
@@ -244,6 +247,9 @@ position = Vector2(876, 449)
 position = Vector2(-871, -43)
 shape = SubResource("RectangleShape2D_kedyc")
 
+[node name="Paper" parent="Display/Display_Papers" instance=ExtResource("12_tc3aw")]
+position = Vector2(392, 0)
+
 [node name="CameraDisplay_2_papers" type="Camera2D" parent="Display/Display_Papers"]
 position = Vector2(0, -16)
 ignore_rotation = false
@@ -258,6 +264,9 @@ offset_bottom = 94.0
 [node name="WallpaperInAreaNotes" type="Sprite2D" parent="Display/Display_Papers"]
 position = Vector2(8, -16)
 texture = ExtResource("11_s2r28")
+
+[node name="Paper2" parent="Display/Display_Papers" instance=ExtResource("14_32mew")]
+position = Vector2(120, -56)
 
 [node name="Display_3" type="Sprite2D" parent="Display"]
 position = Vector2(4872, 560)
@@ -390,6 +399,10 @@ shape = SubResource("RectangleShape2D_8nq5t")
 position = Vector2(-849.5, 20)
 shape = SubResource("RectangleShape2D_ucgs4")
 
+[node name="ClickAreaPaper" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("23_2fjh6")
+max_distance = 6000.0
+
 [connection signal="start_day" from="HUD" to="." method="_ready"]
 [connection signal="mouse_entered" from="Display/Display_1/EnterMouseFisplay_1" to="." method="_on_enter_mouse_fisplay_1_mouse_entered"]
 [connection signal="mouse_entered" from="Display/Display_1/EnterMouseDisplayDown_1" to="." method="_on_enter_mouse_display_down_1_mouse_entered"]
@@ -398,8 +411,8 @@ shape = SubResource("RectangleShape2D_ucgs4")
 [connection signal="mouse_entered" from="Display/Display_2/EnterMouseDisplayRight_2" to="." method="_on_enter_mouse_display_right_2_mouse_entered"]
 [connection signal="pressed" from="Display/Display_2/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Display/Display_2/ButtonRadio" to="." method="_on_button_radio_pressed"]
-[connection signal="mouse_entered" from="Display/Display_Radio/EnterMouseDisplayRadio" to="." method="_on_enter_mouse_display_radio_mouse_entered"]
 [connection signal="mouse_entered" from="Display/Display_Radio/EnterMouseDisplayRadio" to="." method="_on_enter_mouse_display_papers_mouse_entered"]
+[connection signal="mouse_entered" from="Display/Display_Radio/EnterMouseDisplayRadio" to="." method="_on_enter_mouse_display_radio_mouse_entered"]
 [connection signal="mouse_entered" from="Display/Display_Papers/EnterMouseDisplayPapers" to="." method="_on_enter_mouse_display_papers_mouse_entered"]
 [connection signal="mouse_entered" from="Display/Display_3/EnterMouseDisplayLeft_3" to="." method="_on_enter_mouse_display_left_3_mouse_entered"]
 [connection signal="mouse_entered" from="Display/Display_3/EnterMouseDisplayDown_3" to="." method="_on_enter_mouse_display_down_3_mouse_entered"]

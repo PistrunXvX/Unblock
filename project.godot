@@ -21,6 +21,7 @@ GlobalCamera="*res://Scenes/GlobalCamera/GlobalCamera.tscn"
 PlayerStatus="*res://GlobalScripts/PlayerStatus.gd"
 CarList="*res://GlobalScripts/CarList.gd"
 Music="*res://GlobalScripts/Music/Music.tscn"
+Events="*res://GlobalScripts/Events.gd"
 
 [display]
 

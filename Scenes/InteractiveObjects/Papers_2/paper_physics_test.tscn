@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://u3f3jcqbicro"]
+
+[ext_resource type="PackedScene" uid="uid://bfccac2tnf5g7" path="res://Scenes/InteractiveObjects/Papers/paper.tscn" id="1_8i7l6"]
+
+[node name="PaperPhysicsTest" type="Node2D"]
+
+[node name="Paper1" parent="." instance=ExtResource("1_8i7l6")]
+position = Vector2(760, 220)
+
+[node name="Paper2" parent="." instance=ExtResource("1_8i7l6")]
+position = Vector2(1230, 71)
+
+[node name="Paper3" parent="." instance=ExtResource("1_8i7l6")]

@@ -4,6 +4,7 @@ extends Node
 @onready var stamina = $Stamina/StaminaBar
 @onready var timer = $Stamina/StaminaBar/Timer
 @onready var hp_bar = $Health/TextureProgressBar
+@onready var dialogWindow = $DialogSystem
 @export var max_stamina = 100
 @export var step_stamina = 1.5
 @export var max_hp = 100
@@ -16,15 +17,27 @@ var local_stamina = 0
 signal start_day
 
 func _ready():
-	timeLine.start()
 	stamina.value = PlayerStatus.stamina
 	stamina.max_value = max_stamina
 	hp_bar.value = max_hp
 	hp_bar.max_value = max_hp
+	dialogWindow.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if Events.isStartDay == false:
+		Events.phone_call(true)
+		if Events.isAcceptCall:
+			Events.start_dialog(true, 0)
+			dialogWindow.show()
+			if Events.isFinishDialog:
+				timeLine.start()
+				dialogWindow.hide()
+				Events.isStartDay = true
+				Events.isAcceptCall = false
+				Events.isFinishDialog = false
+				Events.isCall = false
+				Events.isStartDialog = false
 
 func _on_clock_time_timeout():
 	start_day.emit()
@@ -44,6 +57,54 @@ func _on_clock_time_timeout():
 	if local_minut == 12:
 		PlayerStatus.minuts += 10
 		local_minut = 0
+	
+	if PlayerStatus.time == 70:
+		Events.phone_call(true)
+	if PlayerStatus.time >= 70 && PlayerStatus.time <= 110 && Events.isAcceptCall:
+			Events.start_dialog(true, 1)
+			dialogWindow.show()
+			if Events.isFinishDialog:
+				dialogWindow.hide()
+				Events.isAcceptCall = false
+				Events.isFinishDialog = false
+	if PlayerStatus.time == 110 && Events.isAcceptCall == false:
+		Events.phone_call(false)
+	
+	if PlayerStatus.time == 120:
+		Events.phone_call(true)
+	if PlayerStatus.time >= 120 && PlayerStatus.time <= 200 && Events.isAcceptCall:
+			Events.start_dialog(true, 2)
+			dialogWindow.show()
+			if Events.isFinishDialog:
+				dialogWindow.hide()
+				Events.isAcceptCall = false
+				Events.isFinishDialog = false
+	if PlayerStatus.time == 200 && Events.isAcceptCall == false:
+		Events.phone_call(false)
+	
+	if PlayerStatus.time == 260:
+		Events.phone_call(true)
+	if PlayerStatus.time >= 260 && PlayerStatus.time <= 280 && Events.isAcceptCall:
+			Events.start_dialog(true, 3)
+			dialogWindow.show()
+			if Events.isFinishDialog:
+				dialogWindow.hide()
+				Events.isAcceptCall = false
+				Events.isFinishDialog = false
+	if PlayerStatus.time == 280 && Events.isAcceptCall == false:
+		Events.phone_call(false)
+	
+	if PlayerStatus.time == 500:
+		Events.phone_call(true)
+	if PlayerStatus.time >= 500 && PlayerStatus.time <= 540 && Events.isAcceptCall:
+			Events.start_dialog(true, 4)
+			dialogWindow.show()
+			if Events.isFinishDialog:
+				dialogWindow.hide()
+				Events.isAcceptCall = false
+				Events.isFinishDialog = false
+	if PlayerStatus.time == 540 && Events.isAcceptCall == false:
+		Events.phone_call(false)
 
 func negative_event(check, count):
 	if (check):
@@ -64,19 +125,20 @@ func succsess_event(check, count):
 		stamina.value -= count
 
 func _on_timer_timeout():
-	var affect_stamina = 0
-	
-#	print("Radio Noise: ", PlayerStatus.isRadioNoise)
-#	print("Radio Station : ", PlayerStatus.isRadioStation)
-	
-	if PlayerStatus.isRadioNoise:
-		affect_stamina += 0.25
-	if PlayerStatus.isRadioStation:
-		affect_stamina -= 0.5
-	local_stamina += step_stamina + affect_stamina
-	
-	stamina.value = local_stamina
-	PlayerStatus.stamina = local_stamina
-	
-	print("Affect stamina", affect_stamina)
-	print("Current stamina", PlayerStatus.stamina)
+	if Events.isStartDay:
+		var affect_stamina = 0
+		
+	#	print("Radio Noise: ", PlayerStatus.isRadioNoise)
+	#	print("Radio Station : ", PlayerStatus.isRadioStation)
+		
+		if PlayerStatus.isRadioNoise:
+			affect_stamina += 0.25
+		if PlayerStatus.isRadioStation:
+			affect_stamina -= 0.5
+		local_stamina += step_stamina + affect_stamina
+		
+		stamina.value = local_stamina
+		PlayerStatus.stamina = local_stamina
+		
+		print("Affect stamina", affect_stamina)
+		print("Current stamina", PlayerStatus.stamina)
