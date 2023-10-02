@@ -1,27 +1,48 @@
-[gd_scene load_steps=6 format=3 uid="uid://cmrhycnpwc1mg"]
+[gd_scene load_steps=10 format=3 uid="uid://cmrhycnpwc1mg"]
 
 [ext_resource type="Script" path="res://Scenes/Phone/phone.gd" id="1_k2ddd"]
+[ext_resource type="Texture2D" uid="uid://bbn7pippvp4mv" path="res://Assets/Sprites/phone/PhoneHangOutOFF.png" id="2_0mxvu"]
 [ext_resource type="Texture2D" uid="uid://c8y6eef5h86ah" path="res://Assets/Sprites/phone/PhoneIdle.png" id="2_vqbmc"]
 [ext_resource type="Texture2D" uid="uid://cy2743v432tc5" path="res://Assets/Sprites/phone/PhoneRing.png" id="3_u6g7h"]
 [ext_resource type="Texture2D" uid="uid://ckmqp3lqhrsdn" path="res://Assets/Sprites/phone/PhoneHangOutON.png" id="4_mkaqt"]
+[ext_resource type="Texture2D" uid="uid://cysbrfhynhdei" path="res://Assets/Sprites/phone/PhoneOnCallOFF.png" id="5_5yi2r"]
 [ext_resource type="AudioStream" uid="uid://ckwax23c33uxl" path="res://Assets/Sounds/Phone_AcceptCall.wav" id="5_7j718"]
+[ext_resource type="Texture2D" uid="uid://c4thn3aymo075" path="res://Assets/Sprites/phone/PhoneOnCallON.png" id="6_5r587"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ultiw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0mxvu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_mkaqt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_vqbmc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5yi2r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5r587")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_u6g7h")
+}],
+"loop": true,
+"name": &"frames",
+"speed": 5.0
+}]
 
 [node name="phone" type="Node2D"]
 script = ExtResource("1_k2ddd")
 
-[node name="PhoneIdle" type="Sprite2D" parent="."]
+[node name="sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(984, 536)
-texture = ExtResource("2_vqbmc")
-
-[node name="PhoneRing" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(984, 536)
-texture = ExtResource("3_u6g7h")
-
-[node name="PhoneHangOutOn" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(984, 536)
-texture = ExtResource("4_mkaqt")
+sprite_frames = SubResource("SpriteFrames_ultiw")
+animation = &"frames"
+frame = 2
 
 [node name="ButtonPhone" type="Button" parent="."]
 visibility_layer = 0
