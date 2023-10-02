@@ -5,6 +5,41 @@ enum carColor {
 	BLUE,
 }
 
+var carListSmall = {
+	"car_1": {
+		"carBrand": "KIND",
+		"carNumber": "KND-042",
+	},
+	"car_2": {
+		"carBrand": "NIVO",
+		"carNumber": "SUZ-322",
+	},
+	"car_3": {
+		"carBrand": "CUTE",
+		"carNumber": "ART-033",
+	},
+	"car_4": {
+		"carBrand": "ROOMBA",
+		"carNumber": "LMP-474",
+	},
+	"car_5": {
+		"carBrand": "SLEEP",
+		"carNumber": "SON-404",
+	},
+	"car_1_not": {
+		"carBrand": "LODA",
+		"carNumber": "QPQ-222",
+	},
+	"car_2_not": {
+		"carBrand": "TDN",
+		"carNumber": "OST-404"
+	},
+	"car_3_not": {
+		"carBrand": "NIVO",
+		"carNumber": "ABC-200",
+	}
+}
+
 var carList = {
 	"level_1": {
 		"car_1": {

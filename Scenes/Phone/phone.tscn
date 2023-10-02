@@ -29,6 +29,7 @@ offset_left = 664.0
 offset_top = 400.0
 offset_right = 1064.0
 offset_bottom = 688.0
+mouse_default_cursor_shape = 2
 flat = true
 
 [node name="PhoneAccept" type="AudioStreamPlayer2D" parent="."]

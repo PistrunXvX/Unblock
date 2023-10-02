@@ -21,6 +21,8 @@ func _process(delta):
 				showDialogWife(id)
 			4:
 				showDialogStrange(id)
+			5:
+				showDialogBoss(id)
 			
 
 func _ready():
@@ -194,6 +196,29 @@ func showDialogStrange(id):
 	else:
 		playSound()
 
+func showDialogBoss(id):
+	dialogWindow.show()
+	txt.clear()
+	txt.visible_ratio = 0
+	match id:
+		48:
+			txt.add_text("Hello, he--o!?")
+		49:
+			txt.add_text("Okay, I've got a new order here. You have a client on your list named Sergay Voznesnsky.")
+		50:
+			txt.add_text("Now, don't let him in, you hear me? DON'T LET HIM IN!")
+		51:
+			txt.add_text(" What's wrong with him?")
+		52:
+			txt.add_text("None of your business, get to work")
+	if id > 52:
+		dialogWindow.hide()
+		Events.isFinishDialog = true
+#		Events.isStartDialog = false
+#		Events.isAcceptCall = false
+	else:
+		playSound()
+
 func _on_next_pressed():
 	id += 1
 	match Events.currentDialog:
@@ -207,6 +232,9 @@ func _on_next_pressed():
 				showDialogWife(id)
 			4:
 				showDialogStrange(id)
+			5:
+				showDialogBoss(id)
+	
 
 func _on_answer_1_pressed():
 	pass

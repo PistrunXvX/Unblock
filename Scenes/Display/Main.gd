@@ -30,7 +30,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	move_camera() 
+#	move_camera() 
+	pass
 
 func move_camera():
 	#Move WASD Camera

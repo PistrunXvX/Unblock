@@ -44,6 +44,26 @@ one_shot = true
 wait_time = 5.0
 one_shot = true
 
+[node name="CurNumber" type="Label" parent="Car"]
+offset_left = 142.222
+offset_top = -36.1505
+offset_right = 266.222
+offset_bottom = 4.84949
+rotation = 0.0783787
+scale = Vector2(1.46641, 1.12098)
+text = "Tests"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CarMark" type="Label" parent="Car"]
+offset_left = 160.001
+offset_top = -135.549
+offset_right = 200.001
+offset_bottom = -109.549
+rotation = 0.0593952
+scale = Vector2(3.46342, 1.91347)
+text = "TEST"
+
 [node name="Gate" type="Sprite2D" parent="."]
 position = Vector2(1224, 464)
 scale = Vector2(0.8375, 0.889815)
@@ -115,7 +135,6 @@ texture = ExtResource("8_ireso")
 
 [node name="SIgnal" type="Timer" parent="LampSignal"]
 
-[connection signal="timeout" from="Car/CarSpawn" to="." method="_on_car_spawn_timeout"]
 [connection signal="timeout" from="Car/CarEnters" to="." method="_on_car_enters_timeout"]
 [connection signal="timeout" from="Car/CarWaiting" to="." method="_on_car_waiting_timeout"]
 [connection signal="timeout" from="Car/CarLeft" to="." method="_on_car_left_timeout"]

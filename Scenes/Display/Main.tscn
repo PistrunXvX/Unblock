@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://u17qwj4dl4fn"]
+[gd_scene load_steps=38 format=3 uid="uid://u17qwj4dl4fn"]
 
 [ext_resource type="Script" path="res://Scenes/Display/Main.gd" id="1_36sxg"]
 [ext_resource type="Texture2D" uid="uid://05lglthdl4sj" path="res://Assets/Sprites/test_display_1.jpg" id="2_7m1ck"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://jydex1gdp0it" path="res://Scenes/GateWork/GateWork.tscn" id="4_nyqyi"]
 [ext_resource type="Texture2D" uid="uid://31o3s1ku47ue" path="res://Assets/Sprites/test_display_4.jpg" id="5_4jia0"]
 [ext_resource type="Texture2D" uid="uid://cc5idhpvl5myc" path="res://Assets/Sprites/display_2/NotesArea.png" id="6_agc6j"]
-[ext_resource type="PackedScene" uid="uid://d02d8i5lra56a" path="res://Scenes/Clock/Clock.tscn" id="6_dghn4"]
 [ext_resource type="PackedScene" uid="uid://byj40cdlhan0v" path="res://Scenes/HUD/HUD.tscn" id="6_eayq5"]
 [ext_resource type="Texture2D" uid="uid://durw243mebryd" path="res://Assets/Sprites/test_display_5.jpg" id="6_ha3rk"]
 [ext_resource type="Texture2D" uid="uid://v3d3uppqqls3" path="res://Assets/Sprites/test_display_6.jpg" id="7_4k6ie"]
@@ -165,6 +164,7 @@ offset_left = -288.0
 offset_top = 224.0
 offset_right = 576.0
 offset_bottom = 489.0
+mouse_default_cursor_shape = 2
 text = "PAPER
 "
 flat = true
@@ -182,6 +182,7 @@ offset_left = 224.0
 offset_top = -168.0
 offset_right = 728.0
 offset_bottom = 40.0
+mouse_default_cursor_shape = 2
 text = "RADIO"
 
 [node name="clock" type="Node2D" parent="Display/Display_2"]
@@ -206,10 +207,6 @@ autoplay = "clock"
 libraries = {
 "": SubResource("AnimationLibrary_6bmjt")
 }
-
-[node name="Clock" parent="Display/Display_2" instance=ExtResource("6_dghn4")]
-position = Vector2(-432, -192)
-scale = Vector2(0.30087, 0.204704)
 
 [node name="phone" parent="Display/Display_2" instance=ExtResource("9_ni2j1")]
 position = Vector2(-1408, -256)

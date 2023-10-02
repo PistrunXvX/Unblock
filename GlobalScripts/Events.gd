@@ -6,6 +6,9 @@ var isStartDialog = false
 var isFinishDialog = false
 var isStartDay = false
 var currentDialog = 0
+var currentCar = 0
+var carSpaw = false
+var isFail = false
 
 func phone_call(call):
 	isCall = call
@@ -14,4 +17,9 @@ func phone_call(call):
 func start_dialog(isStart, idDialog):
 	isStartDialog = true
 	currentDialog = idDialog
+	isCall = false
+
+func car_spawn(isSpanw):
+	carSpaw = isSpanw
+	return carSpaw
 	
